@@ -1,7 +1,7 @@
 import csv
 import psycopg2
 
-conn_string = "dbname='postgres' user='postgres' host='localhost' password='Lhb1234'"
+conn_string = "dbname='lhbweb' user='lhbadmin' host='localhost' password='egBdf909'"
 conn = psycopg2.connect(conn_string)
 cursor = conn.cursor()
 
