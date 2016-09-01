@@ -1,0 +1,33 @@
+                    List of relations
+ Schema |             Name              | Type  | Owner  
+--------+-------------------------------+-------+--------
+ public | auth_group                    | table | lhbweb
+ public | auth_group_permissions        | table | lhbweb
+ public | auth_permission               | table | lhbweb
+ public | auth_user                     | table | lhbweb
+ public | auth_user_groups              | table | lhbweb
+ public | auth_user_user_permissions    | table | lhbweb
+ public | city_metrics_city             | table | lhbweb
+ public | city_metrics_cost             | table | lhbweb
+ public | city_metrics_demographicdata  | table | lhbweb
+ public | city_metrics_emissions        | table | lhbweb
+ public | city_metrics_energy           | table | lhbweb
+ public | city_metrics_specialtrendline | table | lhbweb
+ public | city_metrics_travel           | table | lhbweb
+ public | city_metrics_waste            | table | lhbweb
+ public | city_metrics_water            | table | lhbweb
+ public | django_admin_log              | table | lhbweb
+ public | django_content_type           | table | lhbweb
+ public | django_migrations             | table | lhbweb
+ public | django_redirect               | table | lhbweb
+ public | django_session                | table | lhbweb
+ public | django_site                   | table | lhbweb
+ public | reversion_revision            | table | lhbweb
+ public | reversion_version             | table | lhbweb
+ public | site_content_headerlink       | table | lhbweb
+ public | site_content_headersublink    | table | lhbweb
+ public | site_content_homepage_section | table | lhbweb
+ public | site_content_inpagelink       | table | lhbweb
+ public | site_content_webpage          | table | lhbweb
+(28 rows)
+
