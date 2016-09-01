@@ -1,0 +1,45 @@
+id,year,co2_ef,n20_ef,ch4_ef,utility,type
+1,2007,1940.31,0.031806452,0.191428571,great_river_energy,electricity
+2,2008,1880,0.028322581,0.184285714,great_river_energy,electricity
+3,2009,1952.17,0.032774194,0.2,great_river_energy,electricity
+4,2010,1812.24,0.029322581,0.19047619,great_river_energy,electricity
+5,2011,1700.49,0.028645161,0.187619048,great_river_energy,electricity
+6,2012,1735.87,0.029032258,0.192857143,great_river_energy,electricity
+7,2013,1705.95,0.027483871,0.221428571,great_river_energy,electricity
+8,2007,1290,0.02919,0.02897,xcel,electricity
+9,2008,1252,0.02849,0.028885,xcel,electricity
+10,2009,1182,0.02779,0.0288,xcel,electricity
+11,2010,1124,0.02629,0.02853,xcel,electricity
+12,2011,1154,0.02559,0.02845,xcel,electricity
+13,2012,1050,0.02466,0.02831,xcel,electricity
+14,2013,1042,0.02373,0.02817,xcel,electricity
+15,2007,5.302,0.00042,0.0032,natural_gas,natural gas
+16,2008,5.302,0.00042,0.0032,natural_gas,natural gas
+17,2009,5.302,0.00042,0.0032,natural_gas,natural gas
+18,2010,5.302,0.00042,0.0032,natural_gas,natural gas
+19,2011,5.302,0.00042,0.0032,natural_gas,natural gas
+20,2012,5.302,0.00042,0.0032,natural_gas,natural gas
+21,2013,5.302,0.00042,0.0032,natural_gas,natural gas
+22,2005,1594.67,0.02849,0.03872,rochester_public,electricity
+23,2006,1658.67,0.02884,0.033845,rochester_public,electricity
+24,2007,1722.67,0.02919,0.02897,rochester_public,electricity
+25,2008,1675.635,0.02849,0.028885,rochester_public,electricity
+26,2009,1628.6,0.02779,0.0288,rochester_public,electricity
+27,2010,1536.36,0.02629,0.02853,rochester_public,electricity
+28,2011,1489.325,0.02559,0.02845,rochester_public,electricity
+29,2012,1428.7285,0.02466,0.02831,rochester_public,electricity
+30,2013,1368.132,0.02373,0.02817,rochester_public,electricity
+31,2007,1940.31,0.031806452,0.191428571,elk_river_municipal,electricity
+32,2008,1880,0.028322581,0.184285714,elk_river_municipal,electricity
+33,2009,1952.17,0.032774194,0.2,elk_river_municipal,electricity
+34,2010,1812.24,0.029322581,0.19047619,elk_river_municipal,electricity
+35,2011,1700.49,0.028645161,0.187619048,elk_river_municipal,electricity
+36,2012,1735.87,0.029032258,0.192857143,elk_river_municipal,electricity
+37,2013,1705.95,0.027483871,0.221428571,elk_river_municipal,electricity
+38,2007,2100,0.02919,0.02897,minnesota_power,electricity
+39,2008,2100,0.02849,0.028885,minnesota_power,electricity
+40,2009,2100,0.02779,0.0288,minnesota_power,electricity
+41,2010,2100,0.02629,0.02853,minnesota_power,electricity
+42,2011,2100,0.02559,0.02845,minnesota_power,electricity
+43,2012,2100,0.02466,0.02831,minnesota_power,electricity
+44,2013,2100,0.02373,0.02817,minnesota_power,electricity

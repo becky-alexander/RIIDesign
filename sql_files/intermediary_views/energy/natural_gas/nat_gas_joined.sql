@@ -1,0 +1,202 @@
+/* NAT GAS A */
+
+
+
+CREATE OR REPLACE VIEW city_metrics_nat_gas_utilityA AS
+SELECT
+
+city_metrics_nat_gas_input.city_id,
+city_metrics_nat_gas_input.year,
+
+city_metrics_city.city,
+city_metrics_city.state,
+city_metrics_city.type,
+
+city_metrics_demographicdata.population,
+city_metrics_demographicdata.jobs,
+city_metrics_demographicdata.households,
+
+city_metrics_nat_gas_input.utility_idA,
+city_metrics_nat_gas_input.residential_nat_gasA,
+city_metrics_nat_gas_input.com_and_ind_nat_gasA,
+city_metrics_estimated_energy_emission_factor.emission_factor AS EF_utility_idA,
+
+(
+  city_metrics_nat_gas_input.residential_nat_gasA +
+  city_metrics_nat_gas_input.com_and_ind_nat_gasA
+) AS total_nat_gas_utilityA,
+
+(
+(city_metrics_nat_gas_input.residential_nat_gasA) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_residential_utilityA,
+
+(
+(city_metrics_nat_gas_input.com_and_ind_nat_gasA) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_com_and_ind_utilityA,
+
+(
+(city_metrics_nat_gas_input.residential_nat_gasA + city_metrics_nat_gas_input.com_and_ind_nat_gasA) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_utilityA
+
+FROM city_metrics_city, city_metrics_nat_gas_input, city_metrics_demographicdata, city_metrics_estimated_energy_emission_factor
+WHERE city_metrics_nat_gas_input.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.city_id = city_metrics_demographicdata.city_id
+AND city_metrics_demographicdata.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.year = city_metrics_demographicdata.year
+AND city_metrics_nat_gas_input.year = city_metrics_estimated_energy_emission_factor.year
+AND city_metrics_nat_gas_input.utility_idA = city_metrics_estimated_energy_emission_factor.utility_id
+AND city_metrics_city.sort_order IS NOT NULL
+
+
+
+
+
+/* NAT GAS B */
+
+
+
+
+
+
+CREATE OR REPLACE VIEW city_metrics_nat_gas_utilityB AS
+SELECT
+city_metrics_nat_gas_input.city_id,
+city_metrics_nat_gas_input.year,
+city_metrics_city.city,
+city_metrics_city.state,
+city_metrics_city.type,
+city_metrics_demographicdata.population,
+city_metrics_demographicdata.jobs,
+city_metrics_demographicdata.households,
+city_metrics_nat_gas_input.utility_idB,
+city_metrics_nat_gas_input.residential_nat_gasB,
+city_metrics_nat_gas_input.com_and_ind_nat_gasB,
+city_metrics_estimated_energy_emission_factor.emission_factor AS EF_utility_idB,
+(
+  city_metrics_nat_gas_input.residential_nat_gasB +
+  city_metrics_nat_gas_input.com_and_ind_nat_gasB
+) AS total_nat_gas_utilityB,
+(
+(city_metrics_nat_gas_input.residential_nat_gasB) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_residential_utilityB,
+(
+(city_metrics_nat_gas_input.com_and_ind_nat_gasB) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_com_and_ind_utilityB,
+(
+(city_metrics_nat_gas_input.residential_nat_gasB + city_metrics_nat_gas_input.com_and_ind_nat_gasB) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_utilityB
+
+FROM city_metrics_city, city_metrics_nat_gas_input, city_metrics_demographicdata, city_metrics_estimated_energy_emission_factor
+WHERE city_metrics_nat_gas_input.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.city_id = city_metrics_demographicdata.city_id
+AND city_metrics_demographicdata.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.year = city_metrics_demographicdata.year
+AND city_metrics_nat_gas_input.year = city_metrics_estimated_energy_emission_factor.year
+AND city_metrics_nat_gas_input.utility_idB = city_metrics_estimated_energy_emission_factor.utility_id;
+
+
+
+
+/* NAT GAS C */
+
+
+
+
+
+CREATE OR REPLACE VIEW city_metrics_nat_gas_utilityC AS
+SELECT
+city_metrics_nat_gas_input.city_id,
+city_metrics_nat_gas_input.year,
+city_metrics_city.city,
+city_metrics_city.state,
+city_metrics_city.type,
+city_metrics_demographicdata.population,
+city_metrics_demographicdata.jobs,
+city_metrics_demographicdata.households,
+city_metrics_nat_gas_input.utility_idC,
+city_metrics_nat_gas_input.residential_nat_gasC,
+city_metrics_nat_gas_input.com_and_ind_nat_gasC,
+city_metrics_estimated_energy_emission_factor.emission_factor AS EF_utility_idC,
+(
+  city_metrics_nat_gas_input.residential_nat_gasC +
+  city_metrics_nat_gas_input.com_and_ind_nat_gasC
+) AS total_nat_gas_utilityC,
+(
+(city_metrics_nat_gas_input.residential_nat_gasC) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_residential_utilityC,
+(
+(city_metrics_nat_gas_input.com_and_ind_nat_gasC) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_com_and_ind_utilityC,
+(
+(city_metrics_nat_gas_input.residential_nat_gasC + city_metrics_nat_gas_input.com_and_ind_nat_gasC) * city_metrics_estimated_energy_emission_factor.emission_factor
+) AS emissions_utilityC
+
+FROM city_metrics_city, city_metrics_nat_gas_input, city_metrics_demographicdata, city_metrics_estimated_energy_emission_factor
+WHERE city_metrics_nat_gas_input.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.city_id = city_metrics_demographicdata.city_id
+AND city_metrics_demographicdata.city_id = city_metrics_city.id
+AND city_metrics_nat_gas_input.year = city_metrics_demographicdata.year
+AND city_metrics_nat_gas_input.year = city_metrics_estimated_energy_emission_factor.year
+AND city_metrics_nat_gas_input.utility_idB = city_metrics_estimated_energy_emission_factor.utility_id;
+
+
+
+
+
+/* NAT GAS JOINED*/
+
+
+
+
+
+CREATE OR REPLACE VIEW city_metrics_nat_gas_joined AS
+SELECT
+city_metrics_nat_gas_utilityA.city_id,
+city_metrics_nat_gas_utilityA.year,
+EF_utility_idA,
+city_metrics_nat_gas_utilityA.total_nat_gas_utilityA,
+city_metrics_nat_gas_utilityA.residential_nat_gasa,
+city_metrics_nat_gas_utilityA.com_and_ind_nat_gasa,
+city_metrics_nat_gas_utilityA.emissions_utilityA,
+city_metrics_nat_gas_utilityA.emissions_residential_utilityA,
+city_metrics_nat_gas_utilityA.emissions_com_and_ind_utilityA,
+EF_utility_idB,
+city_metrics_nat_gas_utilityB.total_nat_gas_utilityB,
+city_metrics_nat_gas_utilityB.residential_nat_gasB,
+city_metrics_nat_gas_utilityB.com_and_ind_nat_gasB,
+city_metrics_nat_gas_utilityB.emissions_utilityB,
+city_metrics_nat_gas_utilityB.emissions_residential_utilityB,
+city_metrics_nat_gas_utilityB.emissions_com_and_ind_utilityB,
+EF_utility_idC,
+city_metrics_nat_gas_utilityC.total_nat_gas_utilityC,
+city_metrics_nat_gas_utilityC.residential_nat_gasC,
+city_metrics_nat_gas_utilityC.com_and_ind_nat_gasC,
+city_metrics_nat_gas_utilityC.emissions_utilityC,
+city_metrics_nat_gas_utilityC.emissions_residential_utilityC,
+city_metrics_nat_gas_utilityC.emissions_com_and_ind_utilityC,
+(
+total_nat_gas_utilityA + total_nat_gas_utilityB + total_nat_gas_utilityC
+) AS total_nat_gas,
+(
+city_metrics_nat_gas_utilityA.residential_nat_gasa +  city_metrics_nat_gas_utilityB.residential_nat_gasB + city_metrics_nat_gas_utilityC.residential_nat_gasC
+) AS total_residential_nat_gas,
+(
+city_metrics_nat_gas_utilityA.com_and_ind_nat_gasa  +  city_metrics_nat_gas_utilityB.com_and_ind_nat_gasB + city_metrics_nat_gas_utilityC.com_and_ind_nat_gasC
+) AS total_com_and_ind_nat_gas,
+(
+emissions_utilityA + emissions_utilityB + emissions_utilityC
+) AS total_emissions_nat_gas,
+(
+city_metrics_nat_gas_utilityA.emissions_residential_utilityA + city_metrics_nat_gas_utilityB.emissions_residential_utilityB + city_metrics_nat_gas_utilityC.emissions_residential_utilityC
+) AS total_residential_emissions_nat_gas,
+(
+city_metrics_nat_gas_utilityA.emissions_com_and_ind_utilityA + city_metrics_nat_gas_utilityB.emissions_com_and_ind_utilityB + city_metrics_nat_gas_utilityC.emissions_com_and_ind_utilityC
+) AS total_com_and_ind_emissions_nat_gas
+FROM city_metrics_nat_gas_utilityA, city_metrics_nat_gas_utilityB, city_metrics_nat_gas_utilityC
+WHERE city_metrics_nat_gas_utilityA.city_id = city_metrics_nat_gas_utilityB.city_id
+AND city_metrics_nat_gas_utilityA.city_id = city_metrics_nat_gas_utilityC.city_id
+AND city_metrics_nat_gas_utilityA.year = city_metrics_nat_gas_utilityB.year
+AND city_metrics_nat_gas_utilityA.year = city_metrics_nat_gas_utilityC.year

@@ -1,0 +1,9 @@
+CREATE OR REPLACE VIEW city_metrics_other_type1 AS
+SELECT
+
+city_metrics_other_energy.city_id
+city_metrics_other_energy.year
+city_metrics_other_energy.other_fuel_type1,
+city_metrics_other_energy.other_fuel_amount1
+
+FROM
