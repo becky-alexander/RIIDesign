@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 def update_chart(request):
     json_data = {}
-    chart_type = None
+    chart_type = Bar
     chart_error = False
     all_cities = False
     city_list = []
