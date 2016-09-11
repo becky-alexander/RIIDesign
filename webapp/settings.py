@@ -160,7 +160,7 @@ INSTALLED_APPS = (
 	#'reversion',
 	# My Applications
 	'city_metrics',
-	#'site_content',
+	'site_content',
 	'webapp',
 	'webapp_admin',
 )

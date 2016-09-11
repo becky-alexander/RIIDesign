@@ -10,7 +10,8 @@ urlpatterns = patterns(
     (r'^participation-form$', 'viewParticipationForm'),
     (r'^home_api/select_section', 'selectHomePageSect')
 )
-
+# 9/10/2016 - Mauricio Leon - The one bellows simply makes the urls in
+# city_metrics/ajax_urls.py available
 urlpatterns += patterns(
     '',
     (r'^chart_api/', include('city_metrics.ajax_urls')),

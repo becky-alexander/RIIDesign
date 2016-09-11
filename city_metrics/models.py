@@ -1,3 +1,7 @@
+# 9/10/2016 - Mauricio Leon - To understand this models.py we need to remember
+# that Django came before the database so here we are creating the SQL tables
+#
+
 from django.db import models
 
 

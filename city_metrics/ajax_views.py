@@ -1,5 +1,13 @@
+# 9/10/2016 - Mauricio Leon - This file is in the city_metrics folder, which is an application of the
+# "webapp" Django Project. Here we are defining different functions.
+# These functions have to do with the display of the charts.
+# The models.py is the one that deals with the postgres - django connection
+# in this one we are now doing something with the objects that we obtained
+# from the models
+
 from city_metrics.models import Energy, City, DemographicData, SpecialTrendLine, Water, Travel, Waste, Emissions, Cost
 import simplejson as json
+# simplejson allows us to use json
 from django.http import HttpResponse
 
 
@@ -320,7 +328,8 @@ def get_chart_titles(indicator, unit, average_term, year, city_list):
 
     return chart_titles
 
-
+# 9/10/2016 - Mauricio Leon - If you see city_metrics/view.py you will notice
+# how the value chart_type is defined there.
 def get_chart_data(chart_type, indicator, unit, chart_data, city_stats, year, normalize, weather_norm, average_term):
     chart_stat_col = []
     col_len = 0
