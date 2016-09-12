@@ -1,0 +1,76 @@
+9/10/2016 - Mauricio Leon
+Folder by folder
+
+1. admin_analytics ---> IGNORE!
+
+2. admin_imports ---> IGNORE!
+
+3. atom ---> IGNORE!
+
+4. bin ---> IGNORE!
+
+5. city_metrics ---> Important --> application folder where most of the charts and data related aspects of the website reside.
+
+      5.a. city_metrics/admin.py --> not so sure of what it does.
+
+      5.b. city_metrics/ajax_urls --> creates urls so that the content in city_metrics can be accesed.
+
+      5.c. city_metrics/ajax_views.py --> related to the views that use AJAX. Everything except the Charts themselves.
+
+      5.d. city_metrics/models.py --> important! creates the models so that data from the database is translated to Django
+
+      5.e. city_metrics/views.py --> I believe it has to do with defining the parametes of the charts.
+
+6. csv_files ---> Here is where we are storing all the raw data from the previous RII that now has to be re-entered.
+
+7. customer_media ---> a folder that stores many of the images of the website
+
+8. filebrowser ---> IGNORE!
+
+9. gdata ---> IGNORE! probably a third-party app that the original developer used
+
+10. include ---> IGNORE! ? I am not sure if this has to be there
+
+11. lib ---> ? IGNORE! I am not sure if this has to be there
+
+12. local ---> IGNORE! ? I am not sure if this has to be there
+
+13. LoGoPEP ---> IGNORE! Added by Ross when testing
+
+14. logs ---> IGNORE!
+
+15. media ---> this folder has a lot of the media of the website
+
+16. mptt ---> IGNORE!
+
+17. reversion ---> IGNORE!
+
+18. simplejson ---> JSON documentation, I believe it must be there.
+
+19. site_content ---> Important! I think this is another application that makes the website so that the html content is pulled from the database.
+
+20. sql_files ---> Important! This is where we are storing all the SQL files that give the new configuration to the database.
+
+21. sqlite ---> Interesting, it looks like some sort of dumb file from the old database.
+
+22. static ---> stores information related to the style of the website
+
+23. suit ---> IGNORE! probally some sort of third-party app used in the initial development.
+
+24. templates ---> Important! Here are some basic html templates that give basic strucutre to the website, most of the content is pulled from the database.
+
+25. venv ---> note how it includes folders like bin, include, lib and local
+
+26. webapp ---> Important! This is the project file.
+
+      26.a. webapp/static ---> Important!
+
+            26.a.1. webapp/static/js --> contains more of the javascript information of the charts
+
+27. webapp_admin ---> I'm not sure of the exact funtionality of this one.
+
+
+
+FILES!
+
+- city_metrics.json ---> not sure
