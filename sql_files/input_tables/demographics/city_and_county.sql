@@ -1,3 +1,5 @@
+/*Remember that the demographic data for county is separated from the demographic data for city, but they both connect to each other*/
+
 CREATE TABLE city_metrics_county
 (
   id SERIAL PRIMARY KEY,
