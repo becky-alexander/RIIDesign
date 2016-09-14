@@ -30,12 +30,14 @@ def viewEnergyChart(request, page):
 
     else:
         start_year = None
-
+# 9/10/2016 - Mauricio Leon - Notice how the context variable is the same for
+# all of the indicators
     context = {'page': page, 'chartType': chartType, 'chartColor': chartColor, 'chartData': chartData,
                'centralCities': centralCities, 'innerCities': innerCities, 'outerCities': outerCities,
                'yearRange': yearRange, 'weather': weather, 'start_year': start_year}
     setDetailContext(context)
-
+# 9/10/2016 - Mauricio Leon - Interesting, here is where this views.py connection
+# to the html page named energy.html -- see the "templates" folder under "webapp"
     return render_to_response('charts/energy.html', context)
 
 
