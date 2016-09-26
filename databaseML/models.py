@@ -398,3 +398,9 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     class Meta:
         db_table = u'city_metrics_energy_utilities_emission_factors'
+
+class CityMetricsEnergyUtilities(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50, blank=True)
+    class Meta:
+        db_table = u'city_metrics_energy_utilities'
