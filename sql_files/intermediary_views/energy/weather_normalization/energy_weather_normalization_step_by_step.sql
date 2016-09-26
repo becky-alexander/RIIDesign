@@ -1,4 +1,4 @@
-/* STEP 1*/
+﻿/* STEP 1*/
 
 
 
@@ -40,7 +40,6 @@ city_metrics_electricity_joined.year,
 (city_metrics_energy_intermediary1.total_com_and_ind_electricity_mmbtu * 0.75) +
 ((city_metrics_energy_intermediary1.total_com_and_ind_nat_gas_mmbtu * 0.80 * (city_metrics_cdd_hdd_average.hdd_average/((city_metrics_cdd_hdd.hdd)))) +
 (city_metrics_energy_intermediary1.total_com_and_ind_nat_gas_mmbtu * 0.20))) AS wn_total_com_and_ind_energy_mmbtu
-
 FROM city_metrics_nat_gas_joined, city_metrics_electricity_joined, city_metrics_cdd_hdd, city_metrics_cdd_hdd_average, city_metrics_energy_intermediary1
 WHERE city_metrics_electricity_joined.city_id = city_metrics_nat_gas_joined.city_id
 AND city_metrics_nat_gas_joined.year = city_metrics_cdd_hdd.year

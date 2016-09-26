@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW city_metrics_electricity_joined AS
+﻿CREATE OR REPLACE VIEW city_metrics_electricity_joined AS
 SELECT
 
 city_metrics_electricity_utility1.city_id,
