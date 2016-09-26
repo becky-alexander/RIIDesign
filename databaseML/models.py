@@ -387,3 +387,14 @@ class CityMetricsSolidWasteInput(models.Model):
 
     class Meta:
         db_table = u'city_metrics_solid_waste_input'
+
+class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
+    id = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=4, blank=True)
+    utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True)
+    type = models.CharField(max_length=50, blank=True)
+    co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    class Meta:
+        db_table = u'city_metrics_energy_utilities_emission_factors'
