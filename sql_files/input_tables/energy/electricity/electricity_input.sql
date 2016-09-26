@@ -26,4 +26,6 @@ CREATE TABLE city_metrics_electric_input
   com_and_ind_wind_electricity3 NUMERIC(16,4)
 );
 
+
+/* This is the path to the CSV file that contains the data for this table...*/
 COPY city_metrics_electric_input FROM 'C:/csv_files/city_metrics_electric_input.csv' DELIMITER ',' CSV HEADER;

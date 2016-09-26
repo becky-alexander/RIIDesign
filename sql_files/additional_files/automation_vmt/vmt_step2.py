@@ -6,6 +6,8 @@ import csv
 import psycopg2
 from psycopg2.extensions import adapt
 
+
+# Replace X for the year that you want to create a table!!
 x = "14"
 pyc = ("city_metrics_vmt_auto%s")%x
 #Opening the database #
