@@ -311,23 +311,18 @@ class CityMetricsWaterInput(models.Model):
     class Meta:
         db_table = u'city_metrics_water_input'
 
-class CityMetricsNatGasInput(models.Model):
-    id = models.IntegerField(primary_key=True)
-    city_id = models.IntegerField()
-    year = models.CharField(max_length=4)
+#class CityMetricsNatGasInput(models.Model):
+#    id = models.IntegerField(primary_key=True)
+#    city_id = models.IntegerField()
+#
+#    utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_ida')
+#    com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
+#    residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+#    utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_idc', blank=True)
+#    com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
 
-    utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_ida')
-    residential_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
-    com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
-    utility_idb = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_idb', blank=True)
-    residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_idc', blank=True)
-    residential_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-
-    class Meta:
-        db_table = u'city_metrics_nat_gas_input'
+#    class Meta:
+#        db_table = u'city_metrics_nat_gas_input'
 
 class CityMetricsElectricInput(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -387,23 +382,6 @@ class CityMetricsSolidWasteInput(models.Model):
 
     class Meta:
         db_table = u'city_metrics_solid_waste_input'
-
-class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
-    id = models.IntegerField(primary_key=True)
-    year = models.CharField(max_length=4, blank=True)
-    utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True)
-    type = models.CharField(max_length=50, blank=True)
-    co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    class Meta:
-        db_table = u'city_metrics_energy_utilities_emission_factors'
-
-class CityMetricsEnergyUtilities(models.Model):
-    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=50, blank=True)
-    class Meta:
-        db_table = u'city_metrics_energy_utilities'
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
