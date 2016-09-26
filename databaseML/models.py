@@ -333,6 +333,7 @@ class CityMetricsElectricInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.IntegerField()
     year = models.CharField(max_length=4)
+
     utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_id1')
     residential_electricity = models.DecimalField(max_digits=16, decimal_places=4)
     com_and_ind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
@@ -348,5 +349,41 @@ class CityMetricsElectricInput(models.Model):
     com_and_ind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     residential_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
     class Meta:
         db_table = u'city_metrics_electric_input'
+
+class CityMetricsWastewaterInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id = models.IntegerField(null=True, blank=True)
+    year = models.CharField(max_length=4, blank=True)
+
+    wastewater_facility1 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+    wastewater_treated_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_facility2 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+    wastewater_treated_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_facility3 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+    wastewater_treated_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_wastewater_input'
+
+class CityMetricsSolidWasteInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=4, blank=True)
+    county_id = models.IntegerField(null=True, blank=True)
+
+    recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    land_dispossed_without_ch4_recovery = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id1 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id1', blank=True)
+    processed_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id2 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id2', blank=True)
+    processed_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id3 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id3', blank=True)
+    processed_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True)
+    processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_solid_waste_input'
