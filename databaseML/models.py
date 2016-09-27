@@ -311,18 +311,18 @@ class CityMetricsWaterInput(models.Model):
     class Meta:
         db_table = u'city_metrics_water_input'
 
-#class CityMetricsNatGasInput(models.Model):
-#    id = models.IntegerField(primary_key=True)
-#    city_id = models.IntegerField()
-#
-#    utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_ida')
-#    com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
-#    residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-#    utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_idc', blank=True)
-#    com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+class CityMetricsNatGasInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id = models.IntegerField()
 
-#    class Meta:
-#        db_table = u'city_metrics_nat_gas_input'
+    utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_ida')
+    com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
+    residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_idc', blank=True)
+    com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_nat_gas_input'
 
 class CityMetricsElectricInput(models.Model):
     id = models.IntegerField(primary_key=True)
