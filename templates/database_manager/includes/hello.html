@@ -1,0 +1,11 @@
+{% block content %}
+	<p>
+	List of participating cities:
+	</p>
+	<h1>{{ city.city }}</h1>
+	<ul>
+	{% for city in citys %}
+		<li>{{ city.city }}</li>
+	{% endfor %}
+	</ul>
+{% endblock %}

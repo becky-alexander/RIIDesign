@@ -134,6 +134,8 @@ class SpecialTrendLineAdmin(admin.ModelAdmin):
 	list_filter = ('type', 'year',)
 
 
+
+
 admin.site.register(City, CityAdmin)
 admin.site.register(DemographicData, DemographicDataAdmin)
 admin.site.register(Energy, EnergyAdmin)

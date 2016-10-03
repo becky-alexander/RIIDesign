@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost
+from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty
 from utility import setDetailContext
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
-from databaseML.forms import CityForm, EnergyForm
+from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm
 
 def database(request):
         citys = City.objects.exclude
@@ -23,15 +23,40 @@ def city_detail(request, id):
 def new_city(request):
 	return render(request, 'database_manager/new_city.html')
 
+
+
 def new_city2(request):
-        form = CityForm(request.POST)
-        context = {
-              "form": form,   
+    	form = CityForm(request.POST)
+    	wform = CityMetricsWaterInputForm(request.POST)
+    	utilitiesform = CityMetricsEnergyUtilitiesForm(request.POST)
+        countyform = CityMetricsCountyForm(request.POST) 
+	context = {
+          	"form": form,
+	  	"wform": wform,
+          	"utilitiesform": utilitiesform,
+	  	"countyform": countyform,
         }
+
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/new_city3/')
+
+        if wform.is_valid():
+            wform.save()
+            return HttpResponseRedirect('/new_city3/')
+
+        if utilitiesform.is_valid():
+            utilitiesform.save()
+            return HttpResponseRedirect('/new_city3/')
+
+        if countyform.is_valid():
+            countyform.save()
+            return HttpResponseRedirect('/new_city3/')          
 	return render(request, 'database_manager/new_city2.html', context)
+
+
+
+
 
 def new_city3(request):
         lform = EnergyForm(request.POST)
