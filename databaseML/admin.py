@@ -6,7 +6,6 @@ class CityAdmin(admin.ModelAdmin):
 	list_display = ('city', 'state', 'type', 'sort_order',)
 	list_filter = ('city', 'state', 'type', 'sort_order',)
 
-
 class DemographicDataAdmin(admin.ModelAdmin):
 	list_display = ('city', 'population', 'jobs', 'households', 'year',)
 	list_filter = ('city', 'year',)
@@ -132,8 +131,6 @@ class CostAdmin(admin.ModelAdmin):
 class SpecialTrendLineAdmin(admin.ModelAdmin):
 	list_display = ('type', 'year',)
 	list_filter = ('type', 'year',)
-
-
 
 
 admin.site.register(City, CityAdmin)

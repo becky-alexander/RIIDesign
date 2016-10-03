@@ -1,8 +1,58 @@
-# 9/10/2016 - Mauricio Leon - To understand this models.py we need to remember
-# that Django came before the database so here we are creating the SQL tables
-#
-
 from django.db import models
+
+STATES = (
+    ('AK', 'Alaska'),
+    ('AL', 'Alabama'),
+    ('AZ', 'Arizona'),
+    ('AR', 'Arkansas'),
+    ('CA', 'California'),
+    ('CO', 'Colorado'),
+    ('CT', 'Connecticut'),
+    ('DE', 'Delaware'),
+    ('FL', 'Florida'),
+    ('GA', 'Georgia'),
+    ('HI', 'Hawaii'),
+    ('ID', 'Idaho'),
+    ('IL', 'Illinois'),
+    ('IN', 'Indiana'),
+    ('IA', 'Iowa'),
+    ('KS', 'Kansas'),
+    ('KY', 'Kentucky'),
+    ('LA', 'Louisiana'),
+    ('ME', 'Maine'),
+    ('MD', 'Maryland'),
+    ('MA', 'Massachusetts'),
+    ('MI', 'Michigan'),
+    ('MN', 'Minnesota'),
+    ('MS', 'Mississippi'),
+    ('MO', 'Missouri'),
+    ('MT', 'Montana'),
+    ('NE', 'Nebraska'),
+    ('NV', 'Nevada'),
+    ('NH', 'New Hampshire'),
+    ('NJ', 'New Jersey'),
+    ('NM', 'New Mexico'),
+    ('NY', 'New York'),
+    ('NC', 'North Carolina'),
+    ('ND', 'North Dakota'),
+    ('OH', 'Ohio'),
+    ('OK', 'Oklahoma'),
+    ('OR', 'Oregon'),
+    ('PA', 'Pennsylvania'),
+    ('RI', 'Rhode Island'),
+    ('SC', 'South Carolina'),
+    ('SD', 'South Dakota'),
+    ('TN', 'Tennessee'),
+    ('TX', 'Texas'),
+    ('UT', 'Utah'),
+    ('VT', 'Vermont'),
+    ('VA', 'Virginia'),
+    ('WA', 'Washington'),
+    ('DC', 'Washington D.C.'),
+    ('WV', 'West Virginia'),
+    ('WI', 'Wisconsin'),
+    ('WY', 'Wyoming')
+)
 
 
 CITY_TYPES = (
@@ -14,7 +64,7 @@ CITY_TYPES = (
 
 class City(models.Model):
 	city = models.CharField(max_length=100)
-	state = models.CharField(max_length=100)
+	state = models.CharField(max_length=100, choices=STATES)
 
 	type = models.CharField(max_length=100, choices=CITY_TYPES)
 
@@ -26,7 +76,7 @@ class City(models.Model):
 	class Meta:
 		verbose_name = 'City'
 		verbose_name_plural = 'Cities'
-		ordering = ('sort_order',)
+		#ordering = ('sort_order',)
 
 
 class DemographicData(models.Model):
@@ -248,30 +298,104 @@ class SpecialTrendLine(models.Model):
 		verbose_name_plural = 'Special Trend Lines'
 		ordering = ('year', 'type')
 
-
-
 class CityMetricsWaterInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.IntegerField(null=True, blank=True)
     year = models.CharField(max_length=4, blank=True)
+
     residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    commerical_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     industrial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     other_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
 
     class Meta:
         db_table = u'city_metrics_water_input'
 
+class CityMetricsNatGasInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id = models.IntegerField()
+
+    utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_ida')
+    com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
+    residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_idc', blank=True)
+    com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_nat_gas_input'
+
+class CityMetricsElectricInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id = models.IntegerField()
+    year = models.CharField(max_length=4)
+
+    utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_id1')
+    residential_electricity = models.DecimalField(max_digits=16, decimal_places=4)
+    com_and_ind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
+    residential_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
+    com_and_ind_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
+    utility_id2 = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_id2', blank=True)
+    residential_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    com_and_ind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    residential_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    com_and_ind_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    utility_id3 = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_id3', blank=True)
+    residential_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    com_and_ind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    residential_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_electric_input'
+
+class CityMetricsWastewaterInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id = models.IntegerField(null=True, blank=True)
+    year = models.CharField(max_length=4, blank=True)
+
+    wastewater_facility1 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+    wastewater_treated_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_facility2 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+    wastewater_treated_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_facility3 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+    wastewater_treated_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_wastewater_input'
+
+class CityMetricsSolidWasteInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=4, blank=True)
+    county_id = models.IntegerField(null=True, blank=True)
+
+    recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    land_dispossed_without_ch4_recovery = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id1 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id1', blank=True)
+    processed_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id2 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id2', blank=True)
+    processed_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id3 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id3', blank=True)
+    processed_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True)
+    processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_solid_waste_input'
+
+class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
+    id = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=4, blank=True)
+    utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True)
+    type = models.CharField(max_length=50, blank=True)
+    co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    class Meta:
+        db_table = u'city_metrics_energy_utilities_emission_factors'
+
 class CityMetricsEnergyUtilities(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_energy_utilities'
-
-
-class CityMetricsCounty(models.Model):
-    id = models.IntegerField(primary_key=True)
-    county = models.CharField(max_length=50, blank=True)
-    class Meta:
-        db_table = u'city_metrics_county'
-

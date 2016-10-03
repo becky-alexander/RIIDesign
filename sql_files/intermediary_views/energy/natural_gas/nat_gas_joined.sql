@@ -1,4 +1,4 @@
-/* NAT GAS A */
+﻿/* NAT GAS A */
 
 
 
@@ -46,7 +46,7 @@ AND city_metrics_demographicdata.city_id = city_metrics_city.id
 AND city_metrics_nat_gas_input.year = city_metrics_demographicdata.year
 AND city_metrics_nat_gas_input.year = city_metrics_estimated_energy_emission_factor.year
 AND city_metrics_nat_gas_input.utility_idA = city_metrics_estimated_energy_emission_factor.utility_id
-AND city_metrics_city.sort_order IS NOT NULL
+AND city_metrics_city.sort_order IS NOT NULL;
 
 
 
