@@ -1,8 +1,58 @@
-# 9/10/2016 - Mauricio Leon - To understand this models.py we need to remember
-# that Django came before the database so here we are creating the SQL tables
-#
-
 from django.db import models
+
+STATES = (
+    ('AK', 'Alaska'),
+    ('AL', 'Alabama'),
+    ('AZ', 'Arizona'),
+    ('AR', 'Arkansas'),
+    ('CA', 'California'),
+    ('CO', 'Colorado'),
+    ('CT', 'Connecticut'),
+    ('DE', 'Delaware'),
+    ('FL', 'Florida'),
+    ('GA', 'Georgia'),
+    ('HI', 'Hawaii'),
+    ('ID', 'Idaho'),
+    ('IL', 'Illinois'),
+    ('IN', 'Indiana'),
+    ('IA', 'Iowa'),
+    ('KS', 'Kansas'),
+    ('KY', 'Kentucky'),
+    ('LA', 'Louisiana'),
+    ('ME', 'Maine'),
+    ('MD', 'Maryland'),
+    ('MA', 'Massachusetts'),
+    ('MI', 'Michigan'),
+    ('MN', 'Minnesota'),
+    ('MS', 'Mississippi'),
+    ('MO', 'Missouri'),
+    ('MT', 'Montana'),
+    ('NE', 'Nebraska'),
+    ('NV', 'Nevada'),
+    ('NH', 'New Hampshire'),
+    ('NJ', 'New Jersey'),
+    ('NM', 'New Mexico'),
+    ('NY', 'New York'),
+    ('NC', 'North Carolina'),
+    ('ND', 'North Dakota'),
+    ('OH', 'Ohio'),
+    ('OK', 'Oklahoma'),
+    ('OR', 'Oregon'),
+    ('PA', 'Pennsylvania'),
+    ('RI', 'Rhode Island'),
+    ('SC', 'South Carolina'),
+    ('SD', 'South Dakota'),
+    ('TN', 'Tennessee'),
+    ('TX', 'Texas'),
+    ('UT', 'Utah'),
+    ('VT', 'Vermont'),
+    ('VA', 'Virginia'),
+    ('WA', 'Washington'),
+    ('DC', 'Washington D.C.'),
+    ('WV', 'West Virginia'),
+    ('WI', 'Wisconsin'),
+    ('WY', 'Wyoming')
+)
 
 
 CITY_TYPES = (
@@ -14,7 +64,7 @@ CITY_TYPES = (
 
 class City(models.Model):
 	city = models.CharField(max_length=100)
-	state = models.CharField(max_length=100)
+	state = models.CharField(max_length=100, choices=STATES)
 
 	type = models.CharField(max_length=100, choices=CITY_TYPES)
 
@@ -26,7 +76,7 @@ class City(models.Model):
 	class Meta:
 		verbose_name = 'City'
 		verbose_name_plural = 'Cities'
-		ordering = ('sort_order',)
+		#ordering = ('sort_order',)
 
 
 class DemographicData(models.Model):
@@ -248,8 +298,6 @@ class SpecialTrendLine(models.Model):
 		verbose_name_plural = 'Special Trend Lines'
 		ordering = ('year', 'type')
 
-
-
 class CityMetricsWaterInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.IntegerField(null=True, blank=True)
@@ -261,17 +309,3 @@ class CityMetricsWaterInput(models.Model):
 
     class Meta:
         db_table = u'city_metrics_water_input'
-
-class CityMetricsEnergyUtilities(models.Model):
-    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=50, blank=True)
-    class Meta:
-        db_table = u'city_metrics_energy_utilities'
-
-
-class CityMetricsCounty(models.Model):
-    id = models.IntegerField(primary_key=True)
-    county = models.CharField(max_length=50, blank=True)
-    class Meta:
-        db_table = u'city_metrics_county'
-
