@@ -247,3 +247,31 @@ class SpecialTrendLine(models.Model):
 		verbose_name = 'Special Trend Line'
 		verbose_name_plural = 'Special Trend Lines'
 		ordering = ('year', 'type')
+
+
+
+class CityMetricsWaterInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id = models.IntegerField(null=True, blank=True)
+    year = models.CharField(max_length=4, blank=True)
+    residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    industrial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    other_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+
+    class Meta:
+        db_table = u'city_metrics_water_input'
+
+class CityMetricsEnergyUtilities(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50, blank=True)
+    class Meta:
+        db_table = u'city_metrics_energy_utilities'
+
+
+class CityMetricsCounty(models.Model):
+    id = models.IntegerField(primary_key=True)
+    county = models.CharField(max_length=50, blank=True)
+    class Meta:
+        db_table = u'city_metrics_county'
+

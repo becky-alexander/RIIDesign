@@ -4,12 +4,26 @@ from django.contrib import admin
 
 admin.autodiscover()
 
+
+
+
+
+
+
 urlpatterns = patterns(
     'webapp.views',
     (r'^$', 'viewHome'),
     (r'^participation-form$', 'viewParticipationForm'),
     (r'^home_api/select_section', 'selectHomePageSect')
 )
+
+
+urlpatterns += patterns(
+    'databaseML.views',
+    url(r'^database/', include ('databaseML.urls')),
+    url(r'^', include ('databaseML.urls')),
+)
+
 # 9/10/2016 - Mauricio Leon - The one bellows simply makes the urls in
 # city_metrics/ajax_urls.py available
 urlpatterns += patterns(
@@ -39,3 +53,4 @@ urlpatterns += patterns(
     'site_content.views',
     url(r'^(?P<aSlug>.*)$', 'viewDetail'),
 )
+
