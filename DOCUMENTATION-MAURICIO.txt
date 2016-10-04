@@ -65,6 +65,8 @@ Folder by folder
 
       26.a. webapp/static ---> Important!
 
+
+
             26.a.1. webapp/static/js --> contains more of the javascript information of the charts
 
 27. webapp_admin ---> I'm not sure of the exact funtionality of this one.
@@ -74,3 +76,6 @@ Folder by folder
 FILES!
 
 - city_metrics.json ---> not sure
+
+
+testing! 10:26 pm 10/3/2016
