@@ -1,0 +1,52 @@
+{% extends "database_manager/header.html" %}
+
+{% block content %}
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">RII DB</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href='/database/'>Home</a></li>
+      <li><a href=http://www.regionalindicatorsmn.com/>Regional Indicators Page</a></li>
+      <li class="active"><a href="#">Insert New City</a></li> 
+      <li><a href="#">Edit City</a></li> 
+    </ul>
+  </div>
+</nav>
+
+
+<table class="table table-bordered" style="max-width:1000px;margin-left:auto; margin-right:auto;">
+<thead>
+	<tr>
+		<th>CITY</th>
+		<th>STATE</th>
+		<th>STATE</th>
+	</tr>
+<tbody>	
+	<tr>
+	{% for city in citys %}		
+		<td>{{ city.city }}</td>
+		<td>{{ city.state }}</td>
+		<td>{{ city.type }}</td>
+	</tr>
+	
+	
+	
+	
+	<!--	<td>{{ city.type }}</td>
+		<td>{{ city.state }}</td>-->
+	{% endfor %}
+	</tr>
+</tbody>
+</table>
+<!--
+	<ul>
+	{% for city in citys %}
+		<li>{{ city.city }}</li>
+	{% endfor %}
+	</ul>
+	
+-->	
+{% endblock %}
