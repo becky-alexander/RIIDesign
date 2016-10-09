@@ -16,7 +16,7 @@
 {{form.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>  
+</form>
 
 <p> Insert New County: </p>
 <form method='post' action='' alig>{% csrf_token %}
@@ -24,7 +24,7 @@
 {{countyform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>  
+</form>
 
 <p> Insert Water Input: </p>
 <form method='post' action='' alig>{% csrf_token %}
@@ -32,19 +32,31 @@
 {{wform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>  
-    
+</form>
+
 <p> Insert New Energy Utility: </p>
 <form method='post' action='' alig>{% csrf_token %}
 <ul>
 {{utilitiesform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>  
-      
-  
-  </div>
-</div>
+</form>
+
+<p> Insert New Energy Electricity Input: </p>
+<form method='post' action='' alig>{% csrf_token %}
+<ul>
+{{electricityform.as_ul}}
+</ul>
+<input class="btn btn-default" type="submit" value="Submit" />
+</form>
+
+<p> Insert New Natural Gas Input: </p>
+<form method='post' action='' alig>{% csrf_token %}
+<ul>
+{{natgasform.as_ul}}
+</ul>
+<input class="btn btn-default" type="submit" value="Submit" />
+</form>
 
 
 {% endblock %}
