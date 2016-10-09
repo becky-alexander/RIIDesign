@@ -1,5 +1,5 @@
 from django import forms
-from city_metrics.models import City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty
+from city_metrics.models import City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors
 
 #class CityMetricsCityForm(forms.ModelForm):
 #    city = forms.CharField(max_length=100)
@@ -33,3 +33,25 @@ class CityMetricsCountyForm(forms.ModelForm):
     class Meta:
         model = CityMetricsCounty
         fields = ["id", "county"]
+
+
+class CityMetricsElectricInputForm(forms.ModelForm):
+    class Meta:
+        model = CityMetricsElectricInput
+        fields = ["id", "city_id", "year", "utility_id1", "residential_electricity",
+        "com_and_ind_electricity", "residential_wind_electricity", "com_and_ind_electricity", "utility_id2",
+        "residential_electricity2", "com_and_ind_electricity2", "residential_wind_electricity2", "com_and_ind_wind_electricity2",
+        "utility_id3", "residential_electricity3",
+        "com_and_ind_electricity3", "residential_wind_electricity3", "com_and_ind_wind_electricity3"]
+
+class CityMetricsCityMetricsNatGasInputForm(forms.ModelForm):
+    class Meta:
+        model = CityMetricsCityMetricsNatGasInput
+        fields = ["id", "city_id", "year", "utility_ida", "residential_nat_gasa", "com_and_ind_nat_gasa",
+        "utility_idb", "residential_nat_gasb", "com_and_ind_nat_gasb", "utility_idc", "residential_nat_gasc",
+        "com_and_ind_nat_gasc"]
+
+class CityMetricsEnergyUtilitiesEmissionFactorsForm(forms.ModelForm):
+    class Meta:
+        model = CityMetricsEnergyUtilitiesEmissionFactors
+        fields = ["id", "year", "utility", "type", "co2_ef", "n2o_ef", "ch4_ef"]

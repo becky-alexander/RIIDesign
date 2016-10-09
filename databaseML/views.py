@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty
+from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors
 from utility import setDetailContext
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
-from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm
+from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm, CityMetricsElectricInputForm, CityMetricsNatGasInputForm, CityMetricsEnergyUtilitiesEmissionFactorsForm
 
 def database(request):
         citys = City.objects.exclude
 	return render(request, 'database_manager/home.html', {
-                'citys': citys, 
+                'citys': citys,
         })
 
 def city_detail(request, id):
@@ -29,12 +29,18 @@ def new_city2(request):
     	form = CityForm(request.POST)
     	wform = CityMetricsWaterInputForm(request.POST)
     	utilitiesform = CityMetricsEnergyUtilitiesForm(request.POST)
-        countyform = CityMetricsCountyForm(request.POST) 
-	context = {
+        countyform = CityMetricsCountyForm(request.POST)
+        electricityform = CityMetricsElectricInputForm(request.POST)
+        natgasform = CityMetricsNatGasInputForm(request.POST)
+        energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
+	    context = {
           	"form": form,
-	  	"wform": wform,
+	  	    "wform": wform,
           	"utilitiesform": utilitiesform,
-	  	"countyform": countyform,
+	  	    "countyform": countyform,
+            "electricityform" : electricityform,
+            "natgasform" : natgasform,
+            "energyutilitiesEFform" energyutilitiesEFform
         }
 
         if form.is_valid():
@@ -51,7 +57,21 @@ def new_city2(request):
 
         if countyform.is_valid():
             countyform.save()
-            return HttpResponseRedirect('/new_city3/')          
+            return HttpResponseRedirect('/new_city3/')
+
+        if electricityform.is_valid():
+            electricityform.save()
+            return HttpResponseRedirect('/new_city3/')
+
+        if natgasform.is_valid():
+            natgasform.save()
+            return HttpResponseRedirect('/new_city3/')
+
+        if energyutilitiesEFform.is_valid():
+            energyutilitiesEFform.save()
+            return HttpResponseRedirect('/new_city3/')
+
+
 	return render(request, 'database_manager/new_city2.html', context)
 
 
@@ -61,9 +81,9 @@ def new_city2(request):
 def new_city3(request):
         lform = EnergyForm(request.POST)
         context = {
-              "lform": lform,   
+              "lform": lform,
         }
-        
+
         if lform.is_valid():
             lform.save()
             return HttpResponseRedirect('database_manager/contact/')
