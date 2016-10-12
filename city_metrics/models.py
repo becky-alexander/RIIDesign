@@ -13,11 +13,11 @@ CITY_TYPES = (
 
 
 class City(models.Model):
+	id = models.IntegerField(primary_key=True)
 	city = models.CharField(max_length=100)
+	county_id = modes.CharField(max_length=100)
 	state = models.CharField(max_length=100)
-
 	type = models.CharField(max_length=100, choices=CITY_TYPES)
-
 	sort_order = models.IntegerField()
 
 	def __unicode__(self):
@@ -32,7 +32,6 @@ class City(models.Model):
 class DemographicData(models.Model):
 	city = models.ForeignKey(City)
 	year = models.CharField(max_length=4, help_text='ex: 2012')
-
 	population = models.DecimalField(max_digits=16, decimal_places=4)
 	jobs = models.DecimalField(max_digits=16, decimal_places=4)
 	households = models.DecimalField(max_digits=16, decimal_places=4)
@@ -271,20 +270,14 @@ class CityMetricsEnergyUtilities(models.Model):
 
 class CityMetricsCounty(models.Model):
     id = models.IntegerField(primary_key=True)
-    county = models.CharField(max_length=50, blank=True)
+    county = models.CharField(max_length=50, blank=True, help_text='Ex. Hennepin')
     class Meta:
         db_table = u'city_metrics_county'
-
-
-
-
-
-
 
 class CityMetricsElectricInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.IntegerField()
-    year = models.CharField(max_length=4)
+    year = models.CharField(max_length=4, help_text='ex: 2012')
     utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_id1')
     residential_electricity = models.DecimalField(max_digits=16, decimal_places=4)
     com_and_ind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
@@ -306,9 +299,9 @@ class CityMetricsElectricInput(models.Model):
 class CityMetricsNatGasInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.IntegerField()
-    year = models.CharField(max_length=4)
+    year = models.CharField(max_length=4, help_text='ex: 2012')
     utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, db_column='utility_ida')
-    residential_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
+    residential_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='insert total residential natural gas')
     com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
     utility_idb = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_idb', blank=True)
     residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
@@ -321,8 +314,8 @@ class CityMetricsNatGasInput(models.Model):
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
-    year = models.CharField(max_length=4, blank=True)
-    utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True)
+    year = models.CharField(max_length=4, blank=True, help_text='ex: 2012')
+    utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, help_text='ex: Xcel Energy')
     type = models.CharField(max_length=50, blank=True)
     co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)

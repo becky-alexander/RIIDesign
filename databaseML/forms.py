@@ -12,7 +12,7 @@ from city_metrics.models import City, Energy, CityMetricsWaterInput, CityMetrics
 class CityForm(forms.ModelForm):
     class Meta:
         model = City
-        fields = ["city", "state", "type", "sort_order"]
+        fields = ["id", "city", "county_id", "state", "type", "sort_order"]
 
 class EnergyForm(forms.ModelForm):
     class Meta:
