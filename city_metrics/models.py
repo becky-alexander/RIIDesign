@@ -311,6 +311,8 @@ class CityMetricsNatGasInput(models.Model):
     com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
+    def __unicode__(self):
+	return "%s" % (self.CityMetricsEnergyUtilitiesEmissionFactors.utility)
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -322,7 +324,7 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     
     def __unicode__(self):
-	return (self.CityMetricsEnergyUtilitiesEmissionFactors.utility)
-    
+	return "%s" % (self.utility)
+ 
     class Meta:
         db_table = u'city_metrics_energy_utilities_emission_factors'
