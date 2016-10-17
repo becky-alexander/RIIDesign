@@ -312,7 +312,7 @@ class CityMetricsNatGasInput(models.Model):
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
     def __unicode__(self):
-	return "%s" % (self.CityMetricsEnergyUtilitiesEmissionFactors.utility)
+	return "%s" % (self.CityMetricsEnergyUtilities.name)
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
