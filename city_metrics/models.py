@@ -266,6 +266,8 @@ class CityMetricsEnergyUtilities(models.Model):
     name = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_energy_utilities'
+    def __unicode__(self):
+	return "%s" % (self.name)
 
 
 class CityMetricsCounty(models.Model):
