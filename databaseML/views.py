@@ -40,7 +40,7 @@ def new_city2(request):
 	  	"countyform": countyform,
             	"electricityform" : electricityform,
             	"natgasform" : natgasform,
-            	"energyutilitiesEFform" energyutilitiesEFform,
+            	"energyutilitiesEFform" : energyutilitiesEFform,
         }
 
         if form.is_valid():
