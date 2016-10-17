@@ -251,7 +251,7 @@ class SpecialTrendLine(models.Model):
 
 class CityMetricsWaterInput(models.Model):
     id = models.IntegerField(primary_key=True)
-    city_id = models.IntegerField(null=True, blank=True)
+    city_id = models.ForeignKey(City)
     year = models.CharField(max_length=4, blank=True)
     residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
