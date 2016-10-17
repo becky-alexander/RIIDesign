@@ -33,14 +33,14 @@ def new_city2(request):
         electricityform = CityMetricsElectricInputForm(request.POST)
         natgasform = CityMetricsNatGasInputForm(request.POST)
         energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
-	    context = {
+	context = {
           	"form": form,
-	  	    "wform": wform,
+	  	"wform": wform,
           	"utilitiesform": utilitiesform,
-	  	    "countyform": countyform,
-            "electricityform" : electricityform,
-            "natgasform" : natgasform,
-            "energyutilitiesEFform" energyutilitiesEFform
+	  	"countyform": countyform,
+            	"electricityform" : electricityform,
+            	"natgasform" : natgasform,
+            	"energyutilitiesEFform" energyutilitiesEFform
         }
 
         if form.is_valid():
