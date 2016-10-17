@@ -46,7 +46,7 @@ class CityMetricsElectricInputForm(forms.ModelForm):
 
 class CityMetricsCityMetricsNatGasInputForm(forms.ModelForm):
     class Meta:
-        model = CityMetricsCityMetricsNatGasInput
+        model = CityMetricsNatGasInput
         fields = ["id", "city_id", "year", "utility_ida", "residential_nat_gasa", "com_and_ind_nat_gasa",
         "utility_idb", "residential_nat_gasb", "com_and_ind_nat_gasb", "utility_idc", "residential_nat_gasc",
         "com_and_ind_nat_gasc"]
