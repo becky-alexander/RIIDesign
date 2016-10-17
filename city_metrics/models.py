@@ -320,5 +320,9 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    
+    def __unicode__(self):
+	return (self.CityMetricsEnergyUtilitiesEmissionFactors.utility)
+    
     class Meta:
         db_table = u'city_metrics_energy_utilities_emission_factors'
