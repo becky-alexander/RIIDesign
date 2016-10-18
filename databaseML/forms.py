@@ -32,7 +32,7 @@ class CityMetricsEnergyUtilitiesForm(forms.ModelForm):
 class CityMetricsCountyForm(forms.ModelForm):
     class Meta:
         model = CityMetricsCounty
-        fields = ["county"]
+        fields = ["id", "county"]
 
 
 class CityMetricsElectricInputForm(forms.ModelForm):
