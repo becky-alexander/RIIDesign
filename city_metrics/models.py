@@ -276,7 +276,7 @@ class CityMetricsCounty(models.Model):
     class Meta:
         db_table = u'city_metrics_county'
 
-	def __unicode__(self):
+    def __unicode__(self):
 	return "%s" % (self.county)
 
 class CityMetricsElectricInput(models.Model):
