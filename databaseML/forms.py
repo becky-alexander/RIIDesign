@@ -27,7 +27,7 @@ class CityMetricsWaterInputForm(forms.ModelForm):
 class CityMetricsEnergyUtilitiesForm(forms.ModelForm):
     class Meta:
         model = CityMetricsEnergyUtilities
-        fields = ["name"]
+        fields = ["id", "name"]
 
 class CityMetricsCountyForm(forms.ModelForm):
     class Meta:
