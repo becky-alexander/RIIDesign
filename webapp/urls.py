@@ -15,7 +15,6 @@ urlpatterns = patterns(
     (r'^$', 'viewHome'),
     (r'^participation-form$', 'viewParticipationForm'),
     (r'^home_api/select_section', 'selectHomePageSect')
-    url(r'^accounts/login/$', django.contrib.auth.views.login)
 )
 
 
