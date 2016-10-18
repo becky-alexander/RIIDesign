@@ -5,58 +5,59 @@
 
 <div class="panel panel-default" style="max-width:1000px;margin-left:auto; margin-right:auto;">
   <div class="panel-heading">
-    <h3 class="panel-title">New City</h3>
+    <h1 class="panel-title">New City</h1>
   </div>
   <div class="panel-body">
 
 
-<p> Insert New City: </p>
-<form method='post' action='' alig>{% csrf_token %}
+<h2> Insert New City: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
 <ul>
 {{form.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>
-
-<p> Insert New County: </p>
-<form method='post' action='' alig>{% csrf_token %}
+</form></p>
+  
+<h2> Insert New County: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
 <ul>
 {{countyform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>
+</form></p>
 
-<p> Insert Water Input: </p>
-<form method='post' action='' alig>{% csrf_token %}
+<h2> Insert Water Input: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
 <ul>
 {{wform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
 </form>
+</p>
 
-<p> Insert New Energy Utility: </p>
-<form method='post' action='' alig>{% csrf_token %}
+<h2> Insert New Energy Utility: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
 <ul>
 {{utilitiesform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>
+</form></p>
 
-<p> Insert New Energy Electricity Input: </p>
-<form method='post' action='' alig>{% csrf_token %}
+<h2> Insert New Energy Electricity Input: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
 <ul>
 {{electricityform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>
+</form></p>
 
-<p> Insert New Natural Gas Input: </p>
-<form method='post' action='' alig>{% csrf_token %}
+<h2> Insert New Natural Gas Input: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
 <ul>
 {{natgasform.as_ul}}
 </ul>
 <input class="btn btn-default" type="submit" value="Submit" />
-</form>
+</form></p>
 
 
 {% endblock %}
