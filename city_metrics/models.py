@@ -277,7 +277,7 @@ class CityMetricsCounty(models.Model):
         db_table = u'city_metrics_county'
 
 	def __unicode__(self):
-	return " %s" % (self.county)
+	return "%s" % (self.county)
 
 class CityMetricsElectricInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
