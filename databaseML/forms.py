@@ -17,7 +17,7 @@ class CityForm(forms.ModelForm):
 class EnergyForm(forms.ModelForm):
     class Meta:
         model = Energy
-        fields = ["city", "year", "electricity","natural_gas", "other"]
+        fields = ["city", "id", "year", "electricity","natural_gas", "other"]
 
 class CityMetricsWaterInputForm(forms.ModelForm):
     class Meta:
