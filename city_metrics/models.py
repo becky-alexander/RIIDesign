@@ -15,7 +15,7 @@ CITY_TYPES = (
 class City(models.Model):
 	id = models.IntegerField(primary_key=True)
 	city = models.CharField(max_length=100)
-	county_id = models.ForeignKey(CityMetricsCounty, db_column='county_id')
+	county_id = models.ForeignKey(CityMetricsCounty, db_column='id')
 	state = models.CharField(max_length=100)
 	type = models.CharField(max_length=100, choices=CITY_TYPES)
 	sort_order = models.IntegerField()
