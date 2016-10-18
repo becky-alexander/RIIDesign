@@ -154,7 +154,7 @@ INSTALLED_APPS = (
 	'django.contrib.staticfiles',
 	# 3rd Party Applications
 	'filebrowser',
-	#'suit',
+	'suit',
 	'django.contrib.admin',
 	#'mptt',
 	#'reversion',
@@ -198,6 +198,7 @@ SUIT_CONFIG = {
 		{'app': 'auth'},
 		{'app': 'city_metrics', 'label': 'City Metrics', 'icon': 'icon-signal'},
 		{'app': 'site_content', 'label': 'Site Content', 'icon': 'icon-file'},
+		{'app': 'databaseML', 'label': 'Input Forms', 'icon': 'icon-signal'},
 		{'label': 'Site Media', 'icon': 'icon-folder-open', 'url': '/admin/filebrowser/browse/'},
 		{'label': 'Demo Data Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/demographic-data-importer/'},
 		{'label': 'Energy Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/energy-importer/'},
