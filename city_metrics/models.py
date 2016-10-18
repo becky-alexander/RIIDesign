@@ -15,7 +15,7 @@ CITY_TYPES = (
 class City(models.Model):
 	id = models.IntegerField(primary_key=True)
 	city = models.CharField(max_length=100)
-	county_id = models.ForeignKey(County, db_column='id')
+	county_id = models.ForeignKey(CityMetricsCounty, db_column='id')
 	state = models.CharField(max_length=100)
 	type = models.CharField(max_length=100, choices=CITY_TYPES)
 	sort_order = models.IntegerField()
@@ -275,8 +275,6 @@ class CityMetricsCounty(models.Model):
     county = models.CharField(max_length=50, blank=True, help_text='Ex. Hennepin')
     class Meta:
         db_table = u'city_metrics_county'
-		verbose_name = 'County'
-		verbose_name_plural = 'Counties'
 
 	def __unicode__(self):
 	return " %s" % (self.county)
