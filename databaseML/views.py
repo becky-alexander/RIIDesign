@@ -25,7 +25,7 @@ def new_city(request):
 	return render(request, 'database_manager/new_city.html')
 
 
-
+@login_required
 def new_city2(request):
     	form = CityForm(request.POST)
     	wform = CityMetricsWaterInputForm(request.POST)
