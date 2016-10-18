@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^query_data/', views.query_data, name = 'query_data'),
     url(r'^new_city2/', views.new_city2, name = 'new_city2'),
     url(r'^new_city3/', views.new_city3, name = 'new_city3'),
+    url(r'^accounts/login/$', django.contrib.auth.views.login),
 ]
