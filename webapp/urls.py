@@ -40,6 +40,7 @@ urlpatterns += patterns(
     '',
     url(r'^admin/filebrowser/', include('filebrowser.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/login/$', django.contrib.auth.views.login),
 )
 
 if settings.DEVELOPMENT:
