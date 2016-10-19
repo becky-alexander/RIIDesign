@@ -270,7 +270,7 @@ class CityMetricsWaterInput(models.Model):
         db_table = u'city_metrics_water_input'
 
 class CityMetricsEnergyUtilities(models.Model):
-#    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_energy_utilities'
