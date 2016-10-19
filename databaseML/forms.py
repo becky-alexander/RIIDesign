@@ -38,10 +38,6 @@ class CityMetricsCountyForm(forms.ModelForm):
     class Meta:
         model = CityMetricsCounty
         fields = ["id", "county"]
-        labels = {
-            "county": _('I changed the label'),
-        }
-
 
 class CityMetricsElectricInputForm(forms.ModelForm):
     class Meta:
