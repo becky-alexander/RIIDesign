@@ -325,9 +325,34 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-
     def __unicode__(self):
 	return "%s" % (self.utility)
-
     class Meta:
         db_table = u'city_metrics_energy_utilities_emission_factors'
+
+class CityMetricsWasteProcessingFacility(models.Model):
+    id = models.IntegerField(primary_key=True)
+    facility_name = models.CharField(max_length=50, blank=True)
+    class Meta:
+        db_table = u'city_metrics_waste_processing_facility'
+	
+class CityMetricsSolidWasteInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=4, blank=True)
+    county_id = models.IntegerField(null=True, blank=True)
+    recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    land_dispossed_without_ch4_recovery = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id1 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id1', blank=True)
+    processed_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id2 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id2', blank=True)
+    processed_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id3 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id3', blank=True)
+    processed_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True)
+    processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    class Meta:
+        db_table = u'city_metrics_solid_waste_input'	
+    def __unicode__(self):
+	return "%s" % (self.CityMetricsWasteProcessingFacility.facility_name)
+
