@@ -261,10 +261,10 @@ class CityMetricsWaterInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, blank=True)
-    residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    industrial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    other_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
+    commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
+    industrial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
+    other_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
 
     class Meta:
         db_table = u'city_metrics_water_input'
