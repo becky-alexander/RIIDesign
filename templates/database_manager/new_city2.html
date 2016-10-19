@@ -59,5 +59,21 @@
 <input class="btn btn-default" type="submit" value="Submit" />
 </form></p>
 <br> 
+<h2> Insert New Waste Processing Facility: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
+<ul>
+{{wastefacility.as_ul}}
+</ul>
+<input class="btn btn-default" type="submit" value="Submit" />
+</form></p>
+<br> 
+<h2> Insert New Solid Waste Input: </h2>
+<p><form method='post' action='' alig>{% csrf_token %}
+<ul>
+{{solidwasteform.as_ul}}
+</ul>
+<input class="btn btn-default" type="submit" value="Submit" />
+</form></p>
+<br> 
 
 {% endblock %}
