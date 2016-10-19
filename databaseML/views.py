@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors
+from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput,
+				 CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, 
+				 CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, 
+				 CityMetricsSolidWasteInput
 from utility import setDetailContext
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
-from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm, CityMetricsElectricInputForm, CityMetricsNatGasInputForm, CityMetricsEnergyUtilitiesEmissionFactorsForm
+from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm, 
+			      CityMetricsElectricInputForm, CityMetricsNatGasInputForm, CityMetricsEnergyUtilitiesEmissionFactorsForm,
+			      CityMetricsWasteProcessingFacilityForm, CityMetricsSolidWasteInputForm
 
 
 def database(request):
@@ -35,6 +40,8 @@ def new_city2(request):
         electricityform = CityMetricsElectricInputForm(request.POST)
         natgasform = CityMetricsNatGasInputForm(request.POST)
         energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
+	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
+        solidwasteform = CityMetricsSolidWasteInputsForm(request.POST)
 	context = {
           	"form": form,
 	  	"wform": wform,
@@ -43,6 +50,8 @@ def new_city2(request):
             	"electricityform" : electricityform,
             	"natgasform" : natgasform,
             	"energyutilitiesEFform" : energyutilitiesEFform,
+		"wastefacilityform" : wastefacilityform,
+		"solidwasteform" : solidwasteform,
         }
 
         if form.is_valid():
@@ -71,6 +80,14 @@ def new_city2(request):
 
         if energyutilitiesEFform.is_valid():
             energyutilitiesEFform.save()
+            return HttpResponseRedirect('/new_city3/')
+	
+        if wastefacilityform.is_valid():
+            wastefacilityform.save()
+            return HttpResponseRedirect('/new_city3/')
+
+        if solidwasteform.is_valid():
+            solidwasteform.save()
             return HttpResponseRedirect('/new_city3/')
 
 
