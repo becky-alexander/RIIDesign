@@ -23,6 +23,9 @@ class CityMetricsWaterInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsWaterInput
         fields = ["city_id", "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
+        labels = {
+            'city_id': _('Name of City'),
+        }
 
 class CityMetricsEnergyUtilitiesForm(forms.ModelForm):
     class Meta:
