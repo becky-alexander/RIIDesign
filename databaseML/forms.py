@@ -1,6 +1,6 @@
 from django import forms
 from city_metrics.models import City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext as _
 
 #class CityMetricsCityForm(forms.ModelForm):
 #    city = forms.CharField(max_length=100)
