@@ -1,16 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput,
-				 CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, 
-				 CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, 
-				 CityMetricsSolidWasteInput
+from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput
 from utility import setDetailContext
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
-from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm, 
-			      CityMetricsElectricInputForm, CityMetricsNatGasInputForm, CityMetricsEnergyUtilitiesEmissionFactorsForm,
-			      CityMetricsWasteProcessingFacilityForm, CityMetricsSolidWasteInputForm
+from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm, CityMetricsElectricInputForm, CityMetricsNatGasInputForm, CityMetricsEnergyUtilitiesEmissionFactorsForm, CityMetricsWasteProcessingFacilityForm, CityMetricsSolidWasteInputForm
 
 
 def database(request):
