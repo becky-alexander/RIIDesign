@@ -32,7 +32,6 @@ class CityMetricsEnergyUtilitiesForm(forms.ModelForm):
     class Meta:
         model = CityMetricsEnergyUtilities
         fields = ["id", "name"]
-        exclude = ["id"]
 
 
 class CityMetricsCountyForm(forms.ModelForm):
