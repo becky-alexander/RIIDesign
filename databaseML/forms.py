@@ -22,7 +22,7 @@ class EnergyForm(forms.ModelForm):
 class CityMetricsWaterInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsWaterInput
-        fields = ["city_id", "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
+        fields = ["city_id"(label = City), "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
         labels = {
             'city_id': _('Name of City'),
         }
