@@ -38,7 +38,7 @@ class CityMetricsCountyForm(forms.ModelForm):
         model = CityMetricsCounty
         fields = ["id", "county"]
         labels = {
-            "county: _('I changed the label'),
+            "county": _('I changed the label'),
         }
 
 
