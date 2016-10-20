@@ -18,62 +18,63 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="panel panel-default" style="max-width:1000px;margin-left:auto; margin-right:auto;">
-  <div class="panel-heading">
-    <h1 class="panel-title">RII Insert Data</h1>
-  </div>
-  <div class="panel-body">
-<br> 
-
-
-<div class="accordion">
-  <h2> Insert Water Input: </h2>
-    <div class="accordion_sect">
-    <p><form method='post' action='' alig>{% csrf_token %}
-    <ul>
-    {{wform.as_ul}}
-    </ul>
-    <input class="btn btn-default" type="submit" value="Submit" />
-    </form>
-    </p>
-  </div>
-
-  
-  <h2> Insert New Energy Electricity Input: </h2>
-  <div>
-  <p><form method='post' action='' alig>{% csrf_token %}
-  <ul>
-  {{electricityform.as_ul}}
-  </ul>
-  <input class="btn btn-default" type="submit" value="Submit" />
-  </form></p>
-  </div>
-
-  <h2> Insert New Natural Gas Input: </h2>
-  <div>
-  <p><form method='post' action='' alig>{% csrf_token %}
-  <ul>
-  {{natgasform.as_ul}}
-  </ul>
-  <input class="btn btn-default" type="submit" value="Submit" />
-  </form></p>
-  </div>
+<body>
+    <div class="panel panel-default" style="max-width:1000px;margin-left:auto; margin-right:auto;">
+      <div class="panel-heading">
+        <h1 class="panel-title">RII Insert Data</h1>
+      </div>
+      <div class="panel-body">
+    <br> 
 
 
+    <div class="accordion">
+      <h2> Insert Water Input: </h2>
+        <div class="accordion_sect">
+        <p><form method='post' action='' alig>{% csrf_token %}
+        <ul>
+        {{wform.as_ul}}
+        </ul>
+        <input class="btn btn-default" type="submit" value="Submit" />
+        </form>
+        </p>
+      </div>
 
 
-  
-  <h2> Insert New Solid Waste Input: </h2>
-  <div>  
-  <p><form method='post' action='' alig>{% csrf_token %}
-  <ul>
-  {{solidwasteform.as_ul}}
-  </ul>
-  <input class="btn btn-default" type="submit" value="Submit" />
-  </form></p>
-  </div>
+      <h2> Insert New Energy Electricity Input: </h2>
+      <div>
+      <p><form method='post' action='' alig>{% csrf_token %}
+      <ul>
+      {{electricityform.as_ul}}
+      </ul>
+      <input class="btn btn-default" type="submit" value="Submit" />
+      </form></p>
+      </div>
 
-</div>
+      <h2> Insert New Natural Gas Input: </h2>
+      <div>
+      <p><form method='post' action='' alig>{% csrf_token %}
+      <ul>
+      {{natgasform.as_ul}}
+      </ul>
+      <input class="btn btn-default" type="submit" value="Submit" />
+      </form></p>
+      </div>
+
+
+
+
+
+      <h2> Insert New Solid Waste Input: </h2>
+      <div>  
+      <p><form method='post' action='' alig>{% csrf_token %}
+      <ul>
+      {{solidwasteform.as_ul}}
+      </ul>
+      <input class="btn btn-default" type="submit" value="Submit" />
+      </form></p>
+      </div>
+
+    </div>
+</body>
 
 {% endblock %}
