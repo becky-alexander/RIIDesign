@@ -10,70 +10,87 @@
   <div class="panel-body">
 <br> 
 
-<h2> Insert New City: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{form.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
-<br>  
-<h2> Insert New County: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{countyform.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
-<br> 
-<h2> Insert Water Input: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{wform.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form>
-</p>
-<br> 
-<h2> Insert New Energy Utility: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{utilitiesform.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
-<br> 
-<h2> Insert New Energy Electricity Input: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{electricityform.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
-<br> 
-<h2> Insert New Natural Gas Input: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{natgasform.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
-<br> 
-<h2> Insert New Waste Processing Facility: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{wastefacility.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
-<br> 
-<h2> Insert New Solid Waste Input: </h2>
-<p><form method='post' action='' alig>{% csrf_token %}
-<ul>
-{{solidwasteform.as_ul}}
-</ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
-<br> 
+<div id="accordion">
+  <h2> Insert New City: </h2>
+  <div>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{form.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>
+  <br>  
+  <h2> Insert New County: </h2>
+  <div>  
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{countyform.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>  
+  <br> 
+  <h2> Insert Water Input: </h2>
+  <div>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{wform.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form>
+  </p>
+  </div>
+  <br>
+  <div>
+  <h2> Insert New Energy Utility: </h2>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{utilitiesform.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>
+  <br> 
+  <div>
+  <h2> Insert New Energy Electricity Input: </h2>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{electricityform.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>
+  <br> 
+  <h2> Insert New Natural Gas Input: </h2>
+  <div>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{natgasform.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>
+  <br> 
+  <h2> Insert New Waste Processing Facility: </h2>
+  <div>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{wastefacility.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>
+  <br> 
+  <div>
+  <h2> Insert New Solid Waste Input: </h2>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{solidwasteform.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>
+  <br> 
 
 {% endblock %}
