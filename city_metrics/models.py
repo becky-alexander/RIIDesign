@@ -341,16 +341,16 @@ class CityMetricsSolidWasteInput(models.Model):
     year = models.CharField(max_length=4, blank=True)
     county_id = models.IntegerField(null=True, blank=True)
     recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
-    land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    land_dispossed_without_ch4_recovery = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
+    land_dispossed_without_ch4_recovery = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     facility_id1 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id1', blank=True, related_name="Facility I", verbose_name='Utility #1')
-    processed_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    processed_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     facility_id2 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id2', blank=True, related_name="Facility II", verbose_name='Utility #2')
-    processed_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    processed_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     facility_id3 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id3', blank=True, related_name="Facility III", verbose_name='Utility #3')
-    processed_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    processed_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True, related_name="Facility IV", verbose_name='Utility #4')
-    processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     class Meta:
         db_table = u'city_metrics_solid_waste_input'	
     def __unicode__(self):
