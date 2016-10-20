@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block content %}
-
+<div style="display:none"><div id="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></div>
 <div class="panel panel-default" style="max-width:1000px;margin-left:auto; margin-right:auto;">
   <div class="panel-heading">
     <h1 class="panel-title">New City</h1>
@@ -28,6 +28,9 @@
 <body>
 <div id=".accordion">
   
+    <div style="display:none"><div id="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></div>
+    <div style="display:none"><div id="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></div>
+    
   <h2> Insert New City: </h2>
     <div>
     <p><form method='post' action='' alig>{% csrf_token %}
