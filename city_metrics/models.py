@@ -258,7 +258,7 @@ class SpecialTrendLine(models.Model):
 
 
 class CityMetricsWaterInput(models.Model):
-    id = models.IntegerField(primary_key=True)
+#    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, blank=True)
     residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
@@ -271,7 +271,7 @@ class CityMetricsWaterInput(models.Model):
 
 class CityMetricsEnergyUtilities(models.Model):
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=50, blank=True, verbose_name='Utility Name')
     class Meta:
         db_table = u'city_metrics_energy_utilities'
     def __unicode__(self):
@@ -301,15 +301,15 @@ class CityMetricsElectricInput(models.Model):
 
 class CityMetricsNatGasInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
-    city_id = models.ForeignKey(City, db_column='city_id')
+    city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, help_text='ex: 2012')
-    utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility A")
+    utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility A", verbose_name='Utility #1')
     residential_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='insert total residential natural gas')
     com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
-    utility_idb = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility B")
+    utility_idb = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility B", verbose_name='Utility #2')
     residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     com_and_ind_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility C")
+    utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility C", verbose_name='Utility #3')
     residential_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     class Meta:
@@ -343,13 +343,13 @@ class CityMetricsSolidWasteInput(models.Model):
     recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     land_dispossed_without_ch4_recovery = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    facility_id1 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id1', blank=True, related_name="Facility I")
+    facility_id1 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id1', blank=True, related_name="Facility I", verbose_name='Utility #1')
     processed_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    facility_id2 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id2', blank=True, related_name="Facility II")
+    facility_id2 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id2', blank=True, related_name="Facility II", verbose_name='Utility #2')
     processed_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    facility_id3 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id3', blank=True, related_name="Facility III")
+    facility_id3 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id3', blank=True, related_name="Facility III", verbose_name='Utility #3')
     processed_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True, related_name="Facility IV")
+    facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True, related_name="Facility IV", , verbose_name='Utility #4')
     processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     class Meta:
         db_table = u'city_metrics_solid_waste_input'	
