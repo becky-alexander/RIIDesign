@@ -340,7 +340,7 @@ class CityMetricsWasteProcessingFacility(models.Model):
 	
 	
 class CityMetricsSolidWasteInput(models.Model):
-    id = models.IntegerField(primary_key=True)
+#    id = models.IntegerField(primary_key=True)
     year = models.CharField(max_length=4, blank=True)
     county_id = models.IntegerField(null=True, blank=True)
     recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
@@ -358,4 +358,5 @@ class CityMetricsSolidWasteInput(models.Model):
         db_table = u'city_metrics_solid_waste_input'	
     def __unicode__(self):
 	return "%s" % (self.CityMetricsWasteProcessingFacility.facility_name)
+	return "%s" % (self.CityMetricsCounty.county)
 
