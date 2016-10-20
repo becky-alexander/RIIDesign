@@ -68,7 +68,7 @@ class CityMetricsWasteProcessingFacilityForm(forms.ModelForm):
 class CityMetricsSolidWasteInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsSolidWasteInput
-        fields = ["id", "year", "county_id", "recycled", "land_dispossed", 
+        fields = ["year", "county_id", "recycled", "land_dispossed", 
                   "land_dispossed_without_ch4_recovery", "facility_id1",
                  "processed_facility1", "facility_id2", "processed_facility2",
                  "facility_id3", "processed_facility3"]
