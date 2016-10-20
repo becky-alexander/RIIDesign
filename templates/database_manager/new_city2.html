@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Accordion - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
-  </script>
-</head>
-<body>
+{% block extraHead %}
 
+    <link type="text/css" rel="stylesheet" href="/static/css/detail.css"/>
+    <link rel="stylesheet" href="/static/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/static/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+        $(document).ready(function () {
+            $(".accordion").accordion({collapsible: true, heightStyle: "content", active: false});
+        });
+    </script>
+
+{% endblock %}
+
+{% block content %}
 
 <div class="panel panel-default" style="max-width:1000px;margin-left:auto; margin-right:auto;">
   <div class="panel-heading">
@@ -26,7 +26,7 @@
   <div class="panel-body">
 <br> 
 <body>
-<div id="accordion">
+<div id=".accordion">
   
   <h2> Insert New City: </h2>
     <div>
