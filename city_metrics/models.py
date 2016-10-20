@@ -333,8 +333,11 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
 class CityMetricsWasteProcessingFacility(models.Model):
     id = models.IntegerField(primary_key=True)
     facility_name = models.CharField(max_length=50, blank=True)
+    def __unicode__(self):
+	return "%s" % (self.facility_name)    
     class Meta:
         db_table = u'city_metrics_waste_processing_facility'
+	
 	
 class CityMetricsSolidWasteInput(models.Model):
     id = models.IntegerField(primary_key=True)
