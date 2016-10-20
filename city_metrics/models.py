@@ -349,7 +349,7 @@ class CityMetricsSolidWasteInput(models.Model):
     processed_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     facility_id3 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id3', blank=True, related_name="Facility III", verbose_name='Utility #3')
     processed_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True, related_name="Facility IV", , verbose_name='Utility #4')
+    facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True, related_name="Facility IV", verbose_name='Utility #4')
     processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     class Meta:
         db_table = u'city_metrics_solid_waste_input'	
