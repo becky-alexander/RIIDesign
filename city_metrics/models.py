@@ -360,3 +360,24 @@ class CityMetricsSolidWasteInput(models.Model):
 	return "%s" % (self.CityMetricsWasteProcessingFacility.facility_name)
 	return "%s" % (self.CityMetricsCounty.county)
 
+class CityMetricsWastewaterFacility(models.Model):
+    id = models.IntegerField(primary_key=True)
+    wastewater_facility = models.CharField(max_length=50, blank=True)
+    class Meta:
+        db_table = u'city_metrics_wastewater_facility'
+	
+class CityMetricsWastewaterInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id models.ForeignKey(City, db_column='city_id', verbose_name='City')
+    year = models.CharField(max_length=4, blank=True)
+    wastewater_facility1 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility I")
+    wastewater_treated_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_facility2 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility II")
+    wastewater_treated_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_facility3 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility III")
+    wastewater_treated_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    class Meta:
+        db_table = u'city_metrics_wastewater_input'
+    def __unicode__(self):
+	return "%s" % (self.CityMetricsWastewaterFacility.wastewater_facility)
+
