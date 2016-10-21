@@ -1,5 +1,5 @@
 from django import forms
-from city_metrics.models import CityMetricsSolidWasteInput, City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput 
+from city_metrics.models import CityMetricsWastewaterInput, City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput 
 from django.utils.translation import ugettext as _
 
 #class CityMetricsCityForm(forms.ModelForm):
@@ -75,7 +75,7 @@ class CityMetricsSolidWasteInputForm(forms.ModelForm):
         
 class CityMetricsSolidWasteInputForm(forms.ModelForm):
     class Meta:
-        model = CityMetricsSolidWasteInput
+        model = CityMetricsWastewaterInput
         fields = ["id", "year", "city_id", "wastewater_facility1", "wastewater_treated_facility1", 
                   "wastewater_facility2", "wastewater_treated_facility2",
                  "wastewater_facility3", "wastewater_treated_facility3"]    
