@@ -37,6 +37,7 @@ def new_city2(request):
         energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
 	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
         solidwasteform = CityMetricsSolidWasteInputForm(request.POST)
+
 	context = {
           	"form": form,
 	  	"wform": wform,
