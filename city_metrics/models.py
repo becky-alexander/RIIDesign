@@ -373,11 +373,11 @@ class CityMetricsWastewaterInput(models.Model):
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, blank=True)
     wastewater_facility1 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility I")
-    wastewater_treated_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_treated_facility1_id = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     wastewater_facility2 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility II")
-    wastewater_treated_facility2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_treated_facility2_id = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     wastewater_facility3 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility III")
-    wastewater_treated_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    wastewater_treated_facility3_id = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     class Meta:
         db_table = u'city_metrics_wastewater_input'
     def __unicode__(self):
