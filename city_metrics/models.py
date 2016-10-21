@@ -365,6 +365,8 @@ class CityMetricsWastewaterFacility(models.Model):
     wastewater_facility = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_wastewater_facility'
+    def __unicode__(self):
+	return "%s" % (self.wastewater_facility)
 	
 class CityMetricsWastewaterInput(models.Model):
     id = models.IntegerField(primary_key=True)
