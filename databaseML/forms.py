@@ -43,7 +43,7 @@ class CityMetricsElectricInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsElectricInput
         fields = ["city_id", "year", "utility_id1", "residential_electricity",
-        "com_and_ind_electricity", "residential_wind_electricity", "com_and_ind_electricity", "utility_id2",
+        "com_and_ind_electricity", "residential_wind_electricity", "com_and_ind_wind_electricity", "com_and_ind_electricity", "utility_id2",
         "residential_electricity2", "com_and_ind_electricity2", "residential_wind_electricity2", "com_and_ind_wind_electricity2",
         "utility_id3", "residential_electricity3",
         "com_and_ind_electricity3", "residential_wind_electricity3", "com_and_ind_wind_electricity3"]
