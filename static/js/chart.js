@@ -228,7 +228,7 @@ function chartUpdate_Success(data) {
         series: seriesData
     };
 
-    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
     chart.draw(gData, options);
 
 }
