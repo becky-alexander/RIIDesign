@@ -368,7 +368,7 @@ class CityMetricsWastewaterFacility(models.Model):
 	
 class CityMetricsWastewaterInput(models.Model):
     id = models.IntegerField(primary_key=True)
-    city_id models.ForeignKey(City, db_column='city_id', verbose_name='City')
+    city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, blank=True)
     wastewater_facility1 = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility I")
     wastewater_treated_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
