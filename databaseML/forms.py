@@ -76,7 +76,7 @@ class CityMetricsSolidWasteInputForm(forms.ModelForm):
 class CityMetricsWastewaterInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsWastewaterInput
-        fields = ["id", "year", "city_id", "wastewater_facility1", "wastewater_treated_facility1", 
-                  "wastewater_facility2", "wastewater_treated_facility2",
-                 "wastewater_facility3", "wastewater_treated_facility3"]    
+        fields = ["id", "year", "city_id", "wastewater_facility1_id", "wastewater_treated_facility1", 
+                  "wastewater_facility2_id", "wastewater_treated_facility2",
+                 "wastewater_facility3_id", "wastewater_treated_facility3"]    
         
