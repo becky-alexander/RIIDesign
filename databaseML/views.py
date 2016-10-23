@@ -126,6 +126,6 @@ def query_data(request):
         citys = City.objects.exclude
 	return render(request, 'database_manager/query_data.html', {
                 'citys': citys,
-                }
+                })
 
 #comment
