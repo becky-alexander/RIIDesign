@@ -382,3 +382,11 @@ class CityMetricsWastewaterInput(models.Model):
         db_table = u'city_metrics_wastewater_input'
     def __unicode__(self):
 	return "%s" % (self.CityMetricsWastewaterFacility.wastewater_facility)
+
+
+class CityMetricsOtherEnergyType(models.Model):
+    id = models.IntegerField(primary_key=True)
+    other_fuel_name = models.CharField(max_length=50, blank=True)
+    class Meta:
+        db_table = u'city_metrics_other_energy_type
+	
