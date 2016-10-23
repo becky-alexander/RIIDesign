@@ -390,3 +390,24 @@ class CityMetricsOtherEnergyType(models.Model):
     class Meta:
         db_table = u'city_metrics_other_energy_type
 	
+class CityMetricsOtherEnergyInput(models.Model):
+    id = models.IntegerField(primary_key=True)
+    city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
+    year = models.CharField(max_length=4)
+    other_fuel_type1 = models.ForeignKey(CityMetricsOtherEnergyType, db_column='other_fuel_type1',  related_name="other_fuel_I")
+    other_fuel_amount1_residential = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_amount1_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_type2 = models.ForeignKey(CityMetricsOtherEnergyType, db_column='other_fuel_type2',  related_name="other_fuel_II")
+    other_fuel_amount2_residential = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_amount2_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_type3 = models.ForeignKey(CityMetricsOtherEnergyType, db_column='other_fuel_type3' related_name="other_fuel_III")
+    other_fuel_amount3_residential = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_amount3_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_type4 = models.ForeignKey(CityMetricsOtherEnergyType, db_column='other_fuel_type4' related_name="other_fuel_IV")
+    other_fuel_amount4_residential = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_amount4_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_type5 = models.ForeignKey(CityMetricsOtherEnergyType, db_column='other_fuel_type5' related_name="other_fuel_V")
+    other_fuel_amount5_residential = models.DecimalField(max_digits=16, decimal_places=4)
+    other_fuel_amount5_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
+    class Meta:
+        db_table = u'city_metrics_other_energy_input'
