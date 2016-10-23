@@ -91,6 +91,8 @@ def new_city2(request):
             print "is valid"
             wastewaterform.save()
             return HttpResponseRedirect('/new_city3/')
+	else:
+	    print "invalid"
 
 	return render(request, 'database_manager/new_city2.html', context)
 
