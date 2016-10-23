@@ -287,15 +287,15 @@ class CityMetricsElectricInput(models.Model):
     residential_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
     com_and_ind_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
     utility_id2 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility II", verbose_name='Utility #2')
-    residential_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    residential_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    residential_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
+    com_and_ind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
+    residential_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
+    com_and_ind_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     utility_id3 = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_id3', blank=True, related_name="Utility III", verbose_name='Utility #3')
-    residential_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    residential_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    residential_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
+    com_and_ind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
+    residential_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
+    com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     class Meta:
         db_table = u'city_metrics_electric_input'
 
@@ -334,11 +334,11 @@ class CityMetricsWasteProcessingFacility(models.Model):
     id = models.IntegerField(primary_key=True)
     facility_name = models.CharField(max_length=50, blank=True)
     def __unicode__(self):
-	return "%s" % (self.facility_name)    
+	return "%s" % (self.facility_name)
     class Meta:
         db_table = u'city_metrics_waste_processing_facility'
-	
-	
+
+
 class CityMetricsSolidWasteInput(models.Model):
     id = models.IntegerField(primary_key=True)
     year = models.CharField(max_length=4, blank=True)
@@ -355,7 +355,7 @@ class CityMetricsSolidWasteInput(models.Model):
     facility_id4 = models.ForeignKey(CityMetricsWasteProcessingFacility, null=True, db_column='facility_id4', blank=True, related_name="Facility IV", verbose_name='Utility #4')
     processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     class Meta:
-        db_table = u'city_metrics_solid_waste_input'	
+        db_table = u'city_metrics_solid_waste_input'
     def __unicode__(self):
 	return "%s" % (self.CityMetricsWasteProcessingFacility.facility_name)
 	return "%s" % (self.CityMetricsCounty.county)
@@ -367,7 +367,7 @@ class CityMetricsWastewaterFacility(models.Model):
         db_table = u'city_metrics_wastewater_facility'
     def __unicode__(self):
 	return "%s" % (self.wastewater_facility)
-	
+
 class CityMetricsWastewaterInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
@@ -382,4 +382,3 @@ class CityMetricsWastewaterInput(models.Model):
         db_table = u'city_metrics_wastewater_input'
     def __unicode__(self):
 	return "%s" % (self.CityMetricsWastewaterFacility.wastewater_facility)
-
