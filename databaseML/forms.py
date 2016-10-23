@@ -1,5 +1,5 @@
 from django import forms
-from city_metrics.models import CityMetricsWastewaterInput, City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput 
+from city_metrics.models import CityMetricsWastewaterInput, City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput
 from django.utils.translation import ugettext as _
 
 #class CityMetricsCityForm(forms.ModelForm):
@@ -43,7 +43,7 @@ class CityMetricsElectricInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsElectricInput
         fields = ["city_id", "year", "utility_id1", "residential_electricity",
-        "com_and_ind_electricity", "residential_wind_electricity", "com_and_ind_wind_electricity", "com_and_ind_electricity", "utility_id2",
+        "com_and_ind_electricity", "residential_wind_electricity", "com_and_ind_wind_electricity", "utility_id2",
         "residential_electricity2", "com_and_ind_electricity2", "residential_wind_electricity2", "com_and_ind_wind_electricity2",
         "utility_id3", "residential_electricity3",
         "com_and_ind_electricity3", "residential_wind_electricity3", "com_and_ind_wind_electricity3"]
@@ -60,23 +60,22 @@ class CityMetricsEnergyUtilitiesEmissionFactorsForm(forms.ModelForm):
         model = CityMetricsEnergyUtilitiesEmissionFactors
         fields = ["year", "utility", "type", "co2_ef", "n2o_ef", "ch4_ef"]
 
-class CityMetricsWasteProcessingFacilityForm(forms.ModelForm): 
+class CityMetricsWasteProcessingFacilityForm(forms.ModelForm):
     class Meta:
         model = CityMetricsWasteProcessingFacility
         fields = ["id", "facility_name"]
-        
+
 class CityMetricsSolidWasteInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsSolidWasteInput
-        fields = ["id", "year", "county_id", "recycled", "land_dispossed", 
+        fields = ["id", "year", "county_id", "recycled", "land_dispossed",
                   "land_dispossed_without_ch4_recovery", "facility_id1",
                  "processed_facility1", "facility_id2", "processed_facility2",
                  "facility_id3", "processed_facility3"]
-        
+
 class CityMetricsWastewaterInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsWastewaterInput
-        fields = ["id", "year", "city_id", "wastewater_facility1_id", "wastewater_treated_facility1", 
+        fields = ["id", "year", "city_id", "wastewater_facility1_id", "wastewater_treated_facility1",
                   "wastewater_facility2_id", "wastewater_treated_facility2",
-                 "wastewater_facility3_id", "wastewater_treated_facility3"]    
-        
+                 "wastewater_facility3_id", "wastewater_treated_facility3"]
