@@ -35,20 +35,20 @@ def new_city2(request):
         electricityform = CityMetricsElectricInputForm(request.POST)
         natgasform = CityMetricsNatGasInputForm(request.POST)
         energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
-	    wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
+	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
         solidwasteform = CityMetricsSolidWasteInputForm(request.POST)
-	    wastewaterform = CityMetricsWastewaterInputForm(request.POST)
-	    context = {
-            "form": form,
-	  	    "wform": wform,
-          	"utilitiesform": utilitiesform,
-	  	    "countyform": countyform,
-            "electricityform" : electricityform,
-            "natgasform" : natgasform,
-            "energyutilitiesEFform" : energyutilitiesEFform,
-		    "wastefacilityform" : wastefacilityform,
-	        "solidwasteform" : solidwasteform,
-		    "wastewaterform" : wastewaterform,
+	wastewaterform = CityMetricsWastewaterInputForm(request.POST)
+	context = {
+	    "form": form,
+	    "wform": wform,
+	    "utilitiesform": utilitiesform,
+	    "countyform": countyform,
+	    "electricityform" : electricityform,
+	    "natgasform" : natgasform,
+	    "energyutilitiesEFform" : energyutilitiesEFform,
+	    "wastefacilityform" : wastefacilityform,
+	    "solidwasteform" : solidwasteform,
+	    "wastewaterform" : wastewaterform,
         }
 
         if form.is_valid():
