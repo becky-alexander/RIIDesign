@@ -388,7 +388,7 @@ class CityMetricsOtherEnergyType(models.Model):
     id = models.IntegerField(primary_key=True)
     other_fuel_name = models.CharField(max_length=50, blank=True)
     class Meta:
-        db_table = u'city_metrics_other_energy_type
+        db_table = u'city_metrics_other_energy_type'
 	
 class CityMetricsOtherEnergyInput(models.Model):
     id = models.IntegerField(primary_key=True)
