@@ -87,7 +87,7 @@ def new_city2(request):
             solidwasteform.save()
             return HttpResponseRedirect('/new_city3/')
 
-	    if wastewaterform.is_valid():
+	if wastewaterform.is_valid():
             print "is valid"
             wastewaterform.save()
             return HttpResponseRedirect('/new_city3/')
