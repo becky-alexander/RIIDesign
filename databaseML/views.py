@@ -37,7 +37,7 @@ def new_city2(request):
         energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
 	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
         solidwasteform = CityMetricsSolidWasteInputForm(request.POST)
-	wastewaterform = CityMetricsWastewaterInputForm(request.POST) 
+	wastewaterform = CityMetricsWastewaterInputForm(request.POST)
 	context = {
           	"form": form,
 	  	"wform": wform,
@@ -78,7 +78,7 @@ def new_city2(request):
         if energyutilitiesEFform.is_valid():
             energyutilitiesEFform.save()
             return HttpResponseRedirect('/new_city3/')
-	
+
         if wastefacilityform.is_valid():
             wastefacilityform.save()
             return HttpResponseRedirect('/new_city3/')
@@ -86,7 +86,7 @@ def new_city2(request):
         if solidwasteform.is_valid():
             solidwasteform.save()
             return HttpResponseRedirect('/new_city3/')
-        
+
 	if wastewaterform.is_valid():
             wastewaterform.save()
             return HttpResponseRedirect('/new_city3/')
@@ -126,4 +126,6 @@ def query_data(request):
         citys = City.objects.exclude
 	return render(request, 'database_manager/query_data.html', {
                 'citys': citys,
-                })
+                }
+
+#comment
