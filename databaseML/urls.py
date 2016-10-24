@@ -15,5 +15,5 @@ urlpatterns = [
     url(r'^new_city2/', views.wastefacilityform_add, name = 'wastefacilityform_add'),
     url(r'^new_city2/', views.wastefacilityform_add, name = 'wastefacilityform_add'),
     url(r'^new_city2/', views.otherenergyform_add, name = 'otherenergyform_add'),    
-    url(r'^new_city3/', views.new_city3, name = 'new_city3'),
+    url(r'^new_city3/', views.electricityform_add, name = 'electricityform_add'),
 ]
