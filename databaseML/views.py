@@ -30,7 +30,7 @@ def new_city(request):
 def wform_add(request):
 	wform = CityMetricsWaterInputForm(request.POST)
 	context = {
-	    "wform": wform,
+	    "wform": wform,}
 	if wform.is_valid():
             wform.save()
             return HttpResponseRedirect('/new_city3/')	
@@ -41,7 +41,7 @@ def wform_add(request):
 def electricityform_add(request):        
 	electricityform = CityMetricsElectricInputForm(request.POST)
 	context = {
-	    "electricityform" : electricityform,
+	    "electricityform" : electricityform,}
 	if electricityform.is_valid():
             electricityform.save()
             return HttpResponseRedirect('/new_city3/')	
@@ -51,7 +51,7 @@ def electricityform_add(request):
 def natgasform_add(request):	
         natgasform = CityMetricsNatGasInputForm(request.POST)
 	context = {
-	    "natgasform" : natgasform,
+	    "natgasform" : natgasform,}
 	if natgasform.is_valid():
             natgasform.save()
             return HttpResponseRedirect('/new_city3/')	
@@ -61,7 +61,7 @@ def natgasform_add(request):
 def wastefacilityform_add(request):	
 	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
 	context = {
-	    "wastefacilityform" : wastefacilityform,
+	    "wastefacilityform" : wastefacilityform,}
 	if wastefacilityform.is_valid():
             wastefacilityform.save()
             return HttpResponseRedirect('/new_city3/')	
@@ -71,7 +71,7 @@ def wastefacilityform_add(request):
 def solidwasteform_add(request):	
         solidwasteform = CityMetricsSolidWasteInputForm(request.POST)
 	context = {
-	    "solidwasteform" : solidwasteform,
+	    "solidwasteform" : solidwasteform,}
 	if solidwasteform.is_valid():
             solidwasteform.save()
             return HttpResponseRedirect('/new_city3/')	
@@ -81,7 +81,7 @@ def solidwasteform_add(request):
 def wastewaterform_add(request):	
 	wastewaterform = CityMetricsWastewaterInputForm(request.POST)
 	context = {
-	    "wastewaterform" : wastewaterform,
+	    "wastewaterform" : wastewaterform,}
 	if wastewaterform.is_valid():
             wastewaterform.save()
             return HttpResponseRedirect('/new_city3/')	
@@ -91,7 +91,7 @@ def wastewaterform_add(request):
 def otherenergyform_add(request):	
 	otherenergyform = CityMetricsOtherEnergyInputForm(request.POST)
 	context = {
-	    "otherenergyform" : otherenergyform,
+	    "otherenergyform" : otherenergyform,}
 	if otherenergyform.is_valid():
             otherenergyform.save()
             return HttpResponseRedirect('/new_city3/')	
