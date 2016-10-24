@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from city_metrics.models import CityMetricsWastewaterInput, City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput
+from city_metrics.models import City, Energy, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput, CityMetricsOtherEnergyInput, CityMetricsWastewaterInput 
 from utility import setDetailContext
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
-from databaseML.forms import CityMetricsWastewaterInputForm, CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm, CityMetricsElectricInputForm, CityMetricsNatGasInputForm, CityMetricsEnergyUtilitiesEmissionFactorsForm, CityMetricsWasteProcessingFacilityForm, CityMetricsSolidWasteInputForm
+from databaseML.forms import CityForm, EnergyForm, CityMetricsWaterInputForm, CityMetricsEnergyUtilitiesForm, CityMetricsCountyForm, CityMetricsElectricInputForm, CityMetricsNatGasInputForm, CityMetricsEnergyUtilitiesEmissionFactorsForm, CityMetricsWasteProcessingFacilityForm, CityMetricsSolidWasteInputForm, CityMetricsOtherEnergyInputForm, CityMetricsWastewaterInputForm 
 
 
 def database(request):
@@ -28,27 +28,29 @@ def new_city(request):
 
 @login_required
 def new_city2(request):
-    	form = CityForm(request.POST)
+#    	form = CityForm(request.POST)
     	wform = CityMetricsWaterInputForm(request.POST)
-    	utilitiesform = CityMetricsEnergyUtilitiesForm(request.POST)
-        countyform = CityMetricsCountyForm(request.POST)
+#    	utilitiesform = CityMetricsEnergyUtilitiesForm(request.POST)
+#        countyform = CityMetricsCountyForm(request.POST)
         electricityform = CityMetricsElectricInputForm(request.POST)
         natgasform = CityMetricsNatGasInputForm(request.POST)
-        energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
-	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
+#        energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
+#	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
         solidwasteform = CityMetricsSolidWasteInputForm(request.POST)
 	wastewaterform = CityMetricsWastewaterInputForm(request.POST)
+	otherenergy = CityMetricsOtherEnergyInputForm(request.POST)
 	context = {
-	    "form": form,
+#	    "form": form,
 	    "wform": wform,
-	    "utilitiesform": utilitiesform,
-	    "countyform": countyform,
+#	    "utilitiesform": utilitiesform,
+#	    "countyform": countyform,
 	    "electricityform" : electricityform,
 	    "natgasform" : natgasform,
-	    "energyutilitiesEFform" : energyutilitiesEFform,
+#	    "energyutilitiesEFform" : energyutilitiesEFform,
 	    "wastefacilityform" : wastefacilityform,
 	    "solidwasteform" : solidwasteform,
 	    "wastewaterform" : wastewaterform,
+	    "otherenergyform" : otherenergyform,	
         }
 
         if form.is_valid():
@@ -91,8 +93,11 @@ def new_city2(request):
             print "is valid"
             wastewaterform.save()
             return HttpResponseRedirect('/new_city3/')
-	else:
-	    print "invalid"
+
+	if otherenergyform.is_valid():
+            print "is valid"
+            otherenergyform.save()
+            return HttpResponseRedirect('/new_city2/')
 
 	return render(request, 'database_manager/new_city2.html', context)
 
