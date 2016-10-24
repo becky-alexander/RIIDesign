@@ -1,5 +1,5 @@
 from django import forms
-from city_metrics.models import CityMetricsWastewaterInput, City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput
+from city_metrics.models import  City, Energy, CityMetricsWaterInput, CityMetricsEnergyUtilities, CityMetricsCounty, CityMetricsElectricInput, CityMetricsNatGasInput, CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsWasteProcessingFacility, CityMetricsSolidWasteInput, CityMetricsOtherEnergyInput, CityMetricsWastewaterInput
 from django.utils.translation import ugettext as _
 
 #class CityMetricsCityForm(forms.ModelForm):
@@ -76,6 +76,18 @@ class CityMetricsSolidWasteInputForm(forms.ModelForm):
 class CityMetricsWastewaterInputForm(forms.ModelForm):
     class Meta:
         model = CityMetricsWastewaterInput
-        fields = ["id", "year", "city_id", "wastewater_facility1_id", "wastewater_treated_facility1",
+        fields = ["id", "city_id", "year", "wastewater_facility1_id", "wastewater_treated_facility1",
                   "wastewater_facility2_id", "wastewater_treated_facility2",
                  "wastewater_facility3_id", "wastewater_treated_facility3"]
+
+class CityMetricsOtherEnergyInputForm(forms.ModelForm):
+    class Meta:
+        model = CityMetricsOtherEnergyInput
+        fields = ["id", "city_id", "year",  "other_fuel_type1", "other_fuel_amount1_residential",
+                  "other_fuel_amount1_com_and_ind", "other_fuel_type2", "other_fuel_amount2_residential",
+                  "other_fuel_amount2_com_and_ind","other_fuel_type3", "other_fuel_amount3_residential",
+                  "other_fuel_amount3_com_and_ind","other_fuel_type4", "other_fuel_amount4_residential",
+                  "other_fuel_amount4_com_and_ind","other_fuel_type5", "other_fuel_amount5_residential",
+                  "other_fuel_amount5_com_and_ind"]
+        
+  
