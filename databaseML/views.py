@@ -26,12 +26,12 @@ def new_city(request):
 	return render(request, 'database_manager/new_city.html')
 
 
-def MainView(self, request, *args, **kwargs):
-        electricityform = CityMetricsElectricInputForm(self.request.GET or None)
-        wform = CityMetricsWaterInputForm(request.POST)
-        context = self.get_context_data(**kwargs)
-        context['electricityform'] = electricityform
-        context['wform'] = wform
+def MainView(request):
+        electricityform = CityMetricsElectricInputForm(request.GET)
+        wform = CityMetricsWaterInputForm(request.GET)
+        context = {
+        	'electricityform' = electricityform,
+        	'wform'	= wform
         return self.render_to_response(context)
 
 
