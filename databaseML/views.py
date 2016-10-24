@@ -53,21 +53,21 @@ def new_city2(request):
 	    "otherenergyform" : otherenergyform,	
         }
 
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/new_city3/')
+#        if form.is_valid():
+#            form.save()
+#            return HttpResponseRedirect('/new_city3/')
 
         if wform.is_valid():
             wform.save()
             return HttpResponseRedirect('/new_city3/')
 
-        if utilitiesform.is_valid():
-            utilitiesform.save()
-            return HttpResponseRedirect('/new_city3/')
+#        if utilitiesform.is_valid():
+#            utilitiesform.save()
+#            return HttpResponseRedirect('/new_city3/')
 
-        if countyform.is_valid():
-            countyform.save()
-            return HttpResponseRedirect('/new_city3/')
+#        if countyform.is_valid():
+#            countyform.save()
+#            return HttpResponseRedirect('/new_city3/')
 
         if electricityform.is_valid():
             electricityform.save()
@@ -77,9 +77,9 @@ def new_city2(request):
             natgasform.save()
             return HttpResponseRedirect('/new_city3/')
 
-        if energyutilitiesEFform.is_valid():
-            energyutilitiesEFform.save()
-            return HttpResponseRedirect('/new_city3/')
+#        if energyutilitiesEFform.is_valid():
+#            energyutilitiesEFform.save()
+#            return HttpResponseRedirect('/new_city3/')
 
         if wastefacilityform.is_valid():
             wastefacilityform.save()
