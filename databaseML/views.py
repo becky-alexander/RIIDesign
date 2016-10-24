@@ -26,7 +26,7 @@ def new_city(request):
 	return render(request, 'database_manager/new_city.html')
 
 
-class MainView(TemplateView):
+class MainView(request):
     template_name = 'database_manager/new_city2.html'
 
     def get(self, request, *args, **kwargs):
