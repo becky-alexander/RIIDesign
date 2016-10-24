@@ -23,15 +23,18 @@
 
 
 <div class="accordion">
+
 <h2> Insert Water Input: </h2>
 <div class="accordion_sect">
-<p><form method='post' action='' alig>{% csrf_token %}
+<p> To complete this form you are going to need:
 <ul>
-{{wform.as_ul}}
+  <li> Residential Water Consumption of your city </li>
+  <li> Commerical and Industrial Water Consumptio of your city </li>
 </ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form>
 </p>
+<form action="/waterform/">
+    <input type="submit" value="Go to Form" />
+</form>
 </div>
 
 
