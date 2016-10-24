@@ -30,8 +30,8 @@ def MainView(request):
         electricityform = CityMetricsElectricInputForm(request.GET)
         wform = CityMetricsWaterInputForm(request.GET)
         context = {
-        	'electricityform' = electricityform,
-        	'wform'	= wform}
+        	"electricityform" : electricityform,
+        	"wform"	: wform,}
         return self.render_to_response(context)
 
 
