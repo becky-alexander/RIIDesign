@@ -31,7 +31,7 @@ class MainView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         electricityform = CityMetricsElectricInputForm(self.request.GET or None)
-        wform = CityMetricsWaterInputForm(request.POST))
+        wform = CityMetricsWaterInputForm(request.POST)
         context = self.get_context_data(**kwargs)
         context['electricityform'] = electricityform
         context['wform'] = wform
