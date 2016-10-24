@@ -32,7 +32,7 @@ def MainView(request):
         context = {
         	"electricityform" : electricityform,
         	"wform"	: wform,}
-        return self.render_to_response(context)
+        return render(request, 'database_manager/new_city2.html', context)
 
 
 		
