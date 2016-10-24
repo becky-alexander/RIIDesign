@@ -66,7 +66,7 @@ def natgasform_add(request):
 	if natgasform.is_valid():
             natgasform.save()
             return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/new_city2.html', context)
+	return render(request, 'database_manager/forms/natgasform.html', context)
 
 @login_required	
 def wastefacilityform_add(request):	
@@ -96,7 +96,7 @@ def wastewaterform_add(request):
 	if wastewaterform.is_valid():
             wastewaterform.save()
             return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/new_city2.html', context)		      
+	return render(request, 'database_manager/forms/wastewaterform.html', context)		      
 
 @login_required		      
 def otherenergyform_add(request):	
@@ -106,7 +106,7 @@ def otherenergyform_add(request):
 	if otherenergyform.is_valid():
             otherenergyform.save()
             return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/new_city2.html', context)
+	return render(request, 'database_manager/forms/otherenergyform.html', context)
 
 #  
 
