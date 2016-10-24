@@ -106,7 +106,7 @@ def otherenergyform_add(request):
 	if otherenergyform.is_valid():
             otherenergyform.save()
             return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/forms/otherenergyform.html', context)
+	return render(request, 'database_manager/forms/otherfuelform.html', context)
 
 #  
 
