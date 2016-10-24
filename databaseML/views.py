@@ -44,7 +44,7 @@ def electricityform_add(request):
 	if electricityform.is_valid():
             electricityform.save()
             return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/new_city2.html', context)
+	return render(request, 'database_manager/forms/electricityform.html', context)
 
 @login_required
 def wform_add(request):
@@ -54,7 +54,7 @@ def wform_add(request):
 	if wform.is_valid():
             wform.save()
             return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/new_city2.html', context)	
+	return render(request, 'database_manager/forms/waterform.html', context)	
 
 	
 		
