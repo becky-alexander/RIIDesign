@@ -25,6 +25,16 @@ def city_detail(request, id):
 def new_city(request):
 	return render(request, 'database_manager/new_city.html')
 
+		
+@login_required
+def electricityform_add(request):        
+	electricityform = CityMetricsElectricInputForm(request.POST)
+	context = {
+	    "electricityform" : electricityform,}
+	if electricityform.is_valid():
+            electricityform.save()
+            return HttpResponseRedirect('/new_city3/')	
+	return render(request, 'database_manager/new_city2.html', context)
 
 @login_required
 def wform_add(request):
@@ -36,16 +46,7 @@ def wform_add(request):
             return HttpResponseRedirect('/new_city3/')	
 	return render(request, 'database_manager/new_city2.html', context)	
 
-		
-@login_required
-def electricityform_add(request):        
-	electricityform = CityMetricsElectricInputForm(request.POST)
-	context = {
-	    "electricityform" : electricityform,}
-	if electricityform.is_valid():
-            electricityform.save()
-            return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/new_city2.html', context)	
+	
 		
 @login_required		
 def natgasform_add(request):	
