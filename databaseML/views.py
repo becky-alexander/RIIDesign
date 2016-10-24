@@ -35,7 +35,7 @@ def new_city2(request):
         electricityform = CityMetricsElectricInputForm(request.POST)
         natgasform = CityMetricsNatGasInputForm(request.POST)
 #        energyutilitiesEFform = CityMetricsEnergyUtilitiesForm(request.POST)
-#	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
+	wastefacilityform = CityMetricsWasteProcessingFacilityForm(request.POST)
         solidwasteform = CityMetricsSolidWasteInputForm(request.POST)
 	wastewaterform = CityMetricsWastewaterInputForm(request.POST)
 	otherenergy = CityMetricsOtherEnergyInputForm(request.POST)
