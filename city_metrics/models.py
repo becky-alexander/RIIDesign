@@ -291,7 +291,7 @@ class CityMetricsElectricInput(models.Model):
     com_and_ind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     residential_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     com_and_ind_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
-    utility_id3 = models.ForeignKey(CityMetricsEnergyUtilities, null=True, , db_column='id', blank=True, related_name="Utility III", verbose_name='Utility #3')
+    utility_id3 = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='id', blank=True, related_name="Utility III", verbose_name='Utility #3')
     residential_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     com_and_ind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     residential_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
