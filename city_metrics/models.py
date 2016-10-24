@@ -281,7 +281,7 @@ class CityMetricsElectricInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, help_text='ex: 2012')
-    utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility I", verbose_name='Utility #1')
+    utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility I", verbose_name='Utility #1', db_column='id')
     residential_electricity = models.DecimalField(max_digits=16, decimal_places=4)
     com_and_ind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
     residential_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4)
