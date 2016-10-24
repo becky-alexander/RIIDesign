@@ -28,8 +28,8 @@
 <div class="accordion_sect">
 <p> To complete this form you are going to need:
 <ul>
-  <li> Residential Water Consumption of your city </li>
-  <li> Commerical and Industrial Water Consumptio of your city </li>
+  <li> Residential Water Consumption of your city (in gallons)</li>
+  <li> Commerical and Industrial Water Consumptio of your city (in gallons)</li>
 </ul>
 </p>
 <form action="/waterform/">
@@ -39,53 +39,68 @@
 
 
 <h2> Insert New Energy Electricity Input: </h2>
-<div>
-<p><form method='post' action='' alig>{% csrf_token %}
+<div class="accordion_sect">
+<p> <b>To complete this form you are going to need:</b>
 <ul>
-{{electricityform.as_ul}}
+  <li> Residential Electricity of your city </li>
+  <li> Commerical and Industrial Electicity Consumption of your city </li>
 </ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
+</p>
+<form action="/electricityform/">
+    <input type="submit" value="Go to Form" />
+</form>
 </div>
 
 <h2> Insert New Natural Gas Input: </h2>
-<div>
-<p><form method='post' action='' alig>{% csrf_token %}
+<div class="accordion_sect">
+<p> <b>To complete this form you are going to need:</b>
 <ul>
-{{natgasform.as_ul}}
+  <li> X </li>
+  <li> Y </li>
 </ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
+</p>
+<form action="/natgasform/">
+    <input type="submit" value="Go to Form" />
+</form>
 </div>
 
 <h2> Insert New Solid Waste Input: </h2>
-<div>
-<p><form method='post' action='' alig>{% csrf_token %}
+<div class="accordion_sect">
+<p> To complete this form you are going to need:
 <ul>
-{{solidwasteform.as_ul}}
+  <li> X </li>
+  <li> Y </li>
 </ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
+</p>
+<form action="/solidwasteform/">
+    <input type="submit" value="Go to Form" />
+</form>
 </div>
 
 <h2> Insert New Wastewater Input: </h2>
-<div>
-<p><form method='post' action='' alig>{% csrf_token %}
+<div class="accordion_sect">
+<p> To complete this form you are going to need:
 <ul>
-{{wastewaterform.as_ul}}
+  <li> X </li>
+  <li> Y </li>
 </ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
+</p>
+<form action="/wastewaterform/">
+    <input type="submit" value="Go to Form" />
+</form>
 </div>
 
 <h2> Insert New Other Fuel Input: </h2>
-<div>
-<p><form method='post' action='' alig>{% csrf_token %}
+<div class="accordion_sect">
+<p> To complete this form you are going to need:
 <ul>
-{{otherenergyform.as_ul}}
+  <li> Residential Water Consumption of your city </li>
+  <li> Commerical and Industrial Water Consumptio of your city </li>
 </ul>
-<input class="btn btn-default" type="submit" value="Submit" />
-</form></p>
+</p>
+<form action="/otherfuelform/">
+    <input type="submit" value="Go to Form" />
+</form>
 </div>
 
       </div>
