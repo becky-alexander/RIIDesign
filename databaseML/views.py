@@ -86,7 +86,7 @@ def solidwasteform_add(request):
 	if solidwasteform.is_valid():
             solidwasteform.save()
             return HttpResponseRedirect('/new_city3/')	
-	return render(request, 'database_manager/new_city2.html', context)	      
+	return render(request, 'database_manager/forms/solidwasteform.html', context)	      
 
 @login_required	
 def wastewaterform_add(request):	
