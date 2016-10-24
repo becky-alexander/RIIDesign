@@ -25,6 +25,19 @@ def city_detail(request, id):
 def new_city(request):
 	return render(request, 'database_manager/new_city.html')
 
+
+class MainView(TemplateView):
+    template_name = 'database_manager/new_city2.html'
+
+    def get(self, request, *args, **kwargs):
+        electricityform = CityMetricsElectricInputForm(self.request.GET or None)
+        wform = CityMetricsWaterInputForm(request.POST))
+        context = self.get_context_data(**kwargs)
+        context['electricityform'] = electricityform
+        context['wform'] = wform
+        return self.render_to_response(context)
+
+
 		
 @login_required
 def electricityform_add(request):        
