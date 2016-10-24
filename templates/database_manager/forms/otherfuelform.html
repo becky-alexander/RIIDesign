@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id='content'>
+  <h2> Insert New Other Fuel Input: </h2>
+  <div>
+  <p><form method='post' action='' alig>{% csrf_token %}
+  <ul>
+  {{otherenergyform.as_ul}}
+  </ul>
+  <input class="btn btn-default" type="submit" value="Submit" />
+  </form></p>
+  </div>
+</div>
+
+{% endblock %}
