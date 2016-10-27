@@ -98,10 +98,10 @@ def update_chart(request):
         if unit == 'btu':
             stats = Energy.objects.all().order_by('city__sort_order')
             if normalize != 'none':
-                v_axis_label = 'kBtu'
+                h_axis_label = 'kBtu'
             else:
-                v_axis_label = 'MMBtu'
-            v_axis_format = '#,###.##'
+                h_axis_label = 'MMBtu'
+            h_axis_format = '#,###.##'
 
         elif unit == 'gallons':
             stats = Water.objects.all().order_by('city__sort_order')
