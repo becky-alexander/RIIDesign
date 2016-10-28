@@ -1,40 +1,40 @@
 {% extends "base.html" %}
 
+{% block extraHead %}
+
+    <link type="text/css" rel="stylesheet" href="/static/css/detail.css"/>
+    <link rel="stylesheet" href="/static/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/static/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+        $(document).ready(function () {
+            $(".accordion").accordion({collapsible: true, heightStyle: "content", active: false});
+        });
+    </script>
+
+{% endblock %}
+
 {% block content %}
+    <div id='content'>
+      <p>
 
+        Welcome to the Regional Indicators Initiative Data Entry Tool. Please follow the following instructions:
+        <li>
+          <ul> Read the data requirements for each form </ul>
+          <ul> Collect the corresponding data </ul>
+          <ul> Please enter the values in the units specified in each form </ul>
+          <ul> Don't panic if you make a mistake. Everything has a solution. </ul>
 
-<div class="panel panel-default" style="max-width:1000px;margin-left:auto; margin-right:auto;">
-  <div class="panel-heading">
-    <h2 class="panel-title">New City</h2>
-  </div>
-  <div class="panel-body">
+        </li>
 
+      </p>
 
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet egestas mi. Mauris neque purus, volutpat non metus et, tincidunt pharetra tortor. Etiam tincidunt congue massa. Quisque purus dui, volutpat in vestibulum a, ullamcorper ut est. Cras in tortor luctus, varius arcu sit amet, feugiat nulla. Vestibulum tortor nisl, euismod a massa quis, consectetur pharetra magna. Pellentesque nisi sem, pulvinar nec venenatis vel, pretium non nisi. Quisque euismod, justo non rutrum consequat, augue tellus aliquet massa, et suscipit dolor augue a tortor. Quisque non laoreet risus.
+      <a type="button" role='button' href='/new_city2/' class="btn btn-primary btn-lg active">I Agree</a>
+      <button type="button" class="btn btn-default btn-lg active">Disagree</button>
 
-Quisque venenatis, nibh non pulvinar consequat, enim tellus tempor odio, ac porta nunc dui a erat. Proin pharetra fringilla tempor. Ut tempus elit purus, ut varius orci viverra a. Nam lobortis nulla nisi, sit amet dictum turpis condimentum nec. Morbi sed ipsum lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi luctus ex eget leo cursus, nec dignissim neque egestas.
-
-Phasellus mattis, est eget commodo egestas, magna dui convallis erat, sit amet posuere ex odio eget diam. Sed eu nisl vestibulum, congue dolor nec, mattis eros. Suspendisse in finibus nisl. Cras lobortis condimentum magna bibendum porttitor. Nullam elementum diam vitae odio fermentum sodales. Curabitur tempor posuere lobortis. Sed quis purus faucibus, consequat dolor ut, congue neque.
-
-Nam sed diam et tortor aliquam accumsan quis a dui. Sed a felis nec eros iaculis tempus vitae id eros. Vestibulum tempor nec erat ac pellentesque. Donec sollicitudin risus lobortis, finibus ligula id, congue dolor. Morbi at ornare sapien. Quisque id placerat nibh. Curabitur luctus tortor non sem aliquam pulvinar. Donec a velit faucibus, mattis nunc a, elementum dui. Donec non neque sem. Cras luctus, quam eu iaculis varius, mauris ligula congue neque, nec lacinia risus quam quis ante. Sed gravida malesuada tortor, quis dignissim lorem laoreet quis. Ut sagittis ut purus ut ultricies. Nunc in tellus maximus est vulputate eleifend. Proin sed auctor magna, sit amet porta erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-
-Duis rutrum dolor lacus, eu ornare mauris fringilla eget. Aenean egestas congue consectetur. Suspendisse rhoncus ex vel tristique dictum. Nulla quam ligula, pellentesque sit amet tempor ac, pellentesque nec quam. In at gravida mi. Donec a nibh gravida, vestibulum odio nec, tempus risus. Donec venenatis nulla ac feugiat fermentum. Vivamus maximus est non sem dictum facilisis. Fusce iaculis lorem arcu, quis convallis urna condimentum id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam libero tortor, tristique non blandit ac, auctor sed odio. Mauris a purus lacus. Ut quam diam, consequat nec nisl id, consequat posuere est. Nullam lacinia erat ipsum, quis suscipit risus lacinia vulputate. Morbi ipsum elit, dignissim ac felis vitae, porttitor consectetur neque.
-
-
-</p>
-
-<a type="button" role='button' href='/new_city2/' class="btn btn-primary btn-lg active">I Agree</a>
-<button type="button" class="btn btn-default btn-lg active">Disagree</button>
-
-  </div>
-</div>
-
-
-
-
-
-
-
+    </div>
 
 {% endblock %}
