@@ -28,8 +28,8 @@
 <div class="accordion_sect">
 <p> <b>To complete this form you are going to need:</b>
 <ul>
-  <li> Residential Water Consumption of your city (in gallons)</li>
-  <li> Commerical and Industrial Water Consumptio of your city (in gallons)</li>
+  <li> Residential Water Consumption of your city <b>(in gallons)</b></li>
+  <li> Commerical and Industrial Water Consumptio of your city <b>(in gallons)</b></li>
 </ul>
 </p>
 <form action="/waterform/">
@@ -42,8 +42,13 @@
 <div class="accordion_sect">
 <p> <b>To complete this form you are going to need:</b>
 <ul>
-  <li> Residential Electricity of your city </li>
-  <li> Commerical and Industrial Electicity Consumption of your city </li>
+  <li> Electric utilities that serve your city </li>
+  <li> For each electric utility:
+    <ul>
+      <li> Residential electricity use of your city <b>(in kWh)</b> </li>
+      <li> Commerical and industrial electicity consumption of your city<b>(in kWh)</b> </li>
+    </ul>
+  </li>
 </ul>
 </p>
 <form action="/electricityform/">
@@ -53,12 +58,17 @@
 
 <h2> Insert New Natural Gas Input: </h2>
 <div class="accordion_sect">
-<p> <b>To complete this form you are going to need:</b>
-<ul>
-  <li> X </li>
-  <li> Y </li>
-</ul>
-</p>
+  <p> <b>To complete this form you are going to need:</b>
+  <ul>
+    <li> Natural gas utilities that serve your city </li>
+    <li> For each natural gas utility:
+      <ul>
+        <li> Residential natural gas use of your city <b>(in btu)</b> </li>
+        <li> Commerical and industrial natural gas consumption of your city<b>(in btu)</b> </li>
+      </ul>
+    </li>
+  </ul>
+  </p>
 <form action="/natgasform/">
     <input type="submit" value="Go to Form" />
 </form>
