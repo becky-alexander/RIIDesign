@@ -324,7 +324,7 @@ class CityMetricsElectricInput(models.Model):
 class CityMetricsNatGasInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
-    year = models.CharField(max_length=4, help_text='ex: 2012')
+    year = models.CharField(max_length=4, help_text='ex: 2012', choices=YEARS)
     utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility A", verbose_name='Utility #1', db_column='utility_ida')
     residential_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='therms', verbose_name='Total Residential Natural Gas')
     com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='therms', verbose_name='Total Commericial and Industrial Natural Gas')
@@ -341,7 +341,7 @@ class CityMetricsNatGasInput(models.Model):
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
-    year = models.CharField(max_length=4, blank=True, help_text='ex: 2012')
+    year = models.CharField(max_length=4, blank=True, help_text='ex: 2012', choices=YEARS)
     utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, help_text='ex: Xcel Energy', default="NONE")
     type = models.CharField(max_length=50, blank=True)
     co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
@@ -362,7 +362,7 @@ class CityMetricsWasteProcessingFacility(models.Model):
 
 
 class CityMetricsSolidWasteInput(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, choices=YEARS)
     year = models.CharField(max_length=4, blank=True)
     county_id = models.ForeignKey(CityMetricsCounty, db_column='id', null=True, blank=True)
     recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
@@ -393,7 +393,7 @@ class CityMetricsWastewaterFacility(models.Model):
 class CityMetricsWastewaterInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
-    year = models.CharField(max_length=4, blank=True)
+    year = models.CharField(max_length=4, blank=True, choices=YEARS)
     wastewater_facility1_id = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility_I")
     wastewater_treated_facility1 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     wastewater_facility2_id = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True,  related_name="Facility_II")
@@ -415,7 +415,7 @@ class CityMetricsOtherEnergyType(models.Model):
 class CityMetricsOtherEnergyInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
-    year = models.CharField(max_length=4)
+    year = models.CharField(max_length=4, choices=YEARS)
     other_fuel_type1 = models.ForeignKey(CityMetricsOtherEnergyType, db_column='other_fuel_type1',  related_name="other_fuel_I")
     other_fuel_amount1_residential = models.DecimalField(max_digits=16, decimal_places=4)
     other_fuel_amount1_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
