@@ -1,9 +1,19 @@
 CREATE OR REPLACE VIEW city_metrics_other_type1 AS
 SELECT
 
-city_metrics_other_energy.city_id
-city_metrics_other_energy.year
-city_metrics_other_energy.other_fuel_type1,
-city_metrics_other_energy.other_fuel_amount1
+city_metrics_other_energy_input.city_id,
+city_metrics_other_energy_input.year,
+city_metrics_other_energy_input.other_fuel_type1,
+city_metrics_other_energy_input.other_fuel_amount1_residential,
+city_metrics_other_energy_input.other_fuel_amount1_com_and_ind,
 
-FROM
+/*ENERGY*/
+((city_metrics_other_energy_input.other_fuel_amount1_residential * city_metrics_other_energy_type.kbtu) / 1000) AS residential_other_energy1,
+((city_metrics_other_energy_input.other_fuel_amount1_com_and_ind * city_metrics_other_energy_type.kbtu) / 1000) AS com_and_ind_other_energy1,
+
+((city_metrics_other_energy_input.other_fuel_amount1_residential * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS residential_other_energy_emissions1,
+((city_metrics_other_energy_input.other_fuel_amount1_com_and_ind * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS com_and_ind_other_energy_emissions1
+
+
+FROM city_metrics_other_energy_input, city_metrics_other_energy_type
+WHERE city_metrics_other_energy_input.other_fuel_type1 = city_metrics_other_energy_type.id

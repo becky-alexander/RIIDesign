@@ -255,16 +255,38 @@ class SpecialTrendLine(models.Model):
 		verbose_name_plural = 'Special Trend Lines'
 		ordering = ('year', 'type')
 
-
+YEARS = (
+	('2000'),
+	('2001'),
+	('2002'),
+	('2003'),
+	('2004'),
+	('2005'),
+	('2006'),
+	('2007'),
+	('2008'),
+	('2009'),
+	('2010'),
+	('2011'),
+	('2012'),
+	('2013'),
+	('2014'),
+	('2015'),
+	('2016'),
+	('2017'),
+	('2018'),
+	('2019'),
+	('2020'),
+)
 
 class CityMetricsWaterInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
-    year = models.CharField(max_length=4, blank=True)
-    residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
-    commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
-    industrial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
-    other_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons')
+    year = models.CharField(max_length=4, blank=True, choices=YEARS)
+    residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Residential Water')
+    commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Commercial Water')
+    industrial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Industrial Water')
+    other_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Other Water')
 
     class Meta:
         db_table = u'city_metrics_water_input'
@@ -280,22 +302,22 @@ class CityMetricsEnergyUtilities(models.Model):
 class CityMetricsElectricInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
-    year = models.CharField(max_length=4, help_text='ex: 2012')
+    year = models.CharField(max_length=4, choices=YEARS)
     utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility I", verbose_name='Utility #1', db_column='utility_id1')
-    residential_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh")
-    com_and_ind_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh")
-    residential_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh")
-    com_and_ind_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh")
+    residential_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Total Residential Electricity')
+    com_and_ind_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
+    residential_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Residential Electricity (wind generated)')
+    com_and_ind_wind_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Commericial & Industrial Electricity (wind generated)')
     utility_id2 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility II", verbose_name='Utility #2', db_column='utility_id2')
-    residential_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
-    com_and_ind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
-    residential_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
-    com_and_ind_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
+    residential_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Residential Electricity')
+    com_and_ind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
+    residential_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Residential Electricity (wind generated)')
+    com_and_ind_wind_electricity2 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Commericial & Industrial Electricity (wind generated)')
     utility_id3 = models.ForeignKey(CityMetricsEnergyUtilities, null=True, db_column='utility_id3', blank=True, related_name="Utility III", verbose_name='Utility #3')
-    residential_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
-    com_and_ind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
-    residential_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
-    com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh")
+    residential_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Residential Electricity')
+    com_and_ind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
+    residential_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Residential Electricity (wind generated)')
+    com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
     class Meta:
         db_table = u'city_metrics_electric_input'
 
@@ -304,14 +326,14 @@ class CityMetricsNatGasInput(models.Model):
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, help_text='ex: 2012')
     utility_ida = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility A", verbose_name='Utility #1', db_column='utility_ida')
-    residential_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='insert total residential natural gas')
-    com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4)
+    residential_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='therms', verbose_name='Total Residential Natural Gas')
+    com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='therms', verbose_name='Total Commericial and Industrial Natural Gas')
     utility_idb = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility B", verbose_name='Utility #2', db_column='utility_idb')
-    residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Residential Natural Gas', help_text='therms')
+    com_and_ind_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Commericial and Industrial Natural Gas', help_text='therms')
     utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility C", verbose_name='Utility #3', db_column='utility_idc')
-    residential_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    residential_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Residential Natural Gas', help_text='therms')
+    com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Commericial and Industrial Natural Gas', help_text='therms')
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
     def __unicode__(self):
@@ -389,7 +411,7 @@ class CityMetricsOtherEnergyType(models.Model):
     other_fuel_name = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_other_energy_type'
-	
+
 class CityMetricsOtherEnergyInput(models.Model):
     id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
