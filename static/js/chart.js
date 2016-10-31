@@ -222,7 +222,7 @@ function chartUpdate_Success(data) {
         min: 0,
         backgroundColor: 'transparent',
         legend: {position: 'top', alignment: 'end', textStyle: {fontSize: 11}},
-        hAxis: {titleTextStyle: {color: 'red'}},
+        hAxis: {titleTextStyle: {title: hAxisLabel, format: hAxisFormat, color: 'red'}},
         vAxis: {title: vAxisLabel, gridlines: {color: '#FFFFFF'}, format: vAxisFormat, width: '200px'},
         seriesType: "bars",
         series: seriesData
