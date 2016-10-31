@@ -26,6 +26,7 @@ def update_chart(request):
     col_len = None
     v_axis_label = ''
     v_axis_format = '#,###.##'
+    h_axis_label = ''
     formatter_length = 0
     error_message = None
 
