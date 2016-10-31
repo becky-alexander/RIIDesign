@@ -341,7 +341,7 @@ class CityMetricsNatGasInput(models.Model):
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
-    year = models.CharField(max_length=4, blank=True, help_text='ex: 2012', choices=YEARS)
+    year = models.CharField(max_length=4, blank=True, choices=YEARS)
     utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, help_text='ex: Xcel Energy', default="NONE")
     type = models.CharField(max_length=50, blank=True)
     co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
@@ -362,8 +362,8 @@ class CityMetricsWasteProcessingFacility(models.Model):
 
 
 class CityMetricsSolidWasteInput(models.Model):
-    id = models.IntegerField(primary_key=True, choices=YEARS)
-    year = models.CharField(max_length=4, blank=True)
+    id = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=4, blank=True, choices=YEARS)
     county_id = models.ForeignKey(CityMetricsCounty, db_column='id', null=True, blank=True)
     recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)

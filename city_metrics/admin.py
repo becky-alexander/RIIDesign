@@ -133,7 +133,9 @@ class SpecialTrendLineAdmin(admin.ModelAdmin):
 	list_display = ('type', 'year',)
 	list_filter = ('type', 'year',)
 
-
+class CityMetricsWaterInputAdmin(admin.ModelAdmin):
+	list_display = ('city', 'year',)
+	list_filter = ('city', 'year',)
 
 
 admin.site.register(City, CityAdmin)
@@ -145,3 +147,4 @@ admin.site.register(Waste, WasteAdmin)
 admin.site.register(Emissions, EmissionsAdmin)
 admin.site.register(Cost, CostAdmin)
 admin.site.register(SpecialTrendLine, SpecialTrendLineAdmin)
+admin.site.register(CityMetricWaterInput, CityMetricsWaterInputAdmin)
