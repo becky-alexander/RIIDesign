@@ -141,6 +141,7 @@ class CityMetricsWaterInputAdmin(admin.ModelAdmin):
 		('General Info', {
 			'fields': ('city', 'year')
 		})
+	)
 admin.site.register(City, CityAdmin)
 admin.site.register(DemographicData, DemographicDataAdmin)
 admin.site.register(Energy, EnergyAdmin)
