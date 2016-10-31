@@ -27,6 +27,7 @@ def update_chart(request):
     v_axis_label = ''
     v_axis_format = '#,###.##'
     h_axis_label = ''
+    h_axis_format = '#,###.##'
     formatter_length = 0
     error_message = None
 
@@ -99,9 +100,9 @@ def update_chart(request):
         if unit == 'btu':
             stats = Energy.objects.all().order_by('city__sort_order')
             if normalize != 'none':
-                haxis_label = 'kBtu'
+                h_axis_label = 'kBtu'
             else:
-                haxis_label = 'MMBtu'
+                h_axis_label = 'MMBtu'
             h_axis_format = '#,###.##'
 
         elif unit == 'gallons':
