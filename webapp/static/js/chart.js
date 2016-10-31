@@ -183,6 +183,9 @@ function chartUpdate_Success(data) {
     var vAxisLabel = data.vAxisLabel;
     var vAxisFormat = data.vAxisFormat;
 
+    var hAxisLabel = data.hAxisLabel;
+    var hAxisFormat = data.hAxisFormat;
+
     var errorMessage = data.errorMessage;
     var messageDiv = $('#averageMessage')[0];
 
@@ -222,7 +225,7 @@ function chartUpdate_Success(data) {
         min: 0,
         backgroundColor: 'transparent',
         legend: {position: 'top', alignment: 'end', textStyle: {fontSize: 11}},
-        hAxis: {titleTextStyle: {color: 'red'}},
+        hAxis: {titleTextStyle: {color: 'red'}, title: hAxisLabel, format: hAxisFormat},
         vAxis: {title: vAxisLabel, gridlines: {color: '#FFFFFF'}, format: vAxisFormat, width: '200px'},
         seriesType: "bars",
         series: seriesData
