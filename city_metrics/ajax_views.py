@@ -200,6 +200,8 @@ def update_chart(request):
     json_data['colLen'] = formatter_length
     json_data['vAxisLabel'] = v_axis_label
     json_data['vAxisFormat'] = v_axis_format
+    json_data['hAxisLabel'] = h_axis_label
+    json_data['hAxisFormat'] = h_axis_format
     json_data['errorMessage'] = error_message
 
     # #### BUILD SUBTITLES #####
