@@ -139,7 +139,7 @@ class CityMetricsWaterInputAdmin(admin.ModelAdmin):
 	fieldsets = (
 		('General Info', {
 			'fields': ('city_id', 'year')
-		})
+		}),
 	)
 
 
