@@ -139,9 +139,12 @@ class CityMetricsWaterInputAdmin(admin.ModelAdmin):
 
 	fieldsets = (
 		('General Info', {
-			'fields': ('city', 'year')
+			'fields': ('city_id', 'year')
 		})
 	)
+
+
+
 admin.site.register(City, CityAdmin)
 admin.site.register(DemographicData, DemographicDataAdmin)
 admin.site.register(Energy, EnergyAdmin)
