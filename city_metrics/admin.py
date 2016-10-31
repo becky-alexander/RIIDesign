@@ -136,7 +136,6 @@ class SpecialTrendLineAdmin(admin.ModelAdmin):
 class CityMetricsWaterInputAdmin(admin.ModelAdmin):
 	list_display = ('city', 'year',)
 	list_filter = ('city', 'year',)
-
 	fieldsets = (
 		('General Info', {
 			'fields': ('city_id', 'year')
