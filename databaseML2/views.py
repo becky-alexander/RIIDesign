@@ -8,7 +8,7 @@ class IndexView(generic.ListView):
     template_name = 'databaseML2/index.html'
     context_object_name = 'object_list'
     def get_queryset(self):
-        return .objects.all
+        return CityMetricsWaterInput.objects.all
 
 class DetailView(generic.DetailView):
     model = CityMetricsWaterInput
