@@ -13,7 +13,7 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = CityMetricsWaterInput
-    template_name = 'databaseML2/index.html'
+    template_name = 'databaseML2/detail.html'
 
 class AlbumCreate(CreateView):
     model = CityMetricsWaterInput
