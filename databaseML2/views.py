@@ -18,7 +18,7 @@ class AlbumCreate(CreateView):
     model = CityMetricsWaterInput
     fields = ["city_id", "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
 
-class AlbumCreate(UpdateView):
+class AlbumUpdate(UpdateView):
     model = CityMetricsWaterInput
     fields = ["city_id", "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
 
