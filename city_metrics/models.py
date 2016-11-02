@@ -280,7 +280,7 @@ YEARS = (
 )
 
 class CityMetricsWaterInput(models.Model):
-#    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, blank=True, choices=YEARS)
     residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Residential Water')

@@ -1,0 +1,11 @@
+{% extends 'base.html'}
+
+{% block body}
+
+  <ul>
+    {% for year in object_list %}
+      <li><a href="{% url 'databaseML2:detail' waterinput.id %}">{{ waterinput.year }}</a></li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

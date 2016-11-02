@@ -24,6 +24,13 @@ urlpatterns += patterns(
     url(r'^', include ('databaseML.urls')),
 )
 
+urlpatterns += patterns(
+    'databaseML2.views',
+    url(r'^database2/', include ('databaseML2.urls')),
+    url(r'^', include ('databaseML2.urls')),
+)
+
+
 # 9/10/2016 - Mauricio Leon - The one bellows simply makes the urls in
 # city_metrics/ajax_urls.py available
 urlpatterns += patterns(
