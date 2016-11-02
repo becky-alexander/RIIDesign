@@ -3,12 +3,9 @@
 {% block body %}
 
   <ul>
-    {% for year in object_list %}
-      <li>{{ CityMetricsWaterInput.year }}</li>
+    {% for city in all_objects %}
+      <li>{{ city.city }}</li>
     {% endfor %}
   </ul>
 
 {% endblock %}
-
-
-

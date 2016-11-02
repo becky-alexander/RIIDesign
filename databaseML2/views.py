@@ -6,7 +6,7 @@ from city_metrics.models import *
 
 class IndexView(generic.ListView):
     template_name = 'databaseML2/index.html'
-    context_object_name = 'object_list'
+    context_object_name = 'all_objects'
     def get_queryset(self):
         return CityMetricsWaterInput.objects.all()
 
