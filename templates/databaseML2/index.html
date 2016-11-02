@@ -5,9 +5,10 @@
 
 <p>TESTING</p>
   <ul>
-    {% for city in all_objects %}
-      <li>{{ city.city }}</li>
+    {% for CityMetricsWaterInput in object_lits %}
+      <li>{{ CityMetricsWaterInput.city }}</li>
     {% endfor %}
   </ul>
 
 {% endblock %}
+
