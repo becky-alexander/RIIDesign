@@ -20,13 +20,13 @@ urlpatterns = patterns(
 
 urlpatterns += patterns(
     'databaseML.views',
-    url(r'^database/', include ('databaseML.urls'),
+    url(r'^database/', include ('databaseML.urls')),
     url(r'^', include ('databaseML.urls')),
 )
 
 urlpatterns += patterns(
     'databaseML2.views',
-    url(r'^database2/$', include ('databaseML2.urls'),
+    url(r'^database2/$', include ('databaseML2.urls')),
     url(r'^', include ('databaseML2.urls')),
 )
 
