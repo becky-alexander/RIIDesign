@@ -23,7 +23,7 @@
       <div id='content'>
 
   <form method="post">
-    {% csfr_token %}
+    {% csrf_token %}
     {% include 'databaseML2/form-template' %}
     <div>
       <button type="submit">Submit</button>
