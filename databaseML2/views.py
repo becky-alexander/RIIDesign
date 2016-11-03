@@ -15,7 +15,7 @@ class DetailView(generic.DetailView):
     model = CityMetricsWaterInput
     template_name = 'databaseML2/detail.html'
 
-class AlbumCreate(CreateView):
+class WaterInputCreate(CreateView):
     model = CityMetricsWaterInput
     fields = ["city_id", "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
 
