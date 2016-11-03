@@ -292,7 +292,7 @@ class CityMetricsWaterInput(models.Model):
         db_table = u'city_metrics_water_input'
 	verbose_name = 'Water Input'
 	def get_absolute_url(self):
-        return reverse('DatabaseML2:detail', kwargs={'pk': self.pk})﻿
+        return reverse('DatabaseML2:detail', kwargs={'pk': self.pk})
 
 class CityMetricsEnergyUtilities(models.Model):
     id = models.IntegerField(primary_key=True)
