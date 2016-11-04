@@ -22,7 +22,9 @@
 <p>TESTING</p>
   <ul>
     {% for CityMetricsWaterInput in object_list %}
-      <li>{{ CityMetricsWaterInput.id }}</li>
+      <li>{{ CityMetricsWaterInput.id }} :
+      <a href="{% url "detail" CityMetricsWaterInput.id %}">CityMetricsWaterInput.id</a>
+      </li>
     {% endfor %}
   </ul>
 
