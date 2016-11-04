@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+
+{% block title %}Electricity Details{% endblock %}
+
 {% block extraHead %}
 
     <link type="text/css" rel="stylesheet" href="/static/css/detail.css"/>
@@ -19,13 +22,13 @@
 
       <div id='content'>
 
-<p>TESTING</p>
-  <ul>
-    {% for CityMetricsWaterInput in object_list %}
-      <li>{{ CityMetricsWaterInput.id }}</li>
-    {% endfor %}
-  </ul>
-
+  <form method="post">
+    {% csrf_token %}
+    {% include 'form-template.html' %}
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
 
       </div>
 
