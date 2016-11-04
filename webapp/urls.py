@@ -27,7 +27,7 @@ urlpatterns += patterns(
 urlpatterns += patterns(
     'databaseML2.views',
     url(r'^database2/', include ('databaseML2.urls', namespace='database2')),
-    url(r'^', include ('databaseML2.urls')),
+    url(r'^', include ('databaseML2.urls', namespace='database2')),
 )
 
 
