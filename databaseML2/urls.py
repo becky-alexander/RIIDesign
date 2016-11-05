@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='nat_gas-index'),
     url(r'^nat_gasinput/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='nat_gas_input-detail'),
     #/databaseML2/nat_gasinput/add/
-    url(r'nat_gasinput/add/$', views.Nat_gasInputCreate.as_view(), name='nat_gas_input-add'),
+    url(r'nat_gasinput/add/$', views.NatGasInputCreate.as_view(), name='nat_gas_input-add'),
     #/databaseML2/nat_gasinput/update/2/
     url(r'nat_gasinput/update/(?P<pk>[0-9]+)/$', views.nat_gasInputUpdate.as_view(), name='nat_gas_input-update'),
     #/databaseML2/nat_gasinput/delete/
