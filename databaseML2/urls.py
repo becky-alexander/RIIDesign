@@ -5,7 +5,7 @@ app_name = "databaseML2"
 
 urlpatterns = [
 #Water
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'waterinput/^$', views.IndexView.as_view(), name='index'),
     url(r'^waterinput/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='water_input-detail'),
     #/databaseML2/waterinput/add/
     url(r'waterinput/add/$', views.WaterInputCreate.as_view(), name='water_input-add'),
@@ -15,8 +15,9 @@ urlpatterns = [
     url(r'waterinput/delete/$', views.WaterInputDelete.as_view(), name='water_input-delete'),
 
 #Electric
-    url(r'electricinput/index/$', views.ElectricInputIndexView.as_view(), name='electric-index'),
-    url(r'^electricinput/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='electric_input-detail'),
+    url(r'electricinput/^$', views.ElectricInputIndexView.as_view(), name='electric-index'),
+
+    url(r'^electricinput/(?P<pk>[0-9]+)/$', views.ElectricInputDetailView.as_view(), name='electric_input-detail'),
     #/databaseML2/electricinput/add/
     url(r'electricinput/add/$', views.ElectricInputCreate.as_view(), name='electric_input-add'),
     #/databaseML2/electricinput/update/2/
