@@ -38,7 +38,7 @@ class ElectricInputIndexView(generic.ListView):
 
 class ElectricInputDetailView(generic.DetailView):
     model = CityMetricsElectricInput
-    template_name = 'databaseML2/detail.html'
+    template_name = 'databaseML2/electric_detail.html'
 
 class ElecticInputCreate(CreateView):
     model = CityMetricsElectricInput
@@ -50,19 +50,19 @@ class ElectricInputUpdate(UpdateView):
 
 class ElectricInputDelete(DeleteView):
     model = CityMetricsElectricInput
-    sucess_url = reverse_lazy('databaseML2:index')
+    sucess_url = reverse_lazy('databaseML2:electric_index')
 
 
 #Natural Gas
 
 class NatGasInputIndexView(generic.ListView):
-    template_name = 'databaseML2/electric_index.html'
+    template_name = 'databaseML2/nat_gas_index.html'
     def get_queryset(self):
         return CityMetricsNatGasInput.objects.all()
 
 class NatGasInputDetailView(generic.DetailView):
     model = CityMetricsNatGasInput
-    template_name = 'databaseML2/detail.html'
+    template_name = 'databaseML2/nat_gas_detail.html'
 
 class NatGasInputCreate(CreateView):
     model = CityMetricsNatGasInput
@@ -74,4 +74,4 @@ class NatGasInputUpdate(UpdateView):
 
 class NatGasInputDelete(DeleteView):
     model = CityMetricsNatGasInput
-    sucess_url = reverse_lazy('databaseML2:index')
+    sucess_url = reverse_lazy('databaseML2:nat_gas_index')
