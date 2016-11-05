@@ -6,6 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from city_metrics.models import *
 
+#Water
 class IndexView(generic.ListView):
     template_name = 'databaseML2/index.html'
     def get_queryset(self):
@@ -19,10 +20,58 @@ class WaterInputCreate(CreateView):
     model = CityMetricsWaterInput
     fields = ["city_id", "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
 
-class AlbumUpdate(UpdateView):
+class WaterInputUpdate(UpdateView):
     model = CityMetricsWaterInput
     fields = ["city_id", "year", "residential_water", "commercial_water", "industrial_water", "other_water"]
 
-class AlbumDelete(DeleteView):
+class WaterInputDelete(DeleteView):
     model = CityMetricsWaterInput
+    sucess_url = reverse_lazy('databaseML2:index')
+
+
+#Electric
+
+class ElectricInputIndexView(generic.ListView):
+    template_name = 'databaseML2/electric_index.html'
+    def get_queryset(self):
+        return CityMetricsElectricInput.objects.all()
+
+class ElectricInputDetailView(generic.DetailView):
+    model = CityMetricsElectricInput
+    template_name = 'databaseML2/detail.html'
+
+class ElecticInputCreate(CreateView):
+    model = CityMetricsElectricInput
+    fields = ["city_id", "year"]
+
+class ElectricInputUpdate(UpdateView):
+    model = CityMetricsElectricInput
+    fields = ["city_id", "year"]
+
+class ElectricInputDelete(DeleteView):
+    model = CityMetricsElectricInput
+    sucess_url = reverse_lazy('databaseML2:index')
+
+
+#Natural Gas
+
+class NatGasInputIndexView(generic.ListView):
+    template_name = 'databaseML2/electric_index.html'
+    def get_queryset(self):
+        return CityMetricsNatGasInput.objects.all()
+
+class NatGasInputDetailView(generic.DetailView):
+    model = CityMetricsNatGasInput
+    template_name = 'databaseML2/detail.html'
+
+class NatGasInputCreate(CreateView):
+    model = CityMetricsNatGasInput
+    fields = ["city_id", "year"]
+
+class NatGasInputUpdate(UpdateView):
+    model = CityMetricsNatGasInput
+    fields = ["city_id", "year"]
+
+class NatGasInputDelete(DeleteView):
+    model = CityMetricsNatGasInput
     sucess_url = reverse_lazy('databaseML2:index')
