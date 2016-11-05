@@ -30,7 +30,7 @@ urlpatterns = [
     #/databaseML2/nat_gasinput/add/
     url(r'nat_gasinput/add/$', views.NatGasInputCreate.as_view(), name='nat_gas_input-add'),
     #/databaseML2/nat_gasinput/update/2/
-    url(r'nat_gasinput/update/(?P<pk>[0-9]+)/$', views.nat_gasInputUpdate.as_view(), name='nat_gas_input-update'),
+    url(r'nat_gasinput/update/(?P<pk>[0-9]+)/$', views.NatGasInputUpdate.as_view(), name='nat_gas_input-update'),
     #/databaseML2/nat_gasinput/delete/
-    url(r'nat_gasinput/delete/$', views.Nat_gasInputDelete.as_view(), name='nat_gas_input-delete'),
+    url(r'nat_gasinput/delete/$', views.NatGasInputDelete.as_view(), name='nat_gas_input-delete'),
 ]
