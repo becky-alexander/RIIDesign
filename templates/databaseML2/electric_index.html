@@ -24,7 +24,7 @@
   <ul>
     {% for CityMetricsWaterInput in object_list %}
       <li>
-      <a href="{% url 'databaseML2:water_input-detail' CityMetricsWaterInput.id %}">{{ CityMetricsWaterInput.city_id }}, {{ CityMetricsWaterInput.year }}</a>
+      <a href="{% url 'databaseML2:electric_input-detail' CityMetricsWaterInput.id %}">{{ CityMetricsWaterInput.city_id }}, {{ CityMetricsWaterInput.year }}</a>
       </li>
     {% endfor %}
   </ul>

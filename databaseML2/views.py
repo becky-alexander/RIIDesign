@@ -40,7 +40,7 @@ class ElectricInputDetailView(generic.DetailView):
     model = CityMetricsElectricInput
     template_name = 'databaseML2/electric_detail.html'
 
-class ElecticInputCreate(CreateView):
+class ElectricInputCreate(CreateView):
     model = CityMetricsElectricInput
     fields = ["city_id", "year"]
 
