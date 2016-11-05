@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'waterinput/delete/$', views.WaterInputDelete.as_view(), name='water_input-delete'),
 
 #Electric
-    url(r'^$', views.IndexView.as_view(), name='electric-index'),
+    url(r'^$', views.ElectricInputIndexView.as_view(), name='electric-index'),
     url(r'^electricinput/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='electric_input-detail'),
     #/databaseML2/electricinput/add/
     url(r'electricinput/add/$', views.ElectricInputCreate.as_view(), name='electric_input-add'),
