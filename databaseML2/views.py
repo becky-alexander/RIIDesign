@@ -8,7 +8,7 @@ from city_metrics.models import *
 
 def database2(request):
         citys = City.objects.exclude
-	return render(request, 'database_manager/home.html', {
+	return (request, 'database_manager/home.html', {
                 'citys': citys,
         })
 #Water
