@@ -5,6 +5,8 @@ app_name = "databaseML2"
 
 urlpatterns = [
 
+    url(r'database/', views.database, name='database'),
+
 #Water
     url(r'waterinput/$', views.IndexView.as_view(), name='index'),
     url(r'^waterinput/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='water_input-detail'),

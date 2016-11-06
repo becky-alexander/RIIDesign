@@ -6,6 +6,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from city_metrics.models import *
 
+def database2(request):
+        citys = City.objects.exclude
+	return render(request, 'database_manager/home.html', {
+                'citys': citys,
+        })
 #Water
 class IndexView(generic.ListView):
     template_name = 'databaseML2/water_index.html'
