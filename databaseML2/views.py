@@ -8,13 +8,13 @@ from city_metrics.models import *
 
 #Water
 class IndexView(generic.ListView):
-    template_name = 'databaseML2/index.html'
+    template_name = 'databaseML2/water_index.html'
     def get_queryset(self):
         return CityMetricsWaterInput.objects.all()
 
 class DetailView(generic.DetailView):
     model = CityMetricsWaterInput
-    template_name = 'databaseML2/detail.html'
+    template_name = 'databaseML2/water_detail.html'
 
 class WaterInputCreate(CreateView):
     model = CityMetricsWaterInput
