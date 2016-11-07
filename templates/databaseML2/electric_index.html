@@ -35,6 +35,19 @@
   </ul>
 
 
+  <table style="width:100%">
+    <tr>
+      <th>CITY</th>
+      <th>YEAR</th>
+    </tr>
+    {% for CityMetricsElectricInput in object_list %}
+    <tr>
+      <td>{{ CityMetricsElectricInput.city_id }}</td>
+      <td><a href="{% url 'databaseML2:electric_input-detail' CityMetricsElectricInput.id %}">{{ CityMetricsElectricInput.year }}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
       </div>
 
 
