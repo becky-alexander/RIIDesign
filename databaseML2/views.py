@@ -45,7 +45,7 @@ class ElectricInputIndexView(generic.ListView):
     template_name = 'databaseML2/electric_index.html'
     paginate_by = 100
     def get_queryset(self):
-        self.year = get_object_or_404(year, name=self.args[0])
+        self.year = get_object_or_404(CityMetricsCity, name=self.args[0])
         #return CityMetricsElectricInput.objects.all()
         return CityMetricsElectricInput.objects.filter(year=self.year)
     def get_context_data(self, **kwargs):
