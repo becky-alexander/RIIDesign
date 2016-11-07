@@ -26,15 +26,6 @@
     <input type="submit" value="NEW" />
 </form>
 
-  <ul>
-    {% for CityMetricsElectricInput in object_list %}
-      <li>
-      <a href="{% url 'databaseML2:electric_input-detail' CityMetricsElectricInput.id %}">{{ CityMetricsElectricInput.city_id }}, {{ CityMetricsElectricInput.year }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
-
   <table style="width:100%">
     <tr>
       <th>CITY</th>
