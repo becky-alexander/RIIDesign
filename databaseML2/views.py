@@ -5,8 +5,7 @@ from django.views.generic import TemplateView,ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from city_metrics.models import *
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 
 
 def database2(request):
@@ -42,10 +41,15 @@ class WaterInputDelete(DeleteView):
 #Electric
 
 class ElectricInputIndexView(generic.ListView):
+    model = CityMetricsElectricInput
     template_name = 'databaseML2/electric_index.html'
-    paginate_by = 10
+    paginate_by = 100
     def get_queryset(self):
+        self.year = get_object_or_404(year, name=self.args[0])
         return CityMetricsElectricInput.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super(ElectricInputIndexView, self).get_context_data(**kwargs)
+        context['year'] = self.year
 
 class ElectricInputDetailView(generic.DetailView):
     model = CityMetricsElectricInput
