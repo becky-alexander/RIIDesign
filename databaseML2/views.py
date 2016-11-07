@@ -55,7 +55,7 @@ class ElectricInputCreate(CreateView):
     fields = ["city_id", "year"]
     sucess_url = reverse_lazy('databaseML2:electric-index')
     def get_success_url(self):
-            return reverse('electric_input-detail')
+            return reverse_lazy('electric_input-detail')
 
 class ElectricInputUpdate(UpdateView):
     model = CityMetricsElectricInput
