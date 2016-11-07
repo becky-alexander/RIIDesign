@@ -1,6 +1,6 @@
 from django.conf.urls  import url
 from . import views
-from django.core.urlresolvers import reverse_lazy
+
 app_name = "databaseML2"
 
 urlpatterns = [
@@ -21,7 +21,7 @@ urlpatterns = [
 
     url(r'^electricinput/(?P<pk>[0-9]+)/$', views.ElectricInputDetailView.as_view(), name='electric_input-detail'),
     #/databaseML2/electricinput/add/
-    url(r'electricinput/add/$', views.ElectricInputCreate.as_view(), name='electric_input-add', return=reverse('electric_input-detail')),
+    url(r'electricinput/add/$', views.ElectricInputCreate.as_view(), name='electric_input-add'),
     #/databaseML2/electricinput/update/2/
     url(r'electricinput/update/(?P<pk>[0-9]+)/$', views.ElectricInputUpdate.as_view(), name='electric_input-update'),
     #/databaseML2/electricinput/delete/
