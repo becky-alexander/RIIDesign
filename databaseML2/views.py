@@ -43,7 +43,7 @@ class WaterInputDelete(DeleteView):
 
 class ElectricInputIndexView(generic.ListView):
     template_name = 'databaseML2/electric_index.html'
-    list_filter = ('city_id', 'year',)
+    paginate_by = 10
     def get_queryset(self):
         return CityMetricsElectricInput.objects.all()
 
