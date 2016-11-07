@@ -26,9 +26,10 @@
 <h2>{{ object.year }}</h2>
 <p>{{ object.residential_electricity }}</p>
 
-<form action="/electricinput/add/">
+<form action="/electricinput/update/{{ object.city_id }}/>
     <input type="submit" value="UPDATE" />
 </form>
+
 
 <form action="electricinput/delete/">
     <input type="submit" value="DELETE" />
