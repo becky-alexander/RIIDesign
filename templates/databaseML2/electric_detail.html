@@ -55,6 +55,20 @@
   </tr>
 </table>
 
+<h3>UTILITY 3: {{ object.utility_id3 }}</h3>
+
+<table style="width:100%">
+  <tr>
+    <td>Residential Electricity</td>
+    <td>{{ object.residential_electricity3 }}</td>
+    <td>kWh</td>
+  </tr>
+  <tr>
+    <td>Commercial and Industrial Electricity</td>
+    <td>{{ object.com_and_ind_electricity3 }}</td>
+    <td>kWh</td>
+  </tr>
+</table>
 
 <form action="/electricinput/update/{{ object.id }}/">
     <input type="submit" value="UPDATE" />
