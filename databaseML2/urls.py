@@ -36,4 +36,14 @@ urlpatterns = [
     url(r'nat_gasinput/update/(?P<pk>[0-9]+)/$', views.NatGasInputUpdate.as_view(), name='nat_gas_input-update'),
     #/databaseML2/nat_gasinput/delete/
     url(r'nat_gasinput/delete/$', views.NatGasInputDelete.as_view(), name='nat_gas_input-delete'),
+
+#Solid Waste
+    url(r'solid_wasteinput/$', views.SolidWasteInputIndexView.as_view(), name='solid_waste-index'),
+    url(r'^solid_wasteinput/(?P<pk>[0-9]+)/$', views.SolidWasteInputDetailView.as_view(), name='solud_waste_input-detail'),
+    #/databaseML2/nat_gasinput/add/
+    url(r'solid_wasteinput/add/$', views.SolidWasteInputCreate.as_view(), name='solid_waste_input-add'),
+    #/databaseML2/nat_gasinput/update/2/
+    url(r'solid_wasteinput/update/(?P<pk>[0-9]+)/$', views.SolidWasteInputUpdate.as_view(), name='solid_waste_input-update'),
+    #/databaseML2/nat_gasinput/delete/
+    url(r'solid_wasteinput/delete/$', views.SolidWasteInputDelete.as_view(), name='solid_waste_input-delete'),
 ]

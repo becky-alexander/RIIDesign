@@ -5,9 +5,10 @@ CREATE TABLE city_metrics_county
   id SERIAL PRIMARY KEY,
   county VARCHAR(50)
 );
-
 COPY city_metrics_county FROM 'C:/csv_files/city_metrics_county.csv' DELIMITER ',' CSV HEADER;
 
+
+/* This one is to input the demographic data of the counties */
 CREATE TABLE city_metrics_demographicdata_county
 (
   id SERIAL PRIMARY KEY,
@@ -18,6 +19,7 @@ CREATE TABLE city_metrics_demographicdata_county
 COPY city_metrics_demographicdata_county FROM 'C:/csv_files/city_metrics_demographicdata_county.csv' DELIMITER ',' CSV HEADER;
 
 
+/* This one has the basic informaiton about cities*/
 CREATE TABLE city_metrics_city
 (
   id SERIAL PRIMARY KEY,
@@ -27,5 +29,4 @@ CREATE TABLE city_metrics_city
   type VARCHAR(100),
   sort_order INT
 );
-
 COPY city_metrics_city FROM 'C:/csv_files/city_metrics_city.csv' DELIMITER ',' CSV HEADER;

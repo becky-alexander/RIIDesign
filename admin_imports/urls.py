@@ -8,4 +8,5 @@ urlpatterns = patterns('admin_imports.views',
 	(r'^waste-importer/$', 'wasteImporter'),
 	(r'^emissions-importer/$', 'emissionsImporter'),
 	(r'^cost-importer/$', 'costImporter'),
+	(r'^waterinput-importer/$', 'waterinputImporter'),
 )

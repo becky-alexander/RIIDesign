@@ -9,37 +9,42 @@ SELECT
 
 city_metrics_electricity_joined.city_id,
 city_metrics_electricity_joined.year,
-
+/* Normalize Electricity */
 ((city_metrics_energy_intermediary1.total_electricity_mmbtu * 0.25 * (city_metrics_cdd_hdd_average.cdd_average/((city_metrics_cdd_hdd.cdd))))
 + (city_metrics_energy_intermediary1.total_electricity_mmbtu * 0.75)) AS wn_electricity,/*MMBTU*/
-
+/* Normalize Natural Gas */
 ((city_metrics_energy_intermediary1.total_nat_gas_mmbtu * 0.80 * (city_metrics_cdd_hdd_average.hdd_average/((city_metrics_cdd_hdd.hdd))))
 + (city_metrics_energy_intermediary1.total_nat_gas_mmbtu * 0.20)) AS wn_nat_gas,/*MMBTU*/
-
+/* Normalize Wind Electricity */
 ((city_metrics_energy_intermediary1.total_wind_electricity_mmbtu * 3.412 * 0.25 * (city_metrics_cdd_hdd_average.cdd_average/((city_metrics_cdd_hdd.cdd))))
 + (city_metrics_energy_intermediary1.total_wind_electricity_mmbtu * 3.412 * 0.75)) AS wn_wind_electricity,/*MMBTU*/
 
+/* RESIDENTIAL */
+/* Normalize Resiential Electricity */
 ((city_metrics_energy_intermediary1.total_residential_electricity_mmbtu * 0.25 * (city_metrics_cdd_hdd_average.cdd_average/((city_metrics_cdd_hdd.cdd)))) +
 (city_metrics_energy_intermediary1.total_residential_electricity_mmbtu * 0.75)) AS wn_total_residential_electricity_mmbtu,
-
+/* Normalize Residential Natural Gas */
 ((city_metrics_energy_intermediary1.total_residential_nat_gas_mmbtu * 0.80 * (city_metrics_cdd_hdd_average.hdd_average/((city_metrics_cdd_hdd.hdd)))) +
 (city_metrics_energy_intermediary1.total_residential_nat_gas_mmbtu * 0.20)) AS wn_total_residential_nat_gas_mmbtu,
-
+/* Normalize Residential Energy (Electricity + Natural Gas) */
 ((city_metrics_energy_intermediary1.total_residential_electricity_mmbtu * 0.25 * (city_metrics_cdd_hdd_average.cdd_average/((city_metrics_cdd_hdd.cdd)))) +
 (city_metrics_energy_intermediary1.total_residential_electricity_mmbtu * 0.75) +
 ((city_metrics_energy_intermediary1.total_residential_nat_gas_mmbtu * 0.80 * (city_metrics_cdd_hdd_average.hdd_average/((city_metrics_cdd_hdd.hdd)))) +
 (city_metrics_energy_intermediary1.total_residential_nat_gas_mmbtu * 0.20))) AS wn_total_residential_energy_mmbtu,
 
+/* COMMERCIAL AND INDUSTRIAL */
+/* Normalize Commercial Electricity */
 ((city_metrics_energy_intermediary1.total_com_and_ind_electricity_mmbtu * 0.25 * (city_metrics_cdd_hdd_average.cdd_average/((city_metrics_cdd_hdd.cdd)))) +
 (city_metrics_energy_intermediary1.total_com_and_ind_electricity_mmbtu * 0.75)) AS wn_total_com_and_ind_electricity_mmbtu,
-
+/* Normalize Commercial and Industrial Electricity */
 ((city_metrics_energy_intermediary1.total_com_and_ind_nat_gas_mmbtu * 0.80 * (city_metrics_cdd_hdd_average.hdd_average/((city_metrics_cdd_hdd.hdd)))) +
 (city_metrics_energy_intermediary1.total_com_and_ind_nat_gas_mmbtu * 0.20)) AS wn_total_com_and_ind_nat_gas_mmbtu,
-
+/* Normalize Commercial and Industrial Energy */
 ((city_metrics_energy_intermediary1.total_com_and_ind_electricity_mmbtu * 0.25 * (city_metrics_cdd_hdd_average.cdd_average/((city_metrics_cdd_hdd.cdd)))) +
 (city_metrics_energy_intermediary1.total_com_and_ind_electricity_mmbtu * 0.75) +
 ((city_metrics_energy_intermediary1.total_com_and_ind_nat_gas_mmbtu * 0.80 * (city_metrics_cdd_hdd_average.hdd_average/((city_metrics_cdd_hdd.hdd)))) +
 (city_metrics_energy_intermediary1.total_com_and_ind_nat_gas_mmbtu * 0.20))) AS wn_total_com_and_ind_energy_mmbtu
+
 FROM city_metrics_nat_gas_joined, city_metrics_electricity_joined, city_metrics_cdd_hdd, city_metrics_cdd_hdd_average, city_metrics_energy_intermediary1
 WHERE city_metrics_electricity_joined.city_id = city_metrics_nat_gas_joined.city_id
 AND city_metrics_nat_gas_joined.year = city_metrics_cdd_hdd.year

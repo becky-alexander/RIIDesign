@@ -89,3 +89,26 @@ class NatGasInputUpdate(UpdateView):
 class NatGasInputDelete(DeleteView):
     model = CityMetricsNatGasInput
     sucess_url = reverse_lazy('databaseML2:nat_gas_index')
+
+#Solid Waste
+
+class SolidWasteInputIndexView(generic.ListView):
+    template_name = 'databaseML2/solid_waste_index.html'
+    def get_queryset(self):
+        return CityMetricsSolidWasteInput.objects.all()
+
+class SolidWasteInputDetailView(generic.DetailView):
+    model = CityMetricsSolidWasteInput
+    template_name = 'databaseML2/solid_waste_detail.html'
+
+class SolidWasteInputCreate(CreateView):
+    model = CityMetricsSolidWasteInput
+    fields = ["city_id", "year"]
+
+class SolidWasteInputUpdate(UpdateView):
+    model = CityMetricsSolidWasteInput
+    fields = ["city_id", "year"]
+
+class SolidWasteInputDelete(DeleteView):
+    model = CityMetricsSolidWasteInput
+    sucess_url = reverse_lazy('databaseML2:solid_waste_index')

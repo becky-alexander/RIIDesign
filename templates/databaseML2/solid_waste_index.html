@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load url from future %}
+{% block extraHead %}
+
+    <link type="text/css" rel="stylesheet" href="/static/css/detail.css"/>
+    <link rel="stylesheet" href="/static/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/static/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+        $(document).ready(function () {
+            $(".accordion").accordion({collapsible: true, heightStyle: "content", active: false});
+        });
+    </script>
+
+{% endblock %}
+{% block content %}
+
+      <div id='content'>
+
+<h1>NATURAL GAS</h1>
+  <ul>
+    {% for CityMetricsNatGasInput in object_list %}
+      <li>
+      <a href="{% url 'databaseML2:nat_gas_input-detail' CityMetricsNatGasInput.id %}">{{ CityMetricsNatGasInput.city_id }} --> {{ CityMetricsNatGasInput.year }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+      </div>
+
+
+{% endblock %}

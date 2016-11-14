@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Electric Details{% endblock %}
+
+{% block extraHead %}
+
+    <link type="text/css" rel="stylesheet" href="/static/css/detail.css"/>
+    <link rel="stylesheet" href="/static/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/static/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+        $(document).ready(function () {
+            $(".accordion").accordion({collapsible: true, heightStyle: "content", active: false});
+        });
+    </script>
+
+{% endblock %}
+{% block content %}
+
+      <div id='content'>
+
+<h1>{{ object.city_id }}</h1>
+<h2>{{ object.year }}</h2>
+
+<h3>FACILITY 1: {{ object.facility_id1 }}</h3>
+
+<table style="width:100%">
+  <tr>
+    <td>Recycled</td>
+    <td>{{ object.recycled }}</td>
+    <td>kWh</td>
+  </tr>
+  <tr>
+    <td>Commercial and Industrial Electricity</td>
+    <td>{{ object.com_and_ind_electricity }}</td>
+    <td>kWh</td>
+  </tr>
+</table>
+
+<h3>UTILITY 2: {{ object.utility_id2 }}</h3>
+
+<table style="width:100%">
+  <tr>
+    <td>Residential Electricity</td>
+    <td>{{ object.residential_electricity2 }}</td>
+    <td>kWh</td>
+  </tr>
+  <tr>
+    <td>Commercial and Industrial Electricity</td>
+    <td>{{ object.com_and_ind_electricity2 }}</td>
+    <td>kWh</td>
+  </tr>
+</table>
+
+<h3>UTILITY 3: {{ object.utility_id3 }}</h3>
+
+<table style="width:100%">
+  <tr>
+    <td>Residential Electricity</td>
+    <td>{{ object.residential_electricity3 }}</td>
+    <td>kWh</td>
+  </tr>
+  <tr>
+    <td>Commercial and Industrial Electricity</td>
+    <td>{{ object.com_and_ind_electricity3 }}</td>
+    <td>kWh</td>
+  </tr>
+</table>
+
+<form action="/electricinput/update/{{ object.id }}/">
+    <input type="submit" value="UPDATE" />
+</form>
+
+
+<form action="electricinput/delete/">
+    <input type="submit" value="DELETE" />
+</form>
+
+      </div>
+
+
+{% endblock %}

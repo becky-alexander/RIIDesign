@@ -670,5 +670,82 @@ def costImporter(request):
 
     return render_to_response('admin_imports/cost_importer.html', context, context_instance=RequestContext(request))
 
+def waterinputImporter(request):
+    errorMessage = None
+    updateCount = 0
+    newCount = 0
+    errorCount = 0
+    rowCount = 0
+
+    if request.method == 'POST':
+        file_obj = request.FILES['file']
+
+        if file_obj:
+            import StringIO
+
+            buf = StringIO.StringIO(file_obj.read())
+
+            parser = CSVParser().parse
+
+            updateCount = 0
+            newCount = 0
+            errorCount = 0
+            rowCount = 0
+            errorLines = list()
+
+            for row in buf:
+                rowCount += 1
+
+                filteredRow = stringFilter(row)
+
+                fields = parser(filteredRow)
+
+                if None == fields:
+                    continue
+
+                if len(fields) < 4:
+                    continue
+
+                city = fields[0]
+                year = fields[1]
+
+                residential_water = fields[2].replace(",", "")
+                commercial_water = fields[3].replace(",", "")
+                industrial_water = fields[4].replace(",", "")
+                other_water = fields[4].replace(",", "")
+                if city == 'City':
+                    continue
+
+                try:
+
+                    # # Find City ##
+                    cityObject = City.objects.get(city=city)
+
+                    newItem = Water()
+                    newItem.city = cityObject
+                    newItem.year = year
+                    newItem.residential_water = residential_water
+                    newItem.commercial_water = commercial_water
+                    newItem.industrial_water = industrial_water
+                    newItem.other_water = other_water
+                    newItem.save()
+
+                    print 'committing row ' + row
+
+                except Exception, e:
+                    print e
+                    errorMessage = 'There was an error uploading the item on row ' + str(
+                        rowCount) + ', please fix before continuing.'
+                    pass
+
+    else:
+        pass
+
+    context = {'errorMessage': errorMessage, 'message': 'Successful', 'updateCount': updateCount, 'newCount': newCount,
+               'errorCount': errorCount, }
+
+    return render_to_response('admin_imports/waterinput_importer.html', context, context_instance=RequestContext(request))
+
+
 
 allchars = string.maketrans('', '')
