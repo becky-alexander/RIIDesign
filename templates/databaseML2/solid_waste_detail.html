@@ -22,7 +22,7 @@
 
       <div id='content'>
 
-<h1>{{ object.city_id }}</h1>
+<h1>{{ object.county_id }}</h1>
 <h2>{{ object.year }}</h2>
 
 <h3>FACILITY 1: {{ object.facility_id1 }}</h3>
@@ -31,7 +31,7 @@
   <tr>
     <td>Recycled</td>
     <td>{{ object.recycled }}</td>
-    <td>kWh</td>
+    <td>Tons</td>
   </tr>
   <tr>
     <td>Commercial and Industrial Electricity</td>
@@ -70,12 +70,12 @@
   </tr>
 </table>
 
-<form action="/electricinput/update/{{ object.id }}/">
+<form action="/solid_wasteinput/update/{{ object.id }}/">
     <input type="submit" value="UPDATE" />
 </form>
 
 
-<form action="electricinput/delete/">
+<form action="solid_wasteinput/delete/">
     <input type="submit" value="DELETE" />
 </form>
 
