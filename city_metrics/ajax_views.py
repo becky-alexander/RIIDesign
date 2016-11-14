@@ -112,7 +112,7 @@ def update_chart(request):
 
         elif unit == 'vmt':
             stats = Travel.objects.all().order_by('city__sort_order')
-            v_axis_label = 'VMT'
+            h_axis_label = 'VMT'
             v_axis_format = '#,###.##'
 
         elif unit == 'tons':
