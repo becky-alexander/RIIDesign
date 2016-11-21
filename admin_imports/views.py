@@ -1,7 +1,7 @@
 import string
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from city_metrics.models import Energy, City, DemographicData, Water, Travel, Waste, Emissions, Cost
+from city_metrics.models import Energy, City, DemographicData, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput
 from csvParser import CSVParser
 
 
