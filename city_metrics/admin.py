@@ -241,4 +241,4 @@ admin.site.register(CityMetricsWaterInput, CityMetricsWaterInputAdmin)
 admin.site.register(CityMetricsElectricInput, CityMetricsElectricInputAdmin)
 admin.site.register(CityMetricsNatGasInput, CityMetricsNatGasInputAdmin)
 admin.site.register(CityMetricsSolidWasteInput, CityMetricsSolidWasteInputAdmin)
-admin.site.register(CityMetricsOtherEnergyInput, CityMetricsOtherEnergyInputAdmin
+admin.site.register(CityMetricsOtherEnergyInput, CityMetricsOtherEnergyInputAdmin)
