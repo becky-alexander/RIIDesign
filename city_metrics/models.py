@@ -442,6 +442,6 @@ class CityMetricsOtherEnergyInput(models.Model):
     other_fuel_amount5_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
     class Meta:
         db_table = u'city_metrics_other_energy_input'
-	    verbose_name = 'Other Fuel'
+	verbose_name = 'Other Fuel'
 	def __unicode__(self):
 	    return " %s -- %s" % (self.city.city, self.year)
