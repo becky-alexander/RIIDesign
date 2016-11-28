@@ -324,7 +324,9 @@ class CityMetricsElectricInput(models.Model):
     com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
     class Meta:
         db_table = u'city_metrics_electric_input'
-	return "%s" % (self.CityMetricsEnergyUtilities.name)
+	def __unicode__(self):
+		return "%s" % (self.CityMetricsEnergyUtilities.name)
+
 class CityMetricsNatGasInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
