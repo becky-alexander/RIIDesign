@@ -207,7 +207,7 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 	list_filter = ('city_id', 'year',)
 	fieldsets = (
 		('General Info', {
-			'fields': ('city_id', 'year')
+			'fields': ('county_id', 'year')
 		}),
 		('Fuel Type 1', {
 			'fields': ('other_fuel_amount1_residential', 'other_fuel_amount1_com_and_ind ')
