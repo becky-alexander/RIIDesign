@@ -163,8 +163,8 @@ INSTALLED_APPS = (
 	'site_content',
 	'webapp',
 	'webapp_admin',
-	'databaseML',
-	'databaseML2',
+	#'databaseML',
+	#'databaseML2',
 )
 
 CACHES = {
