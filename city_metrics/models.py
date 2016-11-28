@@ -323,9 +323,9 @@ class CityMetricsElectricInput(models.Model):
     com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
     class Meta:
         db_table = u'city_metrics_electric_input'
-		verbose_name = 'Electricity'
-	def __unicode__(self):
-		return "%s" % (self.CityMetricsEnergyUtilities.name)
+	verbose_name = 'Electricity'
+    def __unicode__(self):
+	return "%s" % (self.CityMetricsEnergyUtilities.name)
 
 class CityMetricsNatGasInput(models.Model):
     id = models.AutoField(primary_key=True)
@@ -342,7 +342,7 @@ class CityMetricsNatGasInput(models.Model):
     com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Commericial and Industrial Natural Gas', help_text='therms')
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
-		verbose_name = 'Natural Gas'
+	verbose_name = 'Natural Gas'
     def __unicode__(self):
 	return "%s" % (self.CityMetricsEnergyUtilities.name)
 
@@ -442,6 +442,6 @@ class CityMetricsOtherEnergyInput(models.Model):
     other_fuel_amount5_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
     class Meta:
         db_table = u'city_metrics_other_energy_input'
-		verbose_name = 'Other Fuel'
+	    verbose_name = 'Other Fuel'
 	def __unicode__(self):
-		return " %s -- %s" % (self.city.city, self.year)
+	    return " %s -- %s" % (self.city.city, self.year)
