@@ -140,6 +140,9 @@ class CityMetricsWaterInputAdmin(admin.ModelAdmin):
 		('General Info', {
 			'fields': ('city_id', 'year')
 		}),
+		('Totals By Source', {
+			'fields': ('residential_water', 'commercial_water', 'other_water')
+		})
 	)
 
 
