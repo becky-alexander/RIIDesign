@@ -63,42 +63,42 @@ class TravelAdmin(admin.ModelAdmin):
 	)
 
 
-class WasteAdmin(admin.ModelAdmin):
-	list_display = ('city', 'year',)
-	list_filter = ('city', 'year',)
+#class WasteAdmin(admin.ModelAdmin):
+#	list_display = ('city', 'year',)
+#	list_filter = ('city', 'year',)
+#
+#	fieldsets = (
+#		('General Info', {
+#			'fields': ('city', 'year')
+#		}),
+#		('Totals By Use', {
+#			'fields': ('recycled', 'landfilled', 'incinerated')
+#		}),
+#	)
 
-	fieldsets = (
-		('General Info', {
-			'fields': ('city', 'year')
-		}),
-		('Totals By Use', {
-			'fields': ('recycled', 'landfilled', 'incinerated')
-		}),
-	)
 
-
-class EmissionsAdmin(admin.ModelAdmin):
-	list_display = ('city', 'year',)
-	list_filter = ('city', 'year',)
-
-	fieldsets = (
-		('General Info', {
-			'fields': ('city', 'year')
-		}),
-		('Totals', {
-			'fields': ('energy_associated_emissions', 'water_associated_emissions', 'travel_associated_emissions', 'waste_associated_emissions')
-		}),
-		('WN Totals', {
-			'fields': ('wn_energy_associated_emissions', 'wn_water_associated_emissions', 'wn_travel_associated_emissions', 'wn_waste_associated_emissions')
-		}),
-		('Energy Numbers', {
-			'fields': ('energy_type_electricity', 'energy_type_natural_gas', 'energy_type_other', 'energy_use_residential', 'energy_use_com_ind',
-			'wn_energy_type_electricity', 'wn_energy_type_natural_gas', 'wn_energy_type_other', 'wn_energy_use_residential', 'wn_energy_use_com_ind')
-		}),
-		('Waste Numbers', {
-			'fields': ('waste_method_recycled', 'waste_method_landfilled', 'waste_method_incinerated')
-		})
-	)
+#class EmissionsAdmin(admin.ModelAdmin):
+#	list_display = ('city', 'year',)
+#	list_filter = ('city', 'year',)
+#
+#	fieldsets = (
+#		('General Info', {
+#			'fields': ('city', 'year')
+#		}),
+#		('Totals', {
+#			'fields': ('energy_associated_emissions', 'water_associated_emissions', 'travel_associated_emissions', 'waste_associated_emissions')
+#		}),
+#		('WN Totals', {
+#			'fields': ('wn_energy_associated_emissions', 'wn_water_associated_emissions', 'wn_travel_associated_emissions', 'wn_waste_associated_emissions')
+#		}),
+#		('Energy Numbers', {
+#			'fields': ('energy_type_electricity', 'energy_type_natural_gas', 'energy_type_other', 'energy_use_residential', 'energy_use_com_ind',
+#			'wn_energy_type_electricity', 'wn_energy_type_natural_gas', 'wn_energy_type_other', 'wn_energy_use_residential', 'wn_energy_use_com_ind')
+#		}),
+#		('Waste Numbers', {
+#			'fields': ('waste_method_recycled', 'waste_method_landfilled', 'waste_method_incinerated')
+#		})
+#	)
 
 
 class CostAdmin(admin.ModelAdmin):
@@ -128,7 +128,6 @@ class CostAdmin(admin.ModelAdmin):
 		})
 	)
 
-
 class SpecialTrendLineAdmin(admin.ModelAdmin):
 	list_display = ('type', 'year',)
 	list_filter = ('type', 'year',)
@@ -145,15 +144,53 @@ class CityMetricsWaterInputAdmin(admin.ModelAdmin):
 		})
 	)
 
+class CityMetricsElectricInputAdmin(admin.ModelAdmin):
+	list_display = ('city_id', 'year',)
+	list_filter = ('city_id', 'year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('city_id', 'year')
+		}),
+		('Totals By Source Utility 1', {
+			'fields': ('utility_id1', 'residential_electricity', 'com_and_ind_electricity', 'residential_wind_electricity', 'com_and_ind_wind_electricity')
+		}),
+		('Totals By Source Utility 2', {
+			'fields': ('utility_id2', 'residential_electricity2', 'com_and_ind_electricity2', 'residential_wind_electricity2', 'com_and_ind_wind_electricity2')
+		}),
+		('Totals By Source Utility 3', {
+			'fields': ('utility_id3', 'residential_electricity3', 'com_and_ind_electricity3', 'residential_wind_electricity3', 'com_and_ind_wind_electricity3')
+		})
+	)
+
+class CityMetricsNatGasInputAdmin(admin.ModelAdmin):
+	list_display = ('city_id', 'year',)
+	list_filter = ('city_id', 'year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('city_id', 'year')
+		}),
+		('Totals By Source Utility A', {
+			'fields': ('utility_ida', 'residential_nat_gasa', 'com_and_ind_nat_gasa')
+		}),
+		('Totals By Source Utility B', {
+			'fields': ('utility_idb', 'residential_nat_gasb', 'com_and_ind_nat_gasb')
+		}),
+		('Totals By Source Utility C', {
+			'fields': ('utility_idc', 'residential_nat_gasc', 'com_and_ind_nat_gasc')
+		})
+	)
+
 
 
 admin.site.register(City, CityAdmin)
-admin.site.register(DemographicData, DemographicDataAdmin)
-admin.site.register(Energy, EnergyAdmin)
-admin.site.register(Water, WaterAdmin)
-admin.site.register(Travel, TravelAdmin)
-admin.site.register(Waste, WasteAdmin)
-admin.site.register(Emissions, EmissionsAdmin)
-admin.site.register(Cost, CostAdmin)
-admin.site.register(SpecialTrendLine, SpecialTrendLineAdmin)
+#admin.site.register(DemographicData, DemographicDataAdmin)
+#admin.site.register(Energy, EnergyAdmin)
+#admin.site.register(Water, WaterAdmin)
+#admin.site.register(Travel, TravelAdmin)
+#admin.site.register(Waste, WasteAdmin)
+#admin.site.register(Emissions, EmissionsAdmin)
+#admin.site.register(Cost, CostAdmin)
+#admin.site.register(SpecialTrendLine, SpecialTrendLineAdmin)
 admin.site.register(CityMetricsWaterInput, CityMetricsWaterInputAdmin)
+admin.site.register(CityMetricsElectricInput, CityMetricsElectricAdmin)
+admin.site.register(CityMetricsNatGasInput, CityMetricsNatGasAdmin)

@@ -280,9 +280,9 @@ YEARS = (
 )
 
 class CityMetricsWaterInput(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
-    year = models.CharField(max_length=4, blank=True, choices=YEARS)
+    year = models.CharField(max_length=4, blank=True)
     residential_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Residential Water')
     commercial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Commercial Water')
     industrial_water = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, help_text='Gallons', verbose_name='Industrial Water')
@@ -304,7 +304,7 @@ class CityMetricsEnergyUtilities(models.Model):
 	return "%s" % (self.name)
 
 class CityMetricsElectricInput(models.Model):
-#    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, choices=YEARS)
     utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility I", verbose_name='Utility #1', db_column='utility_id1')
@@ -324,7 +324,7 @@ class CityMetricsElectricInput(models.Model):
     com_and_ind_wind_electricity3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
     class Meta:
         db_table = u'city_metrics_electric_input'
-
+	return "%s" % (self.CityMetricsEnergyUtilities.name)
 class CityMetricsNatGasInput(models.Model):
 #    id = models.IntegerField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
