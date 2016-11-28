@@ -385,7 +385,7 @@ class CityMetricsSolidWasteInput(models.Model):
     processed_facility4 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00)
     class Meta:
         db_table = u'city_metrics_solid_waste_input'
-		verbose_name =  'Solid Waste'
+	    verbose_name =  'Solid Waste'
     def __unicode__(self):
 	return "%s" % (self.CityMetricsWasteProcessingFacility.facility_name)
 	return "%s" % (self.CityMetricsCounty.county)
