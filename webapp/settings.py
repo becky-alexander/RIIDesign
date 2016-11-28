@@ -156,8 +156,8 @@ INSTALLED_APPS = (
 	'filebrowser',
 	'suit',
 	'django.contrib.admin',
-	#'mptt',
-	#'reversion',
+	'mptt',
+	'reversion',
 	# My Applications
 	'city_metrics',
 	'site_content',
