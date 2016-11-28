@@ -132,6 +132,7 @@ class SpecialTrendLineAdmin(admin.ModelAdmin):
 	list_display = ('type', 'year',)
 	list_filter = ('type', 'year',)
 
+
 class CityMetricsWaterInputAdmin(admin.ModelAdmin):
 	list_display = ('city_id', 'year',)
 	list_filter = ('city_id', 'year',)
@@ -180,6 +181,51 @@ class CityMetricsNatGasInputAdmin(admin.ModelAdmin):
 		})
 	)
 
+class CityMetricsSolidWasteInputAdmin(admin.ModelAdmin):
+	list_display = ('county_id', 'year',)
+	list_filter = ('county_id', 'year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('city_id', 'year')
+		}),
+		('Recycled & Land Dissposed', {
+			'fields': ('recycled', 'land_dispossed', 'land_dispossed_without_ch4_recovery')
+		}),
+		('Total Processed at Facility 1', {
+			'fields': ('facility_id1', 'processed_facility1')
+		}),
+		('Total Processed at Facility 2', {
+			'fields': ('facility_id2', 'processed_facility2'),
+		}),
+		('Total Processed at Facility 3', {
+			'fields': ('facility_id3', 'processed_facility3'),
+		})
+	)
+
+class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
+	list_display = ('city_id', 'year',)
+	list_filter = ('city_id', 'year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('city_id', 'year')
+		}),
+		('Fuel Type 1', {
+			'fields': ('other_fuel_amount1_residential', 'other_fuel_amount1_com_and_ind ')
+		}),
+		('Fuel Type 2', {
+			'fields': ('other_fuel_amount2_residential', 'other_fuel_amount2_com_and_ind ')
+		}),
+		('Fuel Type 3', {
+			'fields': ('other_fuel_amount3_residential', 'other_fuel_amount3_com_and_ind ')
+		}),
+		('Fuel Type 4', {
+			'fields': ('other_fuel_amount4_residential', 'other_fuel_amount4_com_and_ind ')
+		}),
+		('Fuel Type 5', {
+			'fields': ('other_fuel_amount5_residential', 'other_fuel_amount5_com_and_ind ')
+		}),
+	)
+
 
 
 admin.site.register(City, CityAdmin)
@@ -194,3 +240,5 @@ admin.site.register(City, CityAdmin)
 admin.site.register(CityMetricsWaterInput, CityMetricsWaterInputAdmin)
 admin.site.register(CityMetricsElectricInput, CityMetricsElectricInputAdmin)
 admin.site.register(CityMetricsNatGasInput, CityMetricsNatGasInputAdmin)
+admin.site.register(CityMetricsSolidWasteInput, CityMetricsSolidWasteInputAdmin)
+admin.site.register(CityMetricsOtherEnergyInput, CityMetricsOtherEnergyInputAdmin
