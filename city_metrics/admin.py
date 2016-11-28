@@ -210,19 +210,19 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 			'fields': ('city_id', 'year')
 		}),
 		('Fuel Type 1', {
-			'fields': ('other_fuel_type1', 'other_fuel_amount1_residential', 'other_fuel_amount1_com_and_ind ')
+			'fields': ('other_fuel_type1', 'other_fuel_amount1_residential', 'other_fuel_amount1_com_and_ind')
 		}),
 		('Fuel Type 2', {
-			'fields': ('other_fuel_type2', 'other_fuel_amount2_residential', 'other_fuel_amount2_com_and_ind ')
+			'fields': ('other_fuel_type2', 'other_fuel_amount2_residential', 'other_fuel_amount2_com_and_ind')
 		}),
 		('Fuel Type 3', {
-			'fields': ('other_fuel_type3', 'other_fuel_amount3_residential', 'other_fuel_amount3_com_and_ind ')
+			'fields': ('other_fuel_type3', 'other_fuel_amount3_residential', 'other_fuel_amount3_com_and_ind')
 		}),
 		('Fuel Type 4', {
-			'fields': ('other_fuel_type4', 'other_fuel_amount4_residential', 'other_fuel_amount4_com_and_ind ')
+			'fields': ('other_fuel_type4', 'other_fuel_amount4_residential', 'other_fuel_amount4_com_and_ind')
 		}),
 		('Fuel Type 5', {
-			'fields': ('other_fuel_type4', 'other_fuel_amount5_residential', 'other_fuel_amount5_com_and_ind ')
+			'fields': ('other_fuel_type4', 'other_fuel_amount5_residential', 'other_fuel_amount5_com_and_ind')
 		}),
 	)
 
