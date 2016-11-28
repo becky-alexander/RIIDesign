@@ -343,8 +343,6 @@ class CityMetricsNatGasInput(models.Model):
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
 	verbose_name = 'Natural Gas'
-    def __unicode__(self):
-	return "%s" % (self.CityMetricsEnergyUtilities.name)
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
