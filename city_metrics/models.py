@@ -291,7 +291,6 @@ class CityMetricsWaterInput(models.Model):
     class Meta:
         db_table = u'city_metrics_water_input'
 	verbose_name = 'Water Input'
-	ordering = (City, year)
 
 	def __unicode__(self):
 		return " %s -- %s" % (self.city.city, self.year)
