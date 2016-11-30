@@ -52,127 +52,6 @@ class DemographicData(models.Model):
 		verbose_name_plural = 'Demographic Data'
 		ordering = ('year', 'city__city')
 
-
-class Energy(models.Model):
-	city = models.ForeignKey(City)
-	year = models.CharField(max_length=4, help_text='ex: 2012')
-
-	# BY TYPE
-	electricity = models.DecimalField(max_digits=16, decimal_places=4)
-	natural_gas = models.DecimalField(max_digits=16, decimal_places=4)
-	other = models.DecimalField(max_digits=16, decimal_places=4)
-
-	# WN BY TYPE
-	# WN = Weather Normalized
-	wn_electricity = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN electricity')
-	wn_natural_gas = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN natural gas')
-	wn_other = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN other')
-
-	# TOTALS BY USE
-	total_res_energy = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='Residential energy')
-	total_com_ind_energy = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='Com/Ind energy')
-
-	# WN TOTALS BY USE
-	wn_total_res_energy = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN Residential energy')
-	wn_total_com_ind_energy = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN Com/Ind energy')
-
-	def __unicode__(self):
-		return "Energy - %s, %s" % (self.city.city, self.city.state)
-
-	class Meta:
-		verbose_name = 'Energy'
-		verbose_name_plural = 'Energy'
-
-
-class Water(models.Model):
-	city = models.ForeignKey(City)
-	year = models.CharField(max_length=4, help_text='ex: 2012')
-
-	# TOTALS BY USE
-	total_res_water = models.DecimalField(max_digits=16, decimal_places=4)
-	total_com_ind_water = models.DecimalField(max_digits=16, decimal_places=4)
-
-	def __unicode__(self):
-		return "Water - %s, %s" % (self.city.city, self.city.state)
-
-	class Meta:
-		verbose_name = 'Water'
-		verbose_name_plural = 'Water'
-
-
-class Travel(models.Model):
-	city = models.ForeignKey(City)
-	year = models.CharField(max_length=4, help_text='ex: 2012')
-
-	total_vmt = models.DecimalField(max_digits=16, decimal_places=4)
-
-	def __unicode__(self):
-		return "Travel - %s, %s" % (self.city.city, self.city.state)
-
-	class Meta:
-		verbose_name = 'Travel'
-		verbose_name_plural = 'Travel'
-
-
-class Waste(models.Model):
-	city = models.ForeignKey(City)
-	year = models.CharField(max_length=4, help_text='ex: 2012')
-
-	recycled = models.DecimalField(max_digits=16, decimal_places=4)
-	landfilled = models.DecimalField(max_digits=16, decimal_places=4)
-	incinerated = models.DecimalField(max_digits=16, decimal_places=4)
-
-	def __unicode__(self):
-		return "Waste - %s, %s" % (self.city.city, self.city.state)
-
-	class Meta:
-		verbose_name = 'Waste'
-		verbose_name_plural = 'Waste'
-
-
-class Emissions(models.Model):
-	city = models.ForeignKey(City)
-	year = models.CharField(max_length=4, help_text='ex: 2012')
-
-	# TOTALS
-	energy_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='Energy emission totals')
-	water_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='Other emission totals')
-	travel_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='Travel emission totals')
-	waste_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='Waste emission totals')
-
-	# WN TOTALS
-	wn_energy_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN Total energy emissions')
-	wn_water_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN Total water emissions')
-	wn_travel_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN Total travel emissions')
-	wn_waste_associated_emissions = models.DecimalField(max_digits=16, decimal_places=4, verbose_name='WN Total waste emissions')
-
-	# ENERGY BY TYPE
-	energy_type_electricity = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-	wn_energy_type_electricity = models.DecimalField(max_digits=16, decimal_places=4, default=0.00, verbose_name='WN energy type electricity')
-	energy_type_natural_gas = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-	wn_energy_type_natural_gas = models.DecimalField(max_digits=16, decimal_places=4, default=0.00, verbose_name='WN energy type natural gas')
-	energy_type_other = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-	wn_energy_type_other = models.DecimalField(max_digits=16, decimal_places=4, default=0.00, verbose_name='WN energy type other')
-
-	# ENERGY BY USE
-	energy_use_residential = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-	wn_energy_use_residential = models.DecimalField(max_digits=16, decimal_places=4, default=0.00, verbose_name='WN energy use residential')
-	energy_use_com_ind = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-	wn_energy_use_com_ind = models.DecimalField(max_digits=16, decimal_places=4, default=0.00, verbose_name='WN energy use com/ind')
-
-	# WASTE BY METHOD
-	waste_method_recycled = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-	waste_method_landfilled = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-	waste_method_incinerated = models.DecimalField(max_digits=16, decimal_places=4, default=0.00)
-
-	def __unicode__(self):
-		return "Emissions - %s, %s" % (self.city.city, self.city.state)
-
-	class Meta:
-		verbose_name = 'Emission'
-		verbose_name_plural = 'Emissions'
-
-
 class Cost(models.Model):
 	city = models.ForeignKey(City)
 	year = models.CharField(max_length=4, help_text='ex: 2012')
@@ -219,7 +98,6 @@ class Cost(models.Model):
 	class Meta:
 		verbose_name = 'Cost'
 		verbose_name_plural = 'Costs'
-
 
 TRENDLINE_TYPES = (
 	('State', 'State'),
@@ -283,6 +161,7 @@ class CityMetricsWaterInput(models.Model):
     id = models.AutoField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, blank=True)
+    # WATER BY SECTOR
     residential_water = models.DecimalField(max_digits=16, decimal_places=4, help_text='Gallons', verbose_name='Residential Water')
     commercial_water = models.DecimalField(max_digits=16, decimal_places=4, help_text='Gallons', verbose_name='Commercial Water')
     industrial_water = models.DecimalField(max_digits=16, decimal_places=4, help_text='Gallons', verbose_name='Industrial Water')
@@ -292,17 +171,17 @@ class CityMetricsWaterInput(models.Model):
 	verbose_name = 'Water'
 	verbose_name_plural = 'Water'
 	unique_together = ('city_id', 'year')
-	def __unicode__(self):
-		return " %s -- %s" % (self.city.city, self.year)
+    def __unicode__(self):
+	return " %s -- %s" % (self.city.city, self.year)
 
 class CityMetricsEnergyUtilities(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, verbose_name='Utility Name')
     class Meta:
         db_table = u'city_metrics_energy_utilities'
-		verbose_name = 'Energy Utility'
-		verbose_name_plural = 'Energy Utilities'
-		unique = ('name')
+	verbose_name = 'Energy Utility'
+	verbose_name_plural = 'Energy Utilities'
+	unique = ('name')
     def __unicode__(self):
 	return "%s" % (self.name)
 
@@ -310,16 +189,19 @@ class CityMetricsElectricInput(models.Model):
     id = models.AutoField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4)
+    # ELECTRICITY UTILITY 1
     utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility I", verbose_name='Utility #1', db_column='utility_id1')
     residential_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Total Residential Electricity')
     com_and_ind_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
     residential_wind_electricity = models.DecimalField(max_digits=16, blank=True, default=0.00, decimal_places=4, help_text = "kWh", verbose_name='Residential Electricity (wind generated)')
     com_and_ind_wind_electricity = models.DecimalField(max_digits=16, blank=True, default=0.00, decimal_places=4, help_text = "kWh", verbose_name='Commericial & Industrial Electricity (wind generated)')
+    # ELECTRICITY UTILITY 2
     utility_id2 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility II", default='NONE', verbose_name='Utility #2', db_column='utility_id2')
     residential_electricity2 = models.DecimalField(max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Residential Electricity')
     com_and_ind_electricity2 = models.DecimalField(max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
     residential_wind_electricity2 = models.DecimalField(blank=True, default=0.00, max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Residential Electricity (wind generated)')
     com_and_ind_wind_electricity2 = models.DecimalField(blank=True, default=0.00, max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Commericial & Industrial Electricity (wind generated)')
+    # ELECTRICITY UTILITY 3    
     utility_id3 = models.ForeignKey(CityMetricsEnergyUtilities, blank=True, default='NONE' db_column='utility_id3', blank=True, related_name="Utility III", verbose_name='Utility #3')
     residential_electricity3 = models.DecimalField(blank=True, max_digits=16, decimal_places=4, default=0.00, help_text = "kWh", verbose_name='Total Residential Electricity')
     com_and_ind_electricity3 = models.DecimalField(blank=True, max_digits=16, decimal_places=4, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
@@ -330,8 +212,8 @@ class CityMetricsElectricInput(models.Model):
 	verbose_name = 'Electricity'
 	verbose_name_plural = 'Electricity'
 	unique_together = ('city_id', 'year')
-	def __unicode__(self):
-		return " %s -- %s" % (self.city.city, self.year)
+    def __unicode__(self):
+        return " %s -- %s" % (self.city.city, self.year)
 
 class CityMetricsNatGasInput(models.Model):
     id = models.AutoField(primary_key=True)
@@ -349,8 +231,8 @@ class CityMetricsNatGasInput(models.Model):
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
 	verbose_name = 'Natural Gas'
-	def __unicode__(self):
-		return " %s -- %s" % (self.city.city, self.year)
+    def __unicode__(self):
+        return " %s -- %s" % (self.city.city, self.year)
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
