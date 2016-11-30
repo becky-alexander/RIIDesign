@@ -227,11 +227,11 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 	)
 
 class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
-	list_display = ('name')
+	list_display = ('name',)
 	fieldsets = (
 		('General Info', {
-			'fields': ('name',)
-		})
+			'fields': ('name')
+		}),
 	)
 
 admin.site.register(City, CityAdmin)
