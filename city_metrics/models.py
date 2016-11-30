@@ -338,7 +338,7 @@ class CityMetricsOtherEnergyInput(models.Model):
 	verbose_name = 'Other Fuel'
 	verbose_name_plural = 'Other Fuels'
     def __unicode__(self):
-        return " %s -- %s" % (self.city, self.year)
+        return " %s -- %s" % (self.city_id, self.year)
 
 
 
