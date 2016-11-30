@@ -198,8 +198,8 @@ SUIT_CONFIG = {
 	'MENU': (
 		{'app': 'auth'},
 		{'app': 'city_metrics', 'label': 'City Metrics', 'icon': 'icon-signal'},
-		{'app': 'site_content', 'label': 'Site Content', 'icon': 'icon-file'},
-		{'label': 'Utilities', 'icon': 'icon-signal', 'models': ('CityMetricsElectricInput')},
+#		{'app': 'site_content', 'label': 'Site Content', 'icon': 'icon-file'},
+		{'label': 'Utilities', 'icon': 'icon-signal', 'models': ('CityMetricsElectricInput', 'CityMetricsEnergyUtilities')},
 #		{'label': 'Input Forms', 'icon': 'icon-signal', 'url': '/database/'},
 #		{'label': 'Site Media', 'icon': 'icon-folder-open', 'url': '/admin/filebrowser/browse/'},
 #		{'label': 'Demo Data Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/demographic-data-importer/'},
