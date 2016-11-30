@@ -230,6 +230,7 @@ class CityMetricsNatGasInput(models.Model):
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
 	verbose_name = 'Natural Gas'
+	verbose_name_plural = 'Natural Gas'
     def __unicode__(self):
         return " %s -- %s" % (self.city_id, self.year)
 
