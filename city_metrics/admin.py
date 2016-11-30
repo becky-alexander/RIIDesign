@@ -230,7 +230,7 @@ class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
 	list_display = ('name')
 	fieldsets = (
 		('General Info', {
-			'fields': ('name')
+			'fields': ('name',)
 		})
 	)
 
