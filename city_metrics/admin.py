@@ -227,13 +227,9 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 	)
 
 class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
-	list_display = ('name',)
-	fieldsets = (
-		('General Info', {
-			'fields': ('name')
-		}),
-	)
-
+	list_display = ('name')
+	fields = ('name')
+	
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
