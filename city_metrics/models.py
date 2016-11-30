@@ -305,7 +305,8 @@ class CityMetricsOtherEnergyType(models.Model):
     other_fuel_name = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_other_energy_type'
-
+    def __unicode__(self):
+	return "%s" % (self.other_fuel_name)
 
 class CityMetricsOtherEnergyInput(models.Model):
     id = models.AutoField(primary_key=True)
