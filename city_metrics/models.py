@@ -308,7 +308,7 @@ class CityMetricsOtherEnergyType(models.Model):
 
 
 class CityMetricsOtherEnergyInput(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
     year = models.CharField(max_length=4, choices=YEARS)
     other_fuel_type1 = models.ForeignKey(CityMetricsOtherEnergyType, db_column='other_fuel_type1',  related_name="other_fuel_I")
@@ -329,8 +329,8 @@ class CityMetricsOtherEnergyInput(models.Model):
     class Meta:
         db_table = u'city_metrics_other_energy_input'
 	verbose_name = 'Other Fuel'
-	def __unicode__(self):
-	    return " %s -- %s" % (self.city, self.year)
+    def __unicode__(self):
+        return " %s -- %s" % (self.city, self.year)
 
 
 
