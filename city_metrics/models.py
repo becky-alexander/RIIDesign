@@ -176,12 +176,11 @@ class CityMetricsWaterInput(models.Model):
 
 class CityMetricsEnergyUtilities(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50, verbose_name='Utility Name')
+    name = models.CharField(max_length=50, verbose_name='Utility Name', unique=True)
     class Meta:
         db_table = u'city_metrics_energy_utilities'
 	verbose_name = 'Energy Utility'
 	verbose_name_plural = 'Energy Utilities'
-	unique = ('name')
     def __unicode__(self):
 	return "%s" % (self.name)
 
