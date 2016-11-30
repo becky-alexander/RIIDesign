@@ -171,8 +171,8 @@ class CityMetricsWaterInput(models.Model):
 	verbose_name = 'Water'
 	verbose_name_plural = 'Water'
 	unique_together = ('city_id', 'year')
-    def __unicode__(self):
-	return " %s -- %s" % (self.city.city, self.year)
+#    def __unicode__(self):
+#	return " %s -- %s" % (self.city.city, self.year)
 
 class CityMetricsEnergyUtilities(models.Model):
     id = models.AutoField(primary_key=True)
@@ -211,8 +211,8 @@ class CityMetricsElectricInput(models.Model):
 	verbose_name = 'Electricity'
 	verbose_name_plural = 'Electricity'
 	unique_together = ('city_id', 'year')
-    def __unicode__(self):
-        return " %s -- %s" % (self.city.city, self.year)
+ #   def __unicode__(self):
+ #       return " %s -- %s" % (self.city.city, self.year)
 
 class CityMetricsNatGasInput(models.Model):
     id = models.AutoField(primary_key=True)
@@ -230,8 +230,8 @@ class CityMetricsNatGasInput(models.Model):
     class Meta:
         db_table = u'city_metrics_nat_gas_input'
 	verbose_name = 'Natural Gas'
-    def __unicode__(self):
-        return " %s -- %s" % (self.city.city, self.year)
+#    def __unicode__(self):
+#        return " %s -- %s" % (self.city.city, self.year)
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     id = models.IntegerField(primary_key=True)
