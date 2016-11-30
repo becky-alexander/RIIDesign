@@ -301,7 +301,7 @@ class CityMetricsWastewaterInput(models.Model):
 
 
 class CityMetricsOtherEnergyType(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     other_fuel_name = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_other_energy_type'
