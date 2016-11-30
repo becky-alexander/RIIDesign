@@ -223,7 +223,7 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 		}),
 		('Fuel Type 5', {
 			'fields': ('other_fuel_type5', 'other_fuel_amount5_residential', 'other_fuel_amount5_com_and_ind')
-		}),
+		})
 	)
 
 
