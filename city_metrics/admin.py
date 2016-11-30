@@ -228,7 +228,7 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 
 class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
 	list_display = ('name')
-	fields = ('name')
+	fields = ('name',)
 	
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
