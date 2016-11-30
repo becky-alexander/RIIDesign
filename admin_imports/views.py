@@ -721,13 +721,421 @@ def waterinputImporter(request):
                     # # Find City ##
                     cityObject = City.objects.get(city=city)
 
-                    newItem = Water()
+                    newItem = CityMetricsWaterInputWater()
                     newItem.city = cityObject
                     newItem.year = year
                     newItem.residential_water = residential_water
                     newItem.commercial_water = commercial_water
                     newItem.industrial_water = industrial_water
                     newItem.other_water = other_water
+                    newItem.save()
+
+                    print 'committing row ' + row
+
+                except Exception, e:
+                    print e
+                    errorMessage = 'There was an error uploading the item on row ' + str(
+                        rowCount) + ', please fix before continuing.'
+                    pass
+
+    else:
+        pass
+
+    context = {'errorMessage': errorMessage, 'message': 'Successful', 'updateCount': updateCount, 'newCount': newCount,
+               'errorCount': errorCount, }
+
+    return render_to_response('admin_imports/waterinput_importer.html', context, context_instance=RequestContext(request))
+
+def electricinputImporter(request):
+    errorMessage = None
+    updateCount = 0
+    newCount = 0
+    errorCount = 0
+    rowCount = 0
+
+    if request.method == 'POST':
+        file_obj = request.FILES['file']
+
+        if file_obj:
+            import StringIO
+
+            buf = StringIO.StringIO(file_obj.read())
+
+            parser = CSVParser().parse
+
+            updateCount = 0
+            newCount = 0
+            errorCount = 0
+            rowCount = 0
+            errorLines = list()
+
+            for row in buf:
+                rowCount += 1
+
+                filteredRow = stringFilter(row)
+
+                fields = parser(filteredRow)
+
+                if None == fields:
+                    continue
+
+                if len(fields) < 4:
+                    continue
+
+                city = fields[0]
+                year = fields[1]
+                # ELECTRIC UTILITY 1
+                utility_id1 = fields[2].replace(",", "")
+                residential_electricity = fields[3].replace(",", "")
+                com_and_ind_electricity = fields[4].replace(",", "")
+                residential_wind_electricity = fields[5].replace(",", "")
+                com_and_ind_wind_electricity = fields[6].replace(",", "")
+                # ELECTRIC UTILITY 2
+                utility_id2 = fields[7].replace(",", "")
+                residential_electricity2 = fields[8].replace(",", "")
+                com_and_ind_electricity2 = fields[9].replace(",", "")
+                residential_wind_electricity2 = fields[10].replace(",", "")
+                com_and_ind_wind_electricity2 = fields[11].replace(",", "")
+                # ELECTRIC UTILITY 3
+                utility_id3 = fields[12].replace(",", "")
+                residential_electricity3 = fields[13].replace(",", "")
+                com_and_ind_electricity3 = fields[14].replace(",", "")
+                residential_wind_electricity3 = fields[15].replace(",", "")
+                com_and_ind_wind_electricity3 = fields[16].replace(",", "")
+
+                if city == 'City':
+                    continue
+
+                try:
+
+                    # # Find City ##
+                    cityObject = City.objects.get(city=city)
+
+                    newItem = CityMetricsElectricInput()
+                    newItem.city = cityObject
+                    newItem.year = year
+                    newItem.residential_water = residential_water
+                    # ELECTRIC UTILITY 1
+                    newItem.utility_id1 = utility_id1
+                    newItem.residential_electricity = residential_electricity
+                    newItem.com_and_ind_electricity = com_and_ind_electricity
+                    newItem.residential_wind_electricity = residential_wind_electricity
+                    newItem.com_and_ind_wind_electricity = com_and_ind_wind_electricity
+                    # ELECTRIC UTILITY 2
+                    newItem.utility_id2 = utility_id2
+                    newItem.residential_electricity2 = residential_electricity2
+                    newItem.com_and_ind_electricity2 = com_and_ind_electricity2
+                    newItem.residential_wind_electricity2 = residential_wind_electricity2
+                    newItem.com_and_ind_wind_electricity2 = com_and_ind_wind_electricity2
+                    # ELECTRIC UTILITY 3
+                    newItem.utility_id3 = utility_id3
+                    newItem.residential_electricity3 = residential_electricity3
+                    newItem.com_and_ind_electricity3 = com_and_ind_electricity3
+                    newItem.residential_wind_electricity3 = residential_wind_electricity3
+                    newItem.com_and_ind_wind_electricity3 = com_and_ind_wind_electricity3
+                    newItem.save()
+
+                    print 'committing row ' + row
+
+                except Exception, e:
+                    print e
+                    errorMessage = 'There was an error uploading the item on row ' + str(
+                        rowCount) + ', please fix before continuing.'
+                    pass
+
+    else:
+        pass
+
+    context = {'errorMessage': errorMessage, 'message': 'Successful', 'updateCount': updateCount, 'newCount': newCount,
+               'errorCount': errorCount, }
+
+    return render_to_response('admin_imports/waterinput_importer.html', context, context_instance=RequestContext(request))
+
+def natgasinputImporter(request):
+    errorMessage = None
+    updateCount = 0
+    newCount = 0
+    errorCount = 0
+    rowCount = 0
+
+    if request.method == 'POST':
+        file_obj = request.FILES['file']
+
+        if file_obj:
+            import StringIO
+
+            buf = StringIO.StringIO(file_obj.read())
+
+            parser = CSVParser().parse
+
+            updateCount = 0
+            newCount = 0
+            errorCount = 0
+            rowCount = 0
+            errorLines = list()
+
+            for row in buf:
+                rowCount += 1
+
+                filteredRow = stringFilter(row)
+
+                fields = parser(filteredRow)
+
+                if None == fields:
+                    continue
+
+                if len(fields) < 4:
+                    continue
+
+                city = fields[0]
+                year = fields[1]
+
+                utility_ida = fields[2].replace(",", "")
+                residential_nat_gasa = fields[3].replace(",", "")
+                com_and_ind_nat_gasa  = fields[4].replace(",", "")
+
+                utility_idb = fields[5].replace(",", "")
+                residential_nat_gasb = fields[6].replace(",", "")
+                com_and_ind_nat_gasb  = fields[7].replace(",", "")
+
+                utility_idc = fields[8].replace(",", "")
+                residential_nat_gasc = fields[9].replace(",", "")
+                com_and_ind_nat_gasc  = fields[10].replace(",", "")
+
+                if city == 'City':
+                    continue
+
+                try:
+
+                    # # Find City ##
+                    cityObject = City.objects.get(city=city)
+
+                    newItem = CityMetricsNatGasInput()
+                    newItem.city = cityObject
+                    newItem.year = year
+
+                    newItem.utility_ida = utility_ida
+                    newItem.residential_nat_gasa = residential_nat_gasa
+                    newItem.com_and_ind_nat_gasa  = com_and_ind_nat_gasa
+
+                    newItem.utility_idb = utility_idb
+                    newItem.residential_nat_gasb = residential_nat_gasb
+                    newItem.com_and_ind_nat_gasb  = com_and_ind_nat_gasb
+
+                    newItem.utility_idc = utility_idc
+                    newItem.residential_nat_gasc = residential_nat_gasc
+                    newItem.com_and_ind_nat_gasc  = com_and_ind_nat_gasc
+
+                    newItem.save()
+
+                    print 'committing row ' + row
+
+                except Exception, e:
+                    print e
+                    errorMessage = 'There was an error uploading the item on row ' + str(
+                        rowCount) + ', please fix before continuing.'
+                    pass
+
+    else:
+        pass
+
+    context = {'errorMessage': errorMessage, 'message': 'Successful', 'updateCount': updateCount, 'newCount': newCount,
+               'errorCount': errorCount, }
+
+    return render_to_response('admin_imports/waterinput_importer.html', context, context_instance=RequestContext(request))
+
+def otherfuelinputImporter(request):
+    errorMessage = None
+    updateCount = 0
+    newCount = 0
+    errorCount = 0
+    rowCount = 0
+
+    if request.method == 'POST':
+        file_obj = request.FILES['file']
+
+        if file_obj:
+            import StringIO
+
+            buf = StringIO.StringIO(file_obj.read())
+
+            parser = CSVParser().parse
+
+            updateCount = 0
+            newCount = 0
+            errorCount = 0
+            rowCount = 0
+            errorLines = list()
+
+            for row in buf:
+                rowCount += 1
+
+                filteredRow = stringFilter(row)
+
+                fields = parser(filteredRow)
+
+                if None == fields:
+                    continue
+
+                if len(fields) < 4:
+                    continue
+
+                city = fields[0]
+                year = fields[1]
+
+                other_fuel_type1 = fields[2].replace(",", "")
+                other_fuel_amount1_residential = fields[3].replace(",", "")
+                other_fuel_amount1_com_and_ind = fields[4].replace(",", "")
+
+                other_fuel_type2 = fields[5].replace(",", "")
+                other_fuel_amount2_residential = fields[6].replace(",", "")
+                other_fuel_amount2_com_and_ind = fields[7].replace(",", "")
+
+                other_fuel_type3 = fields[8].replace(",", "")
+                other_fuel_amount3_residential = fields[9].replace(",", "")
+                other_fuel_amount3_com_and_ind = fields[10].replace(",", "")
+
+                other_fuel_type4 = fields[11].replace(",", "")
+                other_fuel_amount4_residential = fields[12].replace(",", "")
+                other_fuel_amount4_com_and_ind = fields[13].replace(",", "")
+
+                other_fuel_type5 = fields[14].replace(",", "")
+                other_fuel_amount5_residential = fields[15].replace(",", "")
+                other_fuel_amount5_com_and_ind = fields[16].replace(",", "")
+
+                if city == 'City':
+                    continue
+
+                try:
+
+                    # # Find City ##
+                    cityObject = City.objects.get(city=city)
+
+                    newItem = CityMetricsOtherEnergyInput()
+                    newItem.city = cityObject
+                    newItem.year = year
+
+                    newItem.other_fuel_type1 =other_fuel_type1
+                    newItem.other_fuel_amount1_residential = other_fuel_amount1_residential
+                    newItem.other_fuel_amount1_com_and_ind = fother_fuel_amount1_com_and_ind
+
+                    newItem.other_fuel_type2 = other_fuel_type2
+                    newItem.other_fuel_amount2_residential = other_fuel_amount2_residential
+                    newItem.other_fuel_amount2_com_and_ind = other_fuel_amount2_com_and_ind
+
+                    newItem.other_fuel_type3 = other_fuel_type3
+                    newItem.other_fuel_amount3_residential = other_fuel_amount3_residential
+                    newItem.other_fuel_amount3_com_and_ind = other_fuel_amount3_com_and_ind
+
+                    newItem.other_fuel_type4 = other_fuel_type4
+                    newItem.other_fuel_amount4_residential = other_fuel_amount4_residential
+                    newItem.other_fuel_amount4_com_and_ind = other_fuel_amount4_com_and_ind
+
+                    newItem.other_fuel_type5 = other_fuel_type5
+                    newItem.other_fuel_amount5_residential = other_fuel_amount5_residential
+                    newItem.other_fuel_amount5_com_and_ind = other_fuel_amount5_com_and_ind
+
+                    newItem.save()
+
+                    print 'committing row ' + row
+
+                except Exception, e:
+                    print e
+                    errorMessage = 'There was an error uploading the item on row ' + str(
+                        rowCount) + ', please fix before continuing.'
+                    pass
+
+    else:
+        pass
+
+    context = {'errorMessage': errorMessage, 'message': 'Successful', 'updateCount': updateCount, 'newCount': newCount,
+               'errorCount': errorCount, }
+
+    return render_to_response('admin_imports/waterinput_importer.html', context, context_instance=RequestContext(request))
+
+def solidwasteinputImporter(request):
+    errorMessage = None
+    updateCount = 0
+    newCount = 0
+    errorCount = 0
+    rowCount = 0
+
+    if request.method == 'POST':
+        file_obj = request.FILES['file']
+
+        if file_obj:
+            import StringIO
+
+            buf = StringIO.StringIO(file_obj.read())
+
+            parser = CSVParser().parse
+
+            updateCount = 0
+            newCount = 0
+            errorCount = 0
+            rowCount = 0
+            errorLines = list()
+
+            for row in buf:
+                rowCount += 1
+
+                filteredRow = stringFilter(row)
+
+                fields = parser(filteredRow)
+
+                if None == fields:
+                    continue
+
+                if len(fields) < 4:
+                    continue
+
+                county = fields[0]
+                year = fields[1]
+
+                recycled = fields[2].replace(",", "")
+                land_dispossed = fields[3].replace(",", "")
+                land_dispossed_without_ch4_recovery = fields[4].replace(",", "")
+
+                facility_id1 = fields[5].replace(",", "")
+                processed_facility1 = fields[6].replace(",", "")
+
+                facility_id2 = fields[7].replace(",", "")
+                processed_facility2 = fields[8].replace(",", "")
+
+                facility_id3 = fields[9].replace(",", "")
+                processed_facility3 = fields[10].replace(",", "")
+
+                facility_id4 = fields[11].replace(",", "")
+                processed_facility4 = fields[12].replace(",", "")
+
+                if county == 'County':
+                    continue
+
+                try:
+
+                    # # Find City ##
+                    countyObject = CityMetricsCounty.objects.get(county=county)
+
+                    newItem = CityMetricsSolidWasteInput()
+                    newItem.city = cityObject
+                    newItem.year = year
+
+                    newItem.recycled = recycled
+                    newItem.land_dispossed = land_dispossed
+                    newItem.land_dispossed_without_ch4_recovery = land_dispossed_without_ch4_recovery
+
+                    newItem.facility_id1 = facility_id1
+                    newItem.processed_facility1 = processed_facility1
+
+                    newItem.facility_id2 = facility_id2
+                    newItem.processed_facility2 = processed_facility2
+
+                    newItem.facility_id3 = facility_id3
+                    newItem.processed_facility3 = processed_facility3
+
+                    newItem.facility_id4 = facility_id4
+                    newItem.processed_facility4 = processed_facility4
+
                     newItem.save()
 
                     print 'committing row ' + row
