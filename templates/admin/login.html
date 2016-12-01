@@ -38,7 +38,7 @@
 {% block container %}
 
     {% block content %}
-      <div id='content' align="center">
+
         {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
             <p class="errornote alert alert-error">
                 {% blocktrans count counter=form.errors.items|length %}Please correct the error below.{% plural %}Please
@@ -53,7 +53,7 @@
                 </p>
             {% endfor %}
         {% endif %}
-
+      <div id='content' align="center">
         <p>&nbsp</p>
         <div id="content-main">
 
