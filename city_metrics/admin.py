@@ -230,7 +230,7 @@ class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
 	list_display = ('name',)
 	fields = ('name',)
 
-class CityMetricsEnergyTypeAdmin(admin.ModelAdmin):
+class CityMetricsOtherEnergyTypeAdmin(admin.ModelAdmin):
 	list_display = ('other_fuel_name',)
 	fields = ('other_fuel_name',)
 		
