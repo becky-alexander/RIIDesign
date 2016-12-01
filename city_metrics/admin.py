@@ -3,7 +3,7 @@ from models import *
 
 
 class CityAdmin(admin.ModelAdmin):
-	list_display = ('city', 'state', 'type', 'sort_order',)
+	list_display = ('city', 'county_id' 'state', 'type', 'sort_order',)
 	list_filter = ('city', 'state', 'type', 'sort_order',)
 
 
@@ -227,9 +227,13 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 	)
 
 class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
+	list_display = ('other_fuel_name',)
+	fields = ('other_fuel_name',)
+
+class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
 	list_display = ('name',)
 	fields = ('name',)
-	
+		
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
@@ -245,3 +249,4 @@ admin.site.register(CityMetricsNatGasInput, CityMetricsNatGasInputAdmin)
 admin.site.register(CityMetricsSolidWasteInput, CityMetricsSolidWasteInputAdmin)
 admin.site.register(CityMetricsOtherEnergyInput, CityMetricsOtherEnergyInputAdmin)
 admin.site.register(CityMetricsEnergyUtilities, CityMetricsEnergyUtilitiesAdmin)
+admin.site.register(CityMetricsOtherEnergyType, CityMetricsOtherEnergyTypeAdmin)
