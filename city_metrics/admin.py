@@ -227,12 +227,12 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 	)
 
 class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
-	list_display = ('other_fuel_name',)
-	fields = ('other_fuel_name',)
-
-class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
 	list_display = ('name',)
 	fields = ('name',)
+
+class CityMetricsEnergyTypeAdmin(admin.ModelAdmin):
+	list_display = ('other_fuel_name',)
+	fields = ('other_fuel_name',)
 		
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
