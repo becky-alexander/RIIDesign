@@ -3,7 +3,7 @@ from models import *
 
 
 class CityAdmin(admin.ModelAdmin):
-	list_display = ('city', 'county_id' 'state', 'type', 'sort_order',)
+	list_display = ('city', 'county_id', 'state', 'type', 'sort_order',)
 	list_filter = ('city', 'state', 'type', 'sort_order',)
 
 
