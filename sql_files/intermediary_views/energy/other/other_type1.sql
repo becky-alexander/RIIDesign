@@ -17,3 +17,198 @@ city_metrics_other_energy_input.other_fuel_amount1_com_and_ind,
 
 FROM city_metrics_other_energy_input, city_metrics_other_energy_type
 WHERE city_metrics_other_energy_input.other_fuel_type1 = city_metrics_other_energy_type.id
+;
+
+
+CREATE OR REPLACE VIEW city_metrics_other_type2 AS
+SELECT
+
+city_metrics_other_energy_input.city_id,
+city_metrics_other_energy_input.year,
+city_metrics_other_energy_input.other_fuel_type2,
+city_metrics_other_energy_input.other_fuel_amount2_residential,
+city_metrics_other_energy_input.other_fuel_amount2_com_and_ind,
+
+/*ENERGY*/
+((city_metrics_other_energy_input.other_fuel_amount2_residential * city_metrics_other_energy_type.kbtu) / 1000) AS residential_other_energy2,
+((city_metrics_other_energy_input.other_fuel_amount2_com_and_ind * city_metrics_other_energy_type.kbtu) / 1000) AS com_and_ind_other_energy2,
+
+((city_metrics_other_energy_input.other_fuel_amount2_residential * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS residential_other_energy_emissions2,
+((city_metrics_other_energy_input.other_fuel_amount2_com_and_ind * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS com_and_ind_other_energy_emissions2
+
+
+FROM city_metrics_other_energy_input, city_metrics_other_energy_type
+WHERE city_metrics_other_energy_input.other_fuel_type2 = city_metrics_other_energy_type.id
+;
+
+CREATE OR REPLACE VIEW city_metrics_other_type3 AS
+SELECT
+
+city_metrics_other_energy_input.city_id,
+city_metrics_other_energy_input.year,
+city_metrics_other_energy_input.other_fuel_type3,
+city_metrics_other_energy_input.other_fuel_amount3_residential,
+city_metrics_other_energy_input.other_fuel_amount3_com_and_ind,
+
+/*ENERGY*/
+((city_metrics_other_energy_input.other_fuel_amount3_residential * city_metrics_other_energy_type.kbtu) / 1000) AS residential_other_energy3,
+((city_metrics_other_energy_input.other_fuel_amount3_com_and_ind * city_metrics_other_energy_type.kbtu) / 1000) AS com_and_ind_other_energy3,
+
+((city_metrics_other_energy_input.other_fuel_amount3_residential * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS residential_other_energy_emissions3,
+((city_metrics_other_energy_input.other_fuel_amount3_com_and_ind * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS com_and_ind_other_energy_emissions3
+
+FROM city_metrics_other_energy_input, city_metrics_other_energy_type
+WHERE city_metrics_other_energy_input.other_fuel_type3 = city_metrics_other_energy_type.id
+
+;
+
+CREATE OR REPLACE VIEW city_metrics_other_type4 AS
+SELECT
+
+city_metrics_other_energy_input.city_id,
+city_metrics_other_energy_input.year,
+city_metrics_other_energy_input.other_fuel_type4,
+city_metrics_other_energy_input.other_fuel_amount4_residential,
+city_metrics_other_energy_input.other_fuel_amount4_com_and_ind,
+
+/*ENERGY*/
+((city_metrics_other_energy_input.other_fuel_amount4_residential * city_metrics_other_energy_type.kbtu) / 1000) AS residential_other_energy4,
+((city_metrics_other_energy_input.other_fuel_amount4_com_and_ind * city_metrics_other_energy_type.kbtu) / 1000) AS com_and_ind_other_energy4,
+
+((city_metrics_other_energy_input.other_fuel_amount4_residential * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS residential_other_energy_emissions4,
+((city_metrics_other_energy_input.other_fuel_amount4_com_and_ind * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS com_and_ind_other_energy_emissions4
+
+
+FROM city_metrics_other_energy_input, city_metrics_other_energy_type
+WHERE city_metrics_other_energy_input.other_fuel_type4 = city_metrics_other_energy_type.id
+;
+
+CREATE OR REPLACE VIEW city_metrics_other_type5 AS
+SELECT
+
+city_metrics_other_energy_input.city_id,
+city_metrics_other_energy_input.year,
+city_metrics_other_energy_input.other_fuel_type5,
+city_metrics_other_energy_input.other_fuel_amount5_residential,
+city_metrics_other_energy_input.other_fuel_amount5_com_and_ind,
+
+/*ENERGY*/
+((city_metrics_other_energy_input.other_fuel_amount5_residential * city_metrics_other_energy_type.kbtu) / 1000) AS residential_other_energy5,
+((city_metrics_other_energy_input.other_fuel_amount5_com_and_ind * city_metrics_other_energy_type.kbtu) / 1000) AS com_and_ind_other_energy5,
+
+((city_metrics_other_energy_input.other_fuel_amount5_residential * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS residential_other_energy_emissions5,
+((city_metrics_other_energy_input.other_fuel_amount5_com_and_ind * city_metrics_other_energy_type.kbtu) * city_metrics_other_energy_type.GHG_per_Kbtu) AS com_and_ind_other_energy_emissions5
+
+
+FROM city_metrics_other_energy_input, city_metrics_other_energy_type
+WHERE city_metrics_other_energy_input.other_fuel_type5 = city_metrics_other_energy_type.id
+
+
+;
+
+CREATE OR REPLACE VIEW city_metrics_other_joined AS
+SELECT
+
+city_metrics_other_type1.city_id,
+city_metrics_other_type1.year,
+
+city_metrics_other_type1.other_fuel_type1,
+city_metrics_other_type1.other_fuel_amount1_residential,
+city_metrics_other_type1.other_fuel_amount1_com_and_ind,
+city_metrics_other_type1.residential_other_energy1,
+city_metrics_other_type1.com_and_ind_other_energy1,
+city_metrics_other_type1.residential_other_energy_emissions1,
+city_metrics_other_type1.com_and_ind_other_energy_emissions1,
+
+city_metrics_other_type2.other_fuel_type2,
+city_metrics_other_type2.other_fuel_amount2_residential,
+city_metrics_other_type2.other_fuel_amount2_com_and_ind,
+city_metrics_other_type2.residential_other_energy2,
+city_metrics_other_type2.com_and_ind_other_energy2,
+city_metrics_other_type2.residential_other_energy_emissions2,
+city_metrics_other_type2.com_and_ind_other_energy_emissions2,
+
+city_metrics_other_type3.other_fuel_type3,
+city_metrics_other_type3.other_fuel_amount3_residential,
+city_metrics_other_type3.other_fuel_amount3_com_and_ind,
+city_metrics_other_type3.residential_other_energy3,
+city_metrics_other_type3.com_and_ind_other_energy3,
+city_metrics_other_type3.residential_other_energy_emissions3,
+city_metrics_other_type3.com_and_ind_other_energy_emissions3,
+
+city_metrics_other_type4.other_fuel_type4,
+city_metrics_other_type4.other_fuel_amount4_residential,
+city_metrics_other_type4.other_fuel_amount4_com_and_ind,
+city_metrics_other_type4.residential_other_energy4,
+city_metrics_other_type4.com_and_ind_other_energy4,
+city_metrics_other_type4.residential_other_energy_emissions4,
+city_metrics_other_type4.com_and_ind_other_energy_emissions4,
+
+
+city_metrics_other_type5.other_fuel_type5,
+city_metrics_other_type5.other_fuel_amount5_residential,
+city_metrics_other_type5.other_fuel_amount5_com_and_ind,
+city_metrics_other_type5.residential_other_energy5,
+city_metrics_other_type5.com_and_ind_other_energy5,
+city_metrics_other_type5.residential_other_energy_emissions5,
+city_metrics_other_type5.com_and_ind_other_energy_emissions5
+
+
+FROM city_metrics_other_type1, city_metrics_other_type2, city_metrics_other_type3, city_metrics_other_type4, city_metrics_other_type5
+WHERE city_metrics_other_type5.city_id =city_metrics_other_type4.city_id
+AND city_metrics_other_type4.city_id =city_metrics_other_type3.city_id
+AND city_metrics_other_type3.city_id =city_metrics_other_type2.city_id
+AND city_metrics_other_type2.city_id =city_metrics_other_type1.city_id
+
+AND city_metrics_other_type5.year =city_metrics_other_type4.year
+AND city_metrics_other_type4.year =city_metrics_other_type3.year
+AND city_metrics_other_type3.year =city_metrics_other_type2.year
+AND city_metrics_other_type2.year =city_metrics_other_type1.year
+
+
+;
+
+CREATE OR REPLACE VIEW city_metrics_other_intermediate1 AS
+SELECT
+
+city_id,
+year,
+
+/* Residential Amount */
+(residential_other_energy1 + residential_other_energy2 +
+residential_other_energy3 + residential_other_energy4  +
+residential_other_energy5) AS residential_other_energy_amount_total,
+
+/* Commercial and Industrial Amount */
+(com_and_ind_other_energy1 + com_and_ind_other_energy2 +
+com_and_ind_other_energy3 + com_and_ind_other_energy4 +
+com_and_ind_other_energy4) AS com_and_ind_other_energy_amount_total,
+/* Total Amount */
+(residential_other_energy1 + residential_other_energy2 +
+residential_other_energy3 + residential_other_energy4  +
+residential_other_energy5 + com_and_ind_other_energy1 + com_and_ind_other_energy2 +
+com_and_ind_other_energy3 + com_and_ind_other_energy4 +
+com_and_ind_other_energy4) AS other_energy_amount_total,
+
+
+/*Emissions*/
+/* Residential Emissions */
+((residential_other_energy_emissions1 + residential_other_energy_emissions2 +
+residential_other_energy_emissions3 + residential_other_energy_emissions4 +
+residential_other_energy_emissions5)/1000) AS residential_other_energy_emissions_total,
+/* Commercial and Industrial Emissions */
+((com_and_ind_other_energy_emissions1 + com_and_ind_other_energy_emissions2 +
+com_and_ind_other_energy_emissions3 + com_and_ind_other_energy_emissions4 +
+com_and_ind_other_energy_emissions5)/1000) AS com_and_ind_other_energy_emissions_total,
+/*Total Emissions*/
+((residential_other_energy_emissions1 + residential_other_energy_emissions2 +
+residential_other_energy_emissions3 + residential_other_energy_emissions4 +
+residential_other_energy_emissions5 + com_and_ind_other_energy_emissions1 + com_and_ind_other_energy_emissions2 +
+com_and_ind_other_energy_emissions3 + com_and_ind_other_energy_emissions4 +
+com_and_ind_other_energy_emissions5)/1000) AS other_energy_emissions_total
+
+FROM city_metrics_other_joined
+
+
+
+;

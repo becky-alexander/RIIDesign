@@ -1,21 +1,36 @@
+/*CREATE OR REPLACE VIEW city_metrics_energy AS*/
 CREATE OR REPLACE VIEW city_metrics_energy AS
 SELECT
-city_metrics_electric_input.id,
+0 AS id,
 city_metrics_energy_intermediary1.city_id,
 city_metrics_energy_intermediary1.year,
 city_metrics_energy_intermediary1.total_electricity_mmbtu AS electricity,
 city_metrics_energy_intermediary1.total_nat_gas_mmbtu AS natural_gas,
-city_metrics_energy_intermediary1.total_wind_electricity_mmbtu AS other,
+CASE WHEN city_metrics_other_intermediate1.other_energy_amount_total IS NOT NULL THEN city_metrics_other_intermediate1.other_energy_amount_total ELSE 0 END AS other,
 city_metrics_energy_wn_intermediary2.wn_electricity AS wn_electricity,
 city_metrics_energy_wn_intermediary2.wn_nat_gas AS wn_natural_gas,
-0 AS wn_other,
+0.0 AS wn_other,
 city_metrics_energy_intermediary1.total_residential_energy_mmbtu AS total_res_energy,
 city_metrics_energy_intermediary1.total_com_and_ind_energy_mmbtu AS total_com_ind_energy,
 city_metrics_energy_intermediary1.total_residential_energy_mmbtu AS wn_total_res_energy,
 city_metrics_energy_intermediary1.total_com_and_ind_energy_mmbtu AS wn_total_com_ind_energy
 
-FROM city_metrics_energy_intermediary1, city_metrics_electric_input, city_metrics_energy_wn_intermediary2
-WHERE city_metrics_energy_intermediary1.year = city_metrics_electric_input.year
-AND city_metrics_energy_wn_intermediary2.year = city_metrics_electric_input.year
-AND city_metrics_energy_intermediary1.city_id = city_metrics_electric_input.city_id
+
+FROM city_metrics_energy_intermediary1
+LEFT OUTER JOIN city_metrics_electric_input
+ON city_metrics_energy_intermediary1.city_id = city_metrics_electric_input.city_id
+AND city_metrics_energy_intermediary1.year = city_metrics_electric_input.year
+
+LEFT OUTER JOIN city_metrics_energy_wn_intermediary2
+ON city_metrics_energy_intermediary1.city_id = city_metrics_energy_wn_intermediary2.city_id
+AND city_metrics_energy_intermediary1.year = city_metrics_energy_wn_intermediary2.year
 AND city_metrics_energy_wn_intermediary2.city_id = city_metrics_electric_input.city_id
+AND city_metrics_electric_input.year = city_metrics_energy_wn_intermediary2.year
+
+LEFT OUTER JOIN city_metrics_other_intermediate1
+ON city_metrics_other_intermediate1.city_id = city_metrics_energy_wn_intermediary2.city_id
+AND city_metrics_other_intermediate1.year = city_metrics_energy_wn_intermediary2.year
+AND city_metrics_other_intermediate1.city_id = city_metrics_electric_input.city_id
+AND city_metrics_other_intermediate1.year = city_metrics_electric_input.year
+
+ORDER BY city_id, year
