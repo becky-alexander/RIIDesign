@@ -242,6 +242,11 @@ class CityMetricsOtherEnergyTypeAdmin(admin.ModelAdmin):
 		})
 	)
 
+class CityMetricsWasteProcessingFacility(admin.ModelAdmin):
+	list_display = ('facility_name',)
+	fields = ('facility_name',)
+
+
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
@@ -258,3 +263,4 @@ admin.site.register(CityMetricsSolidWasteInput, CityMetricsSolidWasteInputAdmin)
 admin.site.register(CityMetricsOtherEnergyInput, CityMetricsOtherEnergyInputAdmin)
 admin.site.register(CityMetricsEnergyUtilities, CityMetricsEnergyUtilitiesAdmin)
 admin.site.register(CityMetricsOtherEnergyType, CityMetricsOtherEnergyTypeAdmin)
+admin.site.register(CityMetricsWasteProcessingFacility, CityMetricsWasteProcessingFacilityAdmin)
