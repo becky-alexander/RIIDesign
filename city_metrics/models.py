@@ -304,14 +304,14 @@ class CityMetricsWastewaterInput(models.Model):
 class CityMetricsOtherEnergyType(models.Model):
     id = models.AutoField(primary_key=True)
     other_fuel_name = models.CharField(max_length=50, blank=True)
-	unit = models.CharField(max_lenght=50)
-	kbtu = models.DecimalField(max_digits=16, decimal_places=4)
-	ghg_tonnes = models.DecimalField(max_digits=16, decimal_places=4)
-	ghg_per_kbtu = models.DecimalField(max_digits=16, decimal_places=4)
-	class Meta:
+    unit = models.CharField(max_lenght=50)
+    kbtu = models.DecimalField(max_digits=16, decimal_places=4)
+    ghg_tonnes = models.DecimalField(max_digits=16, decimal_places=4)
+    ghg_per_kbtu = models.DecimalField(max_digits=16, decimal_places=4)
+    class Meta:
         db_table = u'city_metrics_other_energy_type'
-		verbose_name = 'Other Fuel (type)'
-		verbose_name_plural = 'Other Fuels (types)'	
+	verbose_name = 'Other Fuel (type)'
+	verbose_name_plural = 'Other Fuels (types)'	
     def __unicode__(self):
 	return "%s" % (self.other_fuel_name)
 
