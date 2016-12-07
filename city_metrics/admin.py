@@ -242,7 +242,7 @@ class CityMetricsOtherEnergyTypeAdmin(admin.ModelAdmin):
 		})
 	)
 
-class CityMetricsWasteProcessingFacility(admin.ModelAdmin):
+class CityMetricsWasteProcessingFacilityAdmin(admin.ModelAdmin):
 	list_display = ('facility_name',)
 	fields = ('facility_name',)
 
