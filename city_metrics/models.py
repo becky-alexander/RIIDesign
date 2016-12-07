@@ -200,7 +200,7 @@ class CityMetricsElectricInput(models.Model):
     com_and_ind_electricity2 = models.DecimalField(max_digits=16, decimal_places=4, blank=True, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
     residential_wind_electricity2 = models.DecimalField(blank=True, default=0.00, max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Residential Electricity (wind generated)')
     com_and_ind_wind_electricity2 = models.DecimalField(blank=True, default=0.00, max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Commericial & Industrial Electricity (wind generated)')
-    # ELECTRICITY UTILITY 3    
+    # ELECTRICITY UTILITY 3
     utility_id3 = models.ForeignKey(CityMetricsEnergyUtilities, blank=True, default='NONE', db_column='utility_id3', related_name="Utility III", verbose_name='Utility #3')
     residential_electricity3 = models.DecimalField(blank=True, max_digits=16, decimal_places=4, default=0.00, help_text = "kWh", verbose_name='Total Residential Electricity')
     com_and_ind_electricity3 = models.DecimalField(blank=True, max_digits=16, decimal_places=4, default=0.00, help_text = "kWh", verbose_name='Total Commericial & Industrial Electricity')
@@ -304,8 +304,14 @@ class CityMetricsWastewaterInput(models.Model):
 class CityMetricsOtherEnergyType(models.Model):
     id = models.AutoField(primary_key=True)
     other_fuel_name = models.CharField(max_length=50, blank=True)
-    class Meta:
+	unit = models.CharField(max_lenght=50)
+	kbtu = models.DecimalField(max_digits=16, decimal_places=4)
+	ghg_tonnes = models.DecimalField(max_digits=16, decimal_places=4)
+	ghg_per_kbtu = models.DecimalField(max_digits=16, decimal_places=4)
+	class Meta:
         db_table = u'city_metrics_other_energy_type'
+		verbose_name = 'Other Fuel (type)'
+		verbose_name_plural = 'Other Fuels (types)'	
     def __unicode__(self):
 	return "%s" % (self.other_fuel_name)
 

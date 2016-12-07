@@ -231,9 +231,17 @@ class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
 	fields = ('name',)
 
 class CityMetricsOtherEnergyTypeAdmin(admin.ModelAdmin):
-	list_display = ('other_fuel_name',)
-	fields = ('other_fuel_name',)
-		
+	list_display = ('other_fuel_name', 'unit',)
+	list_filters = ('other_fuel_name', 'unit',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('other_fuel_name', 'unit',)
+		}),
+		('Emissions', {
+			'fields': ('kbtu', 'ghg_tonnes', 'ghg_per_kbtu',)
+		})
+	)
+
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
