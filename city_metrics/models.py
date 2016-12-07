@@ -278,10 +278,12 @@ class CityMetricsSolidWasteInput(models.Model):
         return " %s -- %s" % (self.county_id, self.year)
 
 class CityMetricsWastewaterFacility(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     wastewater_facility = models.CharField(max_length=50, blank=True)
     class Meta:
         db_table = u'city_metrics_wastewater_facility'
+	verbose_name = 'Wastewater Facility'
+	verbose_name_plural = 'Wastewater Facilities'
     def __unicode__(self):
 	return "%s" % (self.wastewater_facility)
 
