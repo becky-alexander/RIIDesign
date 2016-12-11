@@ -250,6 +250,24 @@ class CityMetricsWastewaterFacilityAdmin(admin.ModelAdmin):
 	list_display = ('wastewater_facility',)
 	fields = ('wastewater_facility',)
 
+class CityMetricsWastewaterInputAdmin(admin.ModelAdmin):
+	list_display = ('city_id', 'year',)
+	list_filters = ('city_id', 'year')
+	fieldsets = (
+		('General Info', {
+			'fields': ('city_id', 'year',)
+		}),
+		('Facility 1', {
+			'fields': ('wastewater_facility1_id', 'wastewater_treated_facility1',)
+		}),
+		('Facility 2', {
+			'fields': ('wastewater_facility2_id', 'wastewater_treated_facility2',)
+		}),
+		('Facility 3', {
+			'fields': ('wastewater_facility3_id', 'wastewater_treated_facility3',)
+		})
+	)
+	
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
@@ -268,3 +286,4 @@ admin.site.register(CityMetricsEnergyUtilities, CityMetricsEnergyUtilitiesAdmin)
 admin.site.register(CityMetricsOtherEnergyType, CityMetricsOtherEnergyTypeAdmin)
 admin.site.register(CityMetricsWasteProcessingFacility, CityMetricsWasteProcessingFacilityAdmin)
 admin.site.register(CityMetricsWastewaterFacility, CityMetricsWastewaterFacilityAdmin)
+admin.site.register(CityMetricsWastewaterInput, CityMetricsWastewaterInputAdmin)
