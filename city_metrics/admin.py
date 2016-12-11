@@ -246,6 +246,9 @@ class CityMetricsWasteProcessingFacilityAdmin(admin.ModelAdmin):
 	list_display = ('facility_name',)
 	fields = ('facility_name',)
 
+class CityMetricsWastewaterFacilityAdmin(admin.ModelAdmin):
+	list_display = ('wastewater_facility',)
+	fields = ('wastewater_facility',)
 
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
@@ -264,3 +267,4 @@ admin.site.register(CityMetricsOtherEnergyInput, CityMetricsOtherEnergyInputAdmi
 admin.site.register(CityMetricsEnergyUtilities, CityMetricsEnergyUtilitiesAdmin)
 admin.site.register(CityMetricsOtherEnergyType, CityMetricsOtherEnergyTypeAdmin)
 admin.site.register(CityMetricsWasteProcessingFacility, CityMetricsWasteProcessingFacilityAdmin)
+admin.site.register(CityMetricsWastewaterFacility, CityMetricsWastewaterFacilityAdmin)
