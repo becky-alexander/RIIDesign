@@ -227,8 +227,8 @@ class CityMetricsOtherEnergyInputAdmin(admin.ModelAdmin):
 	)
 
 class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
-	list_display = ('name',)
-	fields = ('name',)
+	list_display = ('name', 'type',)
+	fields = ('name', 'type',)
 
 class CityMetricsOtherEnergyTypeAdmin(admin.ModelAdmin):
 	list_display = ('other_fuel_name', 'unit',)
