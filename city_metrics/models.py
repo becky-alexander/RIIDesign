@@ -304,7 +304,7 @@ class CityMetricsWastewaterInput(models.Model):
 	verbose_name = 'Wastewater Treated'
 	verbose_name_plural = 'Wastewater Treated'
     def __unicode__(self):
-	return "%s" % (self.CityMetricsWastewaterFacility.wastewater_facility)
+	return " %s -- %s" % (self.city_id, self.year)
 
 
 class CityMetricsOtherEnergyType(models.Model):
