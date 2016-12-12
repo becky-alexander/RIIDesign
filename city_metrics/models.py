@@ -301,6 +301,8 @@ class CityMetricsWastewaterInput(models.Model):
     wastewater_treated_facility3 = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
     class Meta:
         db_table = u'city_metrics_wastewater_input'
+	verbose_name = 'Wastewater Treated'
+	verbose_name_plural = 'Wastewater Treated'
     def __unicode__(self):
 	return "%s" % (self.CityMetricsWastewaterFacility.wastewater_facility)
 
