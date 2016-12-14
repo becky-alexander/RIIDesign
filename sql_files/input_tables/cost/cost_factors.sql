@@ -33,7 +33,8 @@ wastewater_electricity NUMERIC (16,4),
 wastewater_natural_gas NUMERIC (16,4),
 wastewater_fuel_oil NUMERIC (16,4),
 
-coal NUMERIC (16,4),
+other_coal NUMERIC (16,4),
+
 
 
 
