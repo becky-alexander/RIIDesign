@@ -268,6 +268,18 @@ class CityMetricsWastewaterInputAdmin(admin.ModelAdmin):
 		})
 	)
 	
+class CityMetricsEnergyUtilitiesEmissionFactorsAdmin(admin.ModelAdmin):
+	list_display = ('utility', 'year', 'type',)
+	list_filters = ('utility', 'year', 'type',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('utility', 'year', 'type',)
+		}),
+		('Emission Factors', {
+			'fields': ('co2_ef', 'n2o_ef', 'ch4_ef',)
+		})
+	)
+	
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
@@ -287,3 +299,4 @@ admin.site.register(CityMetricsOtherEnergyType, CityMetricsOtherEnergyTypeAdmin)
 admin.site.register(CityMetricsWasteProcessingFacility, CityMetricsWasteProcessingFacilityAdmin)
 admin.site.register(CityMetricsWastewaterFacility, CityMetricsWastewaterFacilityAdmin)
 admin.site.register(CityMetricsWastewaterInput, CityMetricsWastewaterInputAdmin)
+admin.site.register(CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsEnergyUtilitiesEmissionFactorsAdmin)
