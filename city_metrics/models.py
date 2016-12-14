@@ -249,7 +249,7 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='N2O Emission Factor', help_text='lbs/MWH (electric) or kg/therm (gas)')
     ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='CH4 Emission Factor', help_text='lbs/MWH (electric) or kg/therm (gas)')
     def __unicode__(self):
-	return "%s" % (self.utility)
+	return "%s" % (self.utility_id)
     class Meta:
         db_table = u'city_metrics_energy_utilities_emission_factors'
 	verbose_name = 'Energy Utilities (emission factors)'
