@@ -269,11 +269,11 @@ class CityMetricsWastewaterInputAdmin(admin.ModelAdmin):
 	)
 	
 class CityMetricsEnergyUtilitiesEmissionFactorsAdmin(admin.ModelAdmin):
-	list_display = ('utility', 'year', 'type',)
-	list_filters = ('utility', 'year', 'type',)
+	list_display = ('utility_id', 'year', 'type',)
+	list_filters = ('utility_id', 'year', 'type',)
 	fieldsets = (
 		('General Info', {
-			'fields': ('utility', 'year', 'type',)
+			'fields': ('utility_id', 'year', 'type',)
 		}),
 		('Emission Factors', {
 			'fields': ('co2_ef', 'n2o_ef', 'ch4_ef',)
