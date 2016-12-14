@@ -241,9 +241,9 @@ class CityMetricsNatGasInput(models.Model):
         return " %s -- %s" % (self.city_id, self.year)
 
 class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     year = models.CharField(max_length=4, blank=True, choices=YEARS)
-    utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, help_text='ex: Xcel Energy', default="NONE")
+    utility = models.ForeignKey(CityMetricsEnergyUtilities, help_text='ex: Xcel Energy', db_column='utility')
     type = models.CharField(max_length=50, blank=True)
     co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='CO2 Emission Factor', help_text='lbs/MWH (electric) or kg/therm (gas)')
     n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='N2O Emission Factor', help_text='lbs/MWH (electric) or kg/therm (gas)')
@@ -252,6 +252,7 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
 	return "%s" % (self.utility)
     class Meta:
         db_table = u'city_metrics_energy_utilities_emission_factors'
+	verbose_name = 'Energy Utilities Emission Factors'
 
 class CityMetricsWasteProcessingFacility(models.Model):
     id = models.AutoField(primary_key=True)
