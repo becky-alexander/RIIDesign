@@ -252,7 +252,8 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
 	return "%s" % (self.utility)
     class Meta:
         db_table = u'city_metrics_energy_utilities_emission_factors'
-	verbose_name = 'Energy Utilities Emission Factors'
+	verbose_name = 'Energy Utilities (emission factors)'
+	vervise_name_plural = 'Energy Utilities (emission factors)'
 
 class CityMetricsWasteProcessingFacility(models.Model):
     id = models.AutoField(primary_key=True)
