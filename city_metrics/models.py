@@ -245,9 +245,9 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
     year = models.CharField(max_length=4, blank=True, choices=YEARS)
     utility = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, help_text='ex: Xcel Energy', default="NONE")
     type = models.CharField(max_length=50, blank=True)
-    co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
-    ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    co2_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='CO2 Emission Factor', help_text='lbs/MWH (electric) or kg/therm (gas)')
+    n2o_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='N2O Emission Factor', help_text='lbs/MWH (electric) or kg/therm (gas)')
+    ch4_ef = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='CH4 Emission Factor', help_text='lbs/MWH (electric) or kg/therm (gas)')
     def __unicode__(self):
 	return "%s" % (self.utility)
     class Meta:
