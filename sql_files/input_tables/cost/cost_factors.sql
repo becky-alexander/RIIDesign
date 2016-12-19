@@ -35,9 +35,12 @@ wastewater_natural_gas NUMERIC (16,4),
 wastewater_fuel_oil NUMERIC (16,4),
 
 other_coal NUMERIC (16,4),
+other_fuel_oil NUMERIC (16,4),
+propane NUMERIC (16,4),
+diesel NUMERIC (16,4),
+wood NUMERIC (16,4)
 
-
-
+;
 
 
 /**/
