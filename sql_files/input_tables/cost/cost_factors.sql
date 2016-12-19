@@ -5,35 +5,36 @@ id SERIAL PRIMARY KEY,
 year VARCHAR(4),
 
 /*Electricity*/
-residential_electricity NUMERIC (16,4),
-commerical_electricity NUMERIC (16,4),
-industrial_electricity NUMERIC (16,4),
-retail_electricity NUMERIC (16,4),
+residential_electricity_per_MWh NUMERIC (16,4),
+commerical_electricity_per_MWh NUMERIC (16,4),
+industrial_electricity_per_MWh NUMERIC (16,4),
+retail_electricity_per_MWh NUMERIC (16,4),
 
 
 /*Natural Gas*/
-residential_nat_gas NUMERIC (16,4),
-commerical_nat_gas NUMERIC (16,4),
-industrial_nat_gas NUMERIC (16,4),
+residential_nat_gas_per_therm NUMERIC (16,4),
+commerical_nat_gas_per_therm NUMERIC (16,4),
+industrial_nat_gas_per_therm NUMERIC (16,4),
 
 /*VMT*/
-travel_total_fuel_cost
+travel_total_fuel_cost_per_mille NUMERIC (16,4),
 
 
 /*Solid Waste Management*/
-solid_waste_processed NUMERIC (16,4),
-solid_waste_landfilled NUMERIC (16,4),
-solid_waste_recycled NUMERIC (16,4),
+solid_waste_processed_per_ton NUMERIC (16,4),
+solid_waste_landfilled_per_ton NUMERIC (16,4),
+solid_waste_recycled_per_ton NUMERIC (16,4),
 
 /*Potable Water Production and Distribution*/
-electricity_consumer_per_gallon_water NUMERIC (16,4),
+electricity_consumed_kwh_per_gallon_water NUMERIC (16,4),
 cost_per_gallon_water NUMERIC (16,4),
 
 /*Waste Water Treatment*/
-wastewater_electricity NUMERIC (16,4),
-wastewater_natural_gas NUMERIC (16,4),
-wastewater_fuel_oil NUMERIC (16,4),
+wastewater_electricity_per_million_gallons NUMERIC (16,4),
+wastewater_natural_gas_per_million_gallons NUMERIC (16,4),
+wastewater_fuel_oil_per_million_gallons NUMERIC (16,4),
 
+/*Other Fuels*/
 other_coal NUMERIC (16,4),
 other_fuel_oil NUMERIC (16,4),
 propane NUMERIC (16,4),
