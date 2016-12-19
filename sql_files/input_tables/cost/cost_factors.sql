@@ -35,11 +35,11 @@ wastewater_natural_gas_per_million_gallons NUMERIC (16,4),
 wastewater_fuel_oil_per_million_gallons NUMERIC (16,4),
 
 /*Other Fuels*/
-other_coal NUMERIC (16,4),
-other_fuel_oil NUMERIC (16,4),
-propane NUMERIC (16,4),
-diesel NUMERIC (16,4),
-wood NUMERIC (16,4)
+other_coal_per_short_ton NUMERIC (16,4),
+other_fuel_oil_per_gallon NUMERIC (16,4),
+propane_per_gallon NUMERIC (16,4),
+diesel_per_gallon NUMERIC (16,4),
+wood_per_ton NUMERIC (16,4)
 
 ;
 
