@@ -6,14 +6,14 @@ year VARCHAR(4),
 
 /*Electricity*/
 residential_electricity_per_MWh NUMERIC (16,4),
-commerical_electricity_per_MWh NUMERIC (16,4),
+commercial_electricity_per_MWh NUMERIC (16,4),
 industrial_electricity_per_MWh NUMERIC (16,4),
 retail_electricity_per_MWh NUMERIC (16,4),
 
 
 /*Natural Gas*/
 residential_nat_gas_per_therm NUMERIC (16,4),
-commerical_nat_gas_per_therm NUMERIC (16,4),
+commercial_nat_gas_per_therm NUMERIC (16,4),
 industrial_nat_gas_per_therm NUMERIC (16,4),
 
 /*VMT*/
