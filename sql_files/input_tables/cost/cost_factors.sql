@@ -8,6 +8,7 @@ year VARCHAR(4),
 residential_electricity NUMERIC (16,4),
 commerical_electricity NUMERIC (16,4),
 industrial_electricity NUMERIC (16,4),
+retail_electricity NUMERIC (16,4),
 
 
 /*Natural Gas*/
