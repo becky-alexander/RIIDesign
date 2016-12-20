@@ -175,7 +175,7 @@ function updateChart(aList, chartType) {
 
 
 function chartUpdate_Success(data) {
-
+    var allYears = $(yearBoxes)[0];
     var subTitle = $('#chartSubTitle');
 
     var chartSubTitle = data.cities + ' | ' + data.years + data.normalizeTitle + data.weatherTitle;
@@ -230,14 +230,14 @@ function chartUpdate_Success(data) {
         seriesType: "bars",
         series: seriesData
     };
-    var allYears = $(yearBoxes)[0];
     if (allYears.checked) {
-    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-    chart.draw(gData, options);
-    else
-    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-    chart.draw(gData, options);
-}
+      var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+      chart.draw(gData, options);
+    }
+    else {
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(gData, options);
+    }
 }
 
 
