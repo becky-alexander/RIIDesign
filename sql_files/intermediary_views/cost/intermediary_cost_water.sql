@@ -14,3 +14,4 @@ city_metrics_water.total_com_ind_water,
 )
 FROM city_metrics_cost_factors, city_metrics_water
 WHERE city_metrics_cost_factors.year = city_metrics_water.year
+/**/
