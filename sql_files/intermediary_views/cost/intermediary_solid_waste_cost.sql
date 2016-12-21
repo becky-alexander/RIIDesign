@@ -1,0 +1,23 @@
+CREATE OR REPLACE VIEW intermediary_solid_waste_cost AS
+SELECT (
+
+/*Cost Factors*/
+
+city_metrics_cost_factors.year
+
+city_metrics_cost_factors.solid_waste_processed_per_ton,
+city_metrics_cost_factors.solid_waste_landfilled_per_ton,
+city_metrics_cost_factors.solid_waste_recycled_per_ton,
+
+city_metrics_waste_joined.recycled,
+city_metrics_waste_joined.land_dispossed,
+city_metrics_waste_joined.processed_all_facilities,
+
+(city_metrics_cost_factors.solid_waste_processed_per_ton * city_metrics_waste_joined.processed_all_facilities) AS cost_processed,
+(city_metrics_cost_factors.solid_waste_landfilled_per_ton * city_metrics_waste_joined.land_dispossed) AS cost_land_dispossed,
+(city_metrics_cost_factors.solid_waste_recycled_per_ton * city_metrics_waste_joined.recycled) AS cost_recycled
+
+FROM city_metrics_cost_factors, city_metrics_waste_joined
+WHERE city_metrics_cost_factors.year = city_metrics_waste_joined.year
+
+
