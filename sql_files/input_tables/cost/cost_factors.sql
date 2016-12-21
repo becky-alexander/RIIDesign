@@ -17,7 +17,7 @@ commercial_nat_gas_per_therm NUMERIC (16,4),
 industrial_nat_gas_per_therm NUMERIC (16,4),
 
 /*VMT*/
-travel_total_fuel_cost_per_mille NUMERIC (16,4),
+travel_total_fuel_cost_per_mile NUMERIC (16,4),
 
 
 /*Solid Waste Management*/
