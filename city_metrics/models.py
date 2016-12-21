@@ -354,14 +354,49 @@ class CityMetricsOtherEnergyInput(models.Model):
     other_fuel_amount5_residential = models.DecimalField(max_digits=16, decimal_places=4)
     other_fuel_amount5_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
     class Meta:
-        db_table = u'city_metrics_other_energy_input'
-	verbose_name = 'Other Fuel'
-	verbose_name_plural = 'Other Fuels'
+        db_table = u'city_metrics_cost_factors'
+	verbose_name = 'Cost Factor'
+	verbose_name_plural = 'Cost Factors'
     def __unicode__(self):
-        return " %s -- %s" % (self.city_id, self.year)
+        return "%s" % (self.year)
 
 
-
+class CityMetricsCostFactors(models.Model):
+	id = models.AutoField(primary_key=True)
+	year = models.CharField(max_length=4, choices=YEARS)
+	#Electricity
+	residential_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
+	commercial_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
+	industrial_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
+	#Natural Gas
+	residential_nat_gas_per_therm = models.DecimalField(max_digits=16, decimal_places=4)
+	commercial_nat_gas_per_therm = models.DecimalField(max_digits=16, decimal_places=4)
+	industrial_nat_gas_per_therm = models.DecimalField(max_digits=16, decimal_places=4)
+	#VMT
+	travel_total_fuel_cost_per_mile = models.DecimalField(max_digits=16, decimal_places=4)
+	#Solid Waste Management
+	solid_waste_processed_per_ton = models.DecimalField(max_digits=16, decimal_places=4)
+	solid_waste_landfilled_per_ton = models.DecimalField(max_digits=16, decimal_places=4)
+	solid_waste_recycled_per_ton = models.DecimalField(max_digits=16, decimal_places=4)
+	#Potable Water Production and Distribution*/
+	electricity_consumed_kwh_per_gallon_water = models.DecimalField(max_digits=16, decimal_places=4)
+	cost_per_gallon_water = models.DecimalField(max_digits=16, decimal_places=4)
+	#Waste Water Treatment
+	wastewater_electricity_per_million_gallons = models.DecimalField(max_digits=16, decimal_places=4)
+	wastewater_natural_gas_per_million_gallons = models.DecimalField(max_digits=16, decimal_places=4)
+	wastewater_fuel_oil_per_million_gallons = models.DecimalField(max_digits=16, decimal_places=4)
+	#Other Fuels
+	other_coal_per_short_ton = models.DecimalField(max_digits=16, decimal_places=4)
+	other_fuel_oil_per_gallon = models.DecimalField(max_digits=16, decimal_places=4)
+	propane_per_gallon = models.DecimalField(max_digits=16, decimal_places=4)
+	diesel_per_gallon = models.DecimalField(max_digits=16, decimal_places=4)
+	wood_per_ton NUMERIC = models.DecimalField(max_digits=16, decimal_places=4)
+	class Meta:
+		db_table = u'city_metrics_other_energy_input'
+		verbose_name = 'Other Fuel'
+		verbose_name_plural = 'Other Fuels'
+	def __unicode__(self):
+		return " %s -- %s" % (self.city_id, self.year)
 
 
 
