@@ -8,7 +8,7 @@ year VARCHAR(4),
 residential_electricity_per_MWh NUMERIC (16,4),
 commercial_electricity_per_MWh NUMERIC (16,4),
 industrial_electricity_per_MWh NUMERIC (16,4),
-retail_electricity_per_MWh NUMERIC (16,4),
+
 
 
 /*Natural Gas*/
@@ -40,7 +40,7 @@ other_fuel_oil_per_gallon NUMERIC (16,4),
 propane_per_gallon NUMERIC (16,4),
 diesel_per_gallon NUMERIC (16,4),
 wood_per_ton NUMERIC (16,4)
-
+)
 ;
 
 
