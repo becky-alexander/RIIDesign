@@ -354,7 +354,7 @@ class CityMetricsOtherEnergyInput(models.Model):
     other_fuel_amount5_residential = models.DecimalField(max_digits=16, decimal_places=4)
     other_fuel_amount5_com_and_ind = models.DecimalField(max_digits=16, decimal_places=4)
     class Meta:
-        db_table = u'city_metrics_other_energy_fuels'
+        db_table = u'city_metrics_other_energy_input'
 	verbose_name = 'Other Fuel'
 	verbose_name_plural = 'Other Fuels'
     def __unicode__(self):
@@ -365,9 +365,9 @@ class CityMetricsCostFactors(models.Model):
     id = models.AutoField(primary_key=True)
     year = models.CharField(max_length=4, choices=YEARS)
     #Electricity
-    residential_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
-    commercial_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
-    industrial_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
+    residential_electricity_per_mwh = models.DecimalField(max_digits=16, decimal_places=4)
+    commercial_electricity_per_mwh = models.DecimalField(max_digits=16, decimal_places=4)
+    industrial_electricity_per_mwh = models.DecimalField(max_digits=16, decimal_places=4)
     #Natural Gas
     residential_nat_gas_per_therm = models.DecimalField(max_digits=16, decimal_places=4)
     commercial_nat_gas_per_therm = models.DecimalField(max_digits=16, decimal_places=4)
