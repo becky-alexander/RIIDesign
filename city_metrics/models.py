@@ -390,7 +390,7 @@ class CityMetricsCostFactors(models.Model):
 	other_fuel_oil_per_gallon = models.DecimalField(max_digits=16, decimal_places=4)
 	propane_per_gallon = models.DecimalField(max_digits=16, decimal_places=4)
 	diesel_per_gallon = models.DecimalField(max_digits=16, decimal_places=4)
-	wood_per_ton NUMERIC = models.DecimalField(max_digits=16, decimal_places=4)
+	wood_per_ton = models.DecimalField(max_digits=16, decimal_places=4)
 	class Meta:
 		db_table = u'city_metrics_other_energy_input'
 		verbose_name = 'Other Fuel'
