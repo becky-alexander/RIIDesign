@@ -358,7 +358,7 @@ class CityMetricsOtherEnergyInput(models.Model):
 	verbose_name = 'Cost Factor'
 	verbose_name_plural = 'Cost Factors'
     def __unicode__(self):
-        return "%s" % (self.year)
+        return " %s -- %s" % (self.city_id, self.year)
 
 
 class CityMetricsCostFactors(models.Model):
@@ -396,7 +396,7 @@ class CityMetricsCostFactors(models.Model):
 		verbose_name = 'Other Fuel'
 		verbose_name_plural = 'Other Fuels'
 	def __unicode__(self):
-		return " %s -- %s" % (self.city_id, self.year)
+		return " %s " % (self.year)
 
 
 
