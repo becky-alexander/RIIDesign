@@ -193,7 +193,7 @@ class CityMetricsEnergyUtilities(models.Model):
 class CityMetricsElectricInput(models.Model):
     id = models.AutoField(primary_key=True)
     city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
-    year = models.CharField(max_length=4)
+    year = models.CharField(max_length=4, choices=YEARS)
     # ELECTRICITY UTILITY 1
     utility_id1 = models.ForeignKey(CityMetricsEnergyUtilities, related_name="Utility I", verbose_name='Utility #1', db_column='utility_id1')
     residential_electricity = models.DecimalField(max_digits=16, decimal_places=4, help_text = "kWh", verbose_name='Total Residential Electricity')
