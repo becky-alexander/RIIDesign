@@ -287,7 +287,7 @@ class CityMetricsCostFactorsAdmin(admin.ModelAdmin):
 			'fields': ('year',)
 		}),
 		('Electricity', {
-		'fields': ('residential_electricity_per_MWh', 'commercial_electricity_per_MWh', 'industrial_electricity_per_MWh',)
+		'fields': ('residential_electricity_per_mwh', 'commercial_electricity_per_mwh', 'industrial_electricity_per_mwh',)
 		}),
 		('Natural Gas', {
 		'fields': ('residential_nat_gas_per_therm', 'commercial_nat_gas_per_therm', 'industrial_nat_gas_per_therm',)
