@@ -365,9 +365,9 @@ class CityMetricsCostFactors(models.Model):
     id = models.AutoField(primary_key=True)
     year = models.CharField(max_length=4, choices=YEARS)
     #Electricity
-    residential_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
-    commercial_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
-    industrial_electricity_per_MWh = models.DecimalField(max_digits=16, decimal_places=4)
+    residential_electricity_per_mwh = models.DecimalField(max_digits=16, decimal_places=4)
+    commercial_electricity_per_mwh = models.DecimalField(max_digits=16, decimal_places=4)
+    industrial_electricity_per_mwh = models.DecimalField(max_digits=16, decimal_places=4)
     #Natural Gas
     residential_nat_gas_per_therm = models.DecimalField(max_digits=16, decimal_places=4)
     commercial_nat_gas_per_therm = models.DecimalField(max_digits=16, decimal_places=4)
