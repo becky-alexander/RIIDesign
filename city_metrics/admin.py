@@ -279,6 +279,36 @@ class CityMetricsEnergyUtilitiesEmissionFactorsAdmin(admin.ModelAdmin):
 			'fields': ('co2_ef', 'n2o_ef', 'ch4_ef',)
 		})
 	)
+class CityMetricsCostFactorsAdmin(admin.ModelAdmin):	
+	list_display = ('year',)
+	list_filters = ('year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('year',)
+		}),
+		('Electricity', {
+		'fields': ('residential_electricity_per_MWh', 'commercial_electricity_per_MWh', 'industrial_electricity_per_MWh',)
+		}),
+		('Natural Gas', {
+		'fields': ('residential_nat_gas_per_therm', 'commercial_nat_gas_per_therm', 'industrial_nat_gas_per_therm',)
+		}),
+		('VMT', {
+		'fields': ('travel_total_fuel_cost_per_mile',)
+		}),	
+		('Solid Waste Management', {
+		'fields': ('solid_waste_processed_per_ton', 'solid_waste_landfilled_per_ton', 'solid_waste_recycled_per_ton',)
+		}),
+		('Potable Water Production and Distribution', {
+		'fields': ('electricity_consumed_kwh_per_gallon_water', 'cost_per_gallon_water',)
+		}),
+		('Waste Water Treatment', {
+		'fields': ('wastewater_electricity_per_million_gallons', 'wastewater_natural_gas_per_million_gallons', 'wastewater_fuel_oil_per_million_gallons',)
+		}),
+		('Natural Gas', {
+		'fields': ('other_coal_per_short_ton', 'other_fuel_oil_per_gallon', 'propane_per_gallon', 'diesel_per_gallon', 'wood_per_ton',)
+		})
+	)
+
 	
 admin.site.register(City, CityAdmin)
 #admin.site.register(DemographicData, DemographicDataAdmin)
@@ -300,3 +330,4 @@ admin.site.register(CityMetricsWasteProcessingFacility, CityMetricsWasteProcessi
 admin.site.register(CityMetricsWastewaterFacility, CityMetricsWastewaterFacilityAdmin)
 admin.site.register(CityMetricsWastewaterInput, CityMetricsWastewaterInputAdmin)
 admin.site.register(CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsEnergyUtilitiesEmissionFactorsAdmin)
+admin.site.register(CityMetricsCostFactors, CityMetricsCostFactorsAdmin)
