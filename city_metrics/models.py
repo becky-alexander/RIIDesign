@@ -253,7 +253,7 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
 
 class CityMetricsWasteProcessingFacility(models.Model):
 	id = models.AutoField(primary_key=True)
-	facility_name = models.CharField(max_length=50, blank=True, verbose='Name of Facility')
+	facility_name = models.CharField(max_length=50, blank=True, verbose_name='Name of Facility')
 	def __unicode__(self):
 		return "%s" % (self.facility_name)
 	class Meta:
