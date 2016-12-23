@@ -311,7 +311,7 @@ class CityMetricsCostFactorsAdmin(admin.ModelAdmin):
 
 	
 admin.site.register(City, CityAdmin)
-#admin.site.register(DemographicData, DemographicDataAdmin)
+admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
 #admin.site.register(Water, WaterAdmin)
 #admin.site.register(Travel, TravelAdmin)
