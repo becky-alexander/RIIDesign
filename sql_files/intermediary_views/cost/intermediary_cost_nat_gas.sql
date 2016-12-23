@@ -1,7 +1,7 @@
 CREATE OR REPLACE VIEW intermediary_costs_nat_gas AS 
-SELECT 
+SELECT
 
-( 
+(
 /*Natural Gas Cost Factors*/
 city_metrics_cost_factors.residential_nat_gas_per_therm,
 city_metrics_cost_factors.commercial_nat_gas_per_therm,

@@ -1,0 +1,14 @@
+CREATE OR REPLACE VIEW intermediary_cost_other_fuel AS
+SELECT
+(
+
+city_metrics_cost_factors.other_coal_per_short_ton,
+city_metrics_cost_factors.other_fuel_oil_per_gallon,
+city_metrics_cost_factors.propane_per_gallon,
+city_metrics_cost_factors.diesel_per_gallon,
+city_metrics_cost_factors.wood_per_ton
+
+
+
+
+)
