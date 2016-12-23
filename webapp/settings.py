@@ -209,11 +209,11 @@ SUIT_CONFIG = {
 #		{'label': 'Waste Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/waste-importer/'},
 #		{'label': 'Emissions Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/emissions-importer/'},
 #		{'label': 'Cost Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/cost-importer/'},
-		{'label': 'Water Importer', 'icon': 'icon-tint', 'url': '/admin/imports/waterinput-importer/'},
-		{'label': 'Electricity Importer', 'icon': 'icon-electricity', 'url': '/admin/imports/electricinput-importer/'},
-		{'label': 'Natural Gas Importer', 'icon': 'icon-fire', 'url': '/admin/imports/natgasinput-importer/'},
+		{'label': 'Water Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/waterinput-importer/'},
+		{'label': 'Electricity Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/electricinput-importer/'},
+		{'label': 'Natural Gas Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/natgasinput-importer/'},
 		{'label': 'Other Fuel Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/otherfuelinput-importer/'},
-		{'label': 'Solid Waste Importer', 'icon': 'icon-trash', 'url': '/admin/imports/solidwasteinput-importer/'},
+		{'label': 'Solid Waste Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/solidwasteinput-importer/'},
 
 	),
 
