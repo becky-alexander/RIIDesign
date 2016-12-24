@@ -44,8 +44,8 @@ class DemographicData(models.Model):
 		return "Population - %s, %s" % (self.city.city, self.city.state)
 
 	class Meta:
-		verbose_name = 'Demographic Data'
-		verbose_name_plural = 'Demographic Data'
+		verbose_name = 'Demographic Data City'
+		verbose_name_plural = 'Demographic Data Cities'
 		ordering = ('year', 'city__city')
 
 class Cost(models.Model):
