@@ -411,8 +411,26 @@ class CityMetricsCddHdd(models.Model):
 		verbose_name = 'CDD & HDD'
 		verbose_name_plural = 'CDD & HDD'
 	def __unicode__(self):
-		return " %s " % (self.year)		
-
+		return " %s " % (self.year)
+	
+class CityMetricsVehicleCh4AndN2OEmissionsFactor(models.Model):
+	id = models.AutoField(primary_key=True)
+	ch4_gasoline_passenger_cars = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	ch4_gasoline_light_trucks = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	ch4_diesel_passenger_cars = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	ch4_diesel_light_trucks = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	ch4_diesel_heavy_duty_vehicles = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	n2o_gasoline_passenger_cars = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	n2o_gasoline_light_trucks = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	n2o_diesel_passenger_cars = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	n2o_diesel_light_trucks = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	n2o_diesel_heavy_duty_vehicles = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	class Meta:
+		db_table = u'city_metrics_vehicle_ch4_and_n2o_emissions_factor'
+		verbose_name = 'Vehicle Emission'
+		verbose_name_plural = 'Vehicle Emissions (CH4 & N2O)'
+	def __unicode__(self):
+		return " %s " % (self.year)
 	
 	
 	
