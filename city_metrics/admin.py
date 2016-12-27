@@ -308,6 +308,12 @@ class CityMetricsCostFactorsAdmin(admin.ModelAdmin):
 		'fields': ('other_coal_per_short_ton', 'other_fuel_oil_per_gallon', 'propane_per_gallon', 'diesel_per_gallon', 'wood_per_ton',)
 		})
 	)
+	
+class CityMetricsCddHddAdmin(admin.ModelAdmin):
+	list_display = ('year', 'cdd', 'hdd',)
+	list_filters = ('year', 'cdd', 'hdd',)
+	fields = ('year', 'cdd', 'hdd',)	
+
 
 	
 admin.site.register(City, CityAdmin)
@@ -331,3 +337,4 @@ admin.site.register(CityMetricsWastewaterFacility, CityMetricsWastewaterFacility
 admin.site.register(CityMetricsWastewaterInput, CityMetricsWastewaterInputAdmin)
 admin.site.register(CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsEnergyUtilitiesEmissionFactorsAdmin)
 admin.site.register(CityMetricsCostFactors, CityMetricsCostFactorsAdmin)
+admin.site.register(CityMetricsCddHdd, CityMetricsCddHddAdmin)
