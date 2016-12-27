@@ -315,18 +315,6 @@ class CityMetricsCddHddAdmin(admin.ModelAdmin):
 	fields = ('year', 'cdd', 'hdd',)	
 
 	
-class CityMetricsVehicleCh4AndN2OEmissionsFactorAdmin(admin.ModelAdmin):
-	fieldsets = (
-		('General Info', {
-			'fields': ('year',)
-		}),
-		('CH4', {
-		'fields': ('ch4_gasoline_passenger_cars', 'ch4_gasoline_light_trucks', 'ch4_diesel_passenger_cars', 'ch4_diesel_light_trucks', 'ch4_diesel_heavy_duty_vehicles',)
-		}),
-		('N2O', {
-		'fields': ('n2o_gasoline_passenger_cars', 'n2o_gasoline_light_trucks', 'n2o_diesel_passenger_cars', 'n2o_diesel_light_trucks', 'n2o_diesel_heavy_duty_vehicles',)
-		})
-	)
 	
 admin.site.register(City, CityAdmin)
 admin.site.register(DemographicData, DemographicDataAdmin)
@@ -350,5 +338,4 @@ admin.site.register(CityMetricsWastewaterInput, CityMetricsWastewaterInputAdmin)
 admin.site.register(CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsEnergyUtilitiesEmissionFactorsAdmin)
 admin.site.register(CityMetricsCostFactors, CityMetricsCostFactorsAdmin)
 admin.site.register(CityMetricsCddHdd, CityMetricsCddHddAdmin)
-admin.site.register(CityMetricsVehicleCh4AndN2OEmissionsFactor, CityMetricsVehicleCh4AndN2OEmissionsFactorAdmin)
 
