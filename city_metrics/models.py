@@ -401,8 +401,18 @@ class CityMetricsCostFactors(models.Model):
 	def __unicode__(self):
 		return " %s " % (self.year)
 
+class CityMetricsCddHdd(models.Model):
+	id = models.AutoField(primary_key=True)
+	year = models.CharField(max_length=4, choices=YEARS)
+	cdd = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	hdd = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	class Meta:
+		db_table = u'city_metrics_cdd_hdd'
+		verbose_name = 'CDD & HDD'
+		verbose_name_plural = 'CDD & HDD'
+	def __unicode__(self):
+		return " %s " % (self.year)		
 
-	
 	
 	
 	
