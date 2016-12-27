@@ -316,8 +316,6 @@ class CityMetricsCddHddAdmin(admin.ModelAdmin):
 
 	
 class CityMetricsVehicleCh4AndN2OEmissionsFactorAdmin(admin.ModelAdmin):
-	list_display = ('year',)
-	list_filters = ('year',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('year',)
