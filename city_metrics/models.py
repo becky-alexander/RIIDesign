@@ -429,8 +429,7 @@ class CityMetricsVehicleCh4AndN2OEmissionsFactor(models.Model):
 		db_table = u'city_metrics_vehicle_ch4_and_n2o_emissions_factor'
 		verbose_name = 'Vehicle Emission'
 		verbose_name_plural = 'Vehicle Emissions (CH4 & N2O)'
-	def __unicode__(self):
-		return " %s " % (self.year)
+
 	
 	
 	
