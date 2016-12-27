@@ -849,7 +849,7 @@ def electricinputImporter(request):
     context = {'errorMessage': errorMessage, 'message': 'Successful', 'updateCount': updateCount, 'newCount': newCount,
                'errorCount': errorCount, }
 
-    return render_to_response('admin_imports/waterinput_importer.html', context, context_instance=RequestContext(request))
+    return render_to_response('admin_imports/electricinput_importer.html', context, context_instance=RequestContext(request))
 
 def natgasinputImporter(request):
     errorMessage = None
@@ -942,7 +942,7 @@ def natgasinputImporter(request):
     context = {'errorMessage': errorMessage, 'message': 'Successful', 'updateCount': updateCount, 'newCount': newCount,
                'errorCount': errorCount, }
 
-    return render_to_response('admin_imports/waterinput_importer.html', context, context_instance=RequestContext(request))
+    return render_to_response('admin_imports/natgasinput_importer.html', context, context_instance=RequestContext(request))
 
 def otherfuelinputImporter(request):
     errorMessage = None
