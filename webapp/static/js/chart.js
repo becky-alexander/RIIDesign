@@ -230,15 +230,9 @@ function chartUpdate_Success(data) {
         seriesType: "bars",
         series: seriesData
     };
-    var allYears = $(yearBoxes)[0];
-    if (allYears.checked) {
-      var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
       chart.draw(gData, options);
-    }
-    else {
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-      chart.draw(gData, options);
-    }
+    
 }
 
 
