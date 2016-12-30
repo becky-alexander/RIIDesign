@@ -196,7 +196,7 @@ SUIT_CONFIG = {
 	},
 	'MENU_OPEN_FIRST_CHILD': True,  # Default True
 	'MENU': (
-#		{'app': 'auth'},
+		{'app': 'auth'},
 		{'app': 'city_metrics', 'label': 'City Metrics', 'icon': 'icon-signal'},
 #		{'app': 'site_content', 'label': 'Site Content', 'icon': 'icon-file'},
 #		{'label': 'Site Media', 'icon': 'icon-folder-open', 'url': '/admin/filebrowser/browse/'},
