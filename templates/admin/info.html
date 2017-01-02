@@ -1,41 +1,124 @@
-<h1>Regional Indicator Database</h1>
-<p>This site allows to input the necessary data for the Regional Indicators Inititiative website. The following is an explanation of each input:</p>
-<h2>BASIC</h2>
-<p>There are basic inputs that are required for most of the indicators to work properly. Please double check that these are filled for the city you wish to alter.</p>
-<ul>
-<li><strong>Cities:</strong> It contains the pre-populated list of cities in Minnesota with their respective classification. A sort number must be given to a city for it to appear in the RII website.&nbsp;
-<ul>
-<li><strong>Classification:</strong> Cities are classified according to their type.</li>
-</ul>
-</li>
-<li><strong>Demographic Data (Cities): </strong>The demographic data of cities is population and jobs.&nbsp;</li>
-<li><strong>Demographic Data (Counties):</strong> The demographic data of counties. These are required for some indicators to work.&nbsp;</li>
-</ul>
-<h2><span style="color: #ff9900;">&nbsp;ENERGY</span></h2>
-<ul>
-<li><strong>Electric Input: </strong>It<strong>&nbsp;</strong>contains the amount of electricity in <em><strong>kwh</strong> </em>used by every city that has completed the program. It allows to specify the utility from which the electiricity is coming from and also whether there is wind electricity.</li>
-<li><strong>Natural Gas Input:</strong> It contains the amount of natural gas in <em><strong>therms</strong></em> used by every city that has completed the program. It allows to specify the utility from which the natural gas is coming.&nbsp;</li>
-<li><strong>CDD &amp; HDD:</strong> The Cooling Degree Days and Heating Degree Days are necessary to estimate the weather normalized numbers for energy.&nbsp;</li>
-<li><strong>Other Fuels Input:</strong> This form allows to input the amount of other fuels. Other fuels are for example wood or coal used for direct heat generation.&nbsp;</li>
-<li><strong>Energy Utilities: </strong>List of electric utilities. It allows to specify what type utility it is.&nbsp;</li>
-<li><strong>Energy Utilities </strong>Emission Factors: Every energy utility has a corresponding emission factor. The emission factors allow to estimate the CO2 contribution of energy per unit.&nbsp;</li>
-</ul>
-<h2><span style="color: #33cccc;">WATER</span></h2>
-<ul>
-<li><strong>Water Input: </strong>This form allows to input the amount of water in thousand gallons consumed at each city per year. This is the only input required for the water indicator to display.</li>
-</ul>
-<h2><span style="color: #99cc00;">TRAVEL</span></h2>
-<ul>
-<li><strong>VMT:</strong> This contains the list of vehicles miles traveled per city per year. The list has been prepopulated, hence it is ideal not to alter the data.</li>
-</ul>
-<h2><span style="color: #ff00ff;">WASTE</span></h2>
-<ul>
-<li><span style="color: #000000;"><strong>Solid Waste Input:</strong> Contains the amout of solid waste for each county in Minnesota. From the county data the city data can be calculated. Enter the county data to estimate the solid wastte of the city.</span></li>
-<li><strong><span style="color: #000000;">Solid Waste Utilitities:</span></strong></li>
-</ul>
-<h2><span style="color: #808000;">COST</span></h2>
-<ul>
-<li><strong>Cost Factors:</strong> This form allows to input the cost per unit for each of the indicators. &nbsp;</li>
-</ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+{% block title %}Importer | LHB{% endblock %}
+
+
+{% block extrastyle %}
+
+    {{ block.super }}
+
+{% endblock %}
+
+
+{% block extrahead %}
+
+    {{ form.media }}
+
+    <style type='text/css'>
+        .breadcrumb.margin {
+            margin-bottom: 40px;
+        }
+        #content-main h2 {
+            margin: 0;
+        }
+        #content-main h3 {
+            padding: 0;
+        }
+        #content-main ul.instructions {
+            margin: 0 0 20px 15px;
+        }
+        #form-wrapper {
+            float: left;
+            width: 100%;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #555555;
+        }
+        #errorMessage {
+            float: left;
+            width: 100%;
+            color: #FF0000;
+            margin-bottom: 20px;
+        }
+        #content-main form,
+        #content-main .module {
+            margin: 0;
+        }
+        #content-main input[type='file'] {
+            font-size: 12px;
+            line-height: 16px;
+        }
+    </style>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+
+    <ul class='breadcrumb margin'>
+        <li>Electricity Input Importer</li>
+    </ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div id='content-main'>
+
+       
+      <h1>Regional Indicator Database</h1>
+      <p>This site allows to input the necessary data for the Regional Indicators Inititiative website. The following is an explanation of each input:</p>
+      <h2>BASIC</h2>
+      <p>There are basic inputs that are required for most of the indicators to work properly. Please double check that these are filled for the city you wish to alter.</p>
+      <ul>
+      <li><strong>Cities:</strong> It contains the pre-populated list of cities in Minnesota with their respective classification. A sort number must be given to a city for it to appear in the RII website.&nbsp;
+      <ul>
+      <li><strong>Classification:</strong> Cities are classified according to their type.</li>
+      </ul>
+      </li>
+      <li><strong>Demographic Data (Cities): </strong>The demographic data of cities is population and jobs.&nbsp;</li>
+      <li><strong>Demographic Data (Counties):</strong> The demographic data of counties. These are required for some indicators to work.&nbsp;</li>
+      </ul>
+      <h2><span style="color: #ff9900;">&nbsp;ENERGY</span></h2>
+      <ul>
+      <li><strong>Electric Input: </strong>It<strong>&nbsp;</strong>contains the amount of electricity in <em><strong>kwh</strong> </em>used by every city that has completed the program. It allows to specify the utility from which the electiricity is coming from and also whether there is wind electricity.</li>
+      <li><strong>Natural Gas Input:</strong> It contains the amount of natural gas in <em><strong>therms</strong></em> used by every city that has completed the program. It allows to specify the utility from which the natural gas is coming.&nbsp;</li>
+      <li><strong>CDD &amp; HDD:</strong> The Cooling Degree Days and Heating Degree Days are necessary to estimate the weather normalized numbers for energy.&nbsp;</li>
+      <li><strong>Other Fuels Input:</strong> This form allows to input the amount of other fuels. Other fuels are for example wood or coal used for direct heat generation.&nbsp;</li>
+      <li><strong>Energy Utilities: </strong>List of electric utilities. It allows to specify what type utility it is.&nbsp;</li>
+      <li><strong>Energy Utilities </strong>Emission Factors: Every energy utility has a corresponding emission factor. The emission factors allow to estimate the CO2 contribution of energy per unit.&nbsp;</li>
+      </ul>
+      <h2><span style="color: #33cccc;">WATER</span></h2>
+      <ul>
+      <li><strong>Water Input: </strong>This form allows to input the amount of water in thousand gallons consumed at each city per year. This is the only input required for the water indicator to display.</li>
+      </ul>
+      <h2><span style="color: #99cc00;">TRAVEL</span></h2>
+      <ul>
+      <li><strong>VMT:</strong> This contains the list of vehicles miles traveled per city per year. The list has been prepopulated, hence it is ideal not to alter the data.</li>
+      </ul>
+      <h2><span style="color: #ff00ff;">WASTE</span></h2>
+      <ul>
+      <li><span style="color: #000000;"><strong>Solid Waste Input:</strong> Contains the amout of solid waste for each county in Minnesota. From the county data the city data can be calculated. Enter the county data to estimate the solid wastte of the city.</span></li>
+      <li><strong><span style="color: #000000;">Solid Waste Utilitities:</span></strong></li>
+      </ul>
+      <h2><span style="color: #808000;">COST</span></h2>
+      <ul>
+      <li><strong>Cost Factors:</strong> This form allows to input the cost per unit for each of the indicators. &nbsp;</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+ 
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
