@@ -8,6 +8,9 @@ from csvParser import CSVParser
 allchars = string.maketrans('', '')
 
 
+def info(request):
+	return render(request, 'admin/imports/info.html')
+
 def makefilter(keep):
     delchars = allchars.translate(allchars, keep)
 
