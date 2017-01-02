@@ -13,4 +13,5 @@ urlpatterns = patterns('admin_imports.views',
 	(r'^natgasinput-importer/$', 'natgasinputImporter'),
 	(r'^otherfuelinput-importer/$', 'otherfuelinputImporter'),
 	(r'^solidwasteinput-importer/$', 'solidwasteinputImporter'),
+	(r'^info/$', 'info'),		   
 )
