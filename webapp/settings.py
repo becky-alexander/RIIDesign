@@ -207,6 +207,7 @@ SUIT_CONFIG = {
 #		{'label': 'Waste Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/waste-importer/'},
 #		{'label': 'Emissions Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/emissions-importer/'},
 #		{'label': 'Cost Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/cost-importer/'},
+		{'label': 'DATABASE', 'icon': 'icon-arrow-up', 'url': '/admin/info/'},
 		{'label': 'Water Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/waterinput-importer/'},
 		{'label': 'Electricity Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/electricinput-importer/'},
 		{'label': 'Natural Gas Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/natgasinput-importer/'},
