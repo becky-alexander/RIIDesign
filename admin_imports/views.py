@@ -9,7 +9,7 @@ allchars = string.maketrans('', '')
 
 
 def info(request):
-	return render_to_response(request, 'admin/imports/info.html')
+	return render_to_response(request, 'admin_imports/info.html')
 
 def makefilter(keep):
     delchars = allchars.translate(allchars, keep)
