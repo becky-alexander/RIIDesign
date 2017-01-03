@@ -1,5 +1,5 @@
 import string
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from city_metrics.models import Energy, City, DemographicData, Water, Travel, Waste, Emissions, Cost, CityMetricsWaterInput, CityMetricsElectricInput
 from csvParser import CSVParser
@@ -9,7 +9,7 @@ allchars = string.maketrans('', '')
 
 
 def info(request):
-	return render_to_response(request, 'admin_imports/info.html')
+	return render(request, 'admin_imports/info.html')
 
 def makefilter(keep):
     delchars = allchars.translate(allchars, keep)
