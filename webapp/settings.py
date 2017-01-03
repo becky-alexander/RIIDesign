@@ -197,7 +197,9 @@ SUIT_CONFIG = {
 	'MENU_OPEN_FIRST_CHILD': True,  # Default True
 	'MENU': (
 		{'app': 'auth'},
+		{'label': 'DATABASE', 'icon': 'icon-list', 'url': '/admin/imports/info/'},
 		{'app': 'city_metrics', 'label': 'City Metrics', 'icon': 'icon-signal'},
+
 #		{'app': 'site_content', 'label': 'Site Content', 'icon': 'icon-file'},
 #		{'label': 'Site Media', 'icon': 'icon-folder-open', 'url': '/admin/filebrowser/browse/'},
 #		{'label': 'Demo Data Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/demographic-data-importer/'},
@@ -207,7 +209,7 @@ SUIT_CONFIG = {
 #		{'label': 'Waste Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/waste-importer/'},
 #		{'label': 'Emissions Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/emissions-importer/'},
 #		{'label': 'Cost Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/cost-importer/'},
-		{'label': 'DATABASE', 'icon': 'icon-arrow-up', 'url': '/admin/imports/info/'},
+
 		{'label': 'Water Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/waterinput-importer/'},
 		{'label': 'Electricity Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/electricinput-importer/'},
 		{'label': 'Natural Gas Importer', 'icon': 'icon-arrow-up', 'url': '/admin/imports/natgasinput-importer/'},
