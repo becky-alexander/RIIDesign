@@ -219,7 +219,7 @@ function chartUpdate_Success(data) {
     var options = {
         width: 920,
         height: 600,
-        chartArea: {width: 725},
+        chartArea: {width: 650},
         bar: {groupWidth: '80%'},
         isStacked: true,
         min: 0,
@@ -232,7 +232,7 @@ function chartUpdate_Success(data) {
     };
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
       chart.draw(gData, options);
-    
+
 }
 
 
