@@ -322,13 +322,13 @@ class CityMetricsCityWastewaterFacilityEmissionsAdmin(admin.ModelAdmin):
 	list_filters = ('year', 'facility',)
 	fieldsets = (
 		('General Info', {
-			'fields': ('year', 'facility')
+			'fields': ('year', 'facility',)
 		}),
 		('Total Wastewater Treated', {
 		'fields': ('total_waste_water_treated',)
 		}),
 		('Emissions', {
-		'fields': ('scope2_fossil_emissions', 'scope2_fossil_emissions', 'biogenic_emissions',)
+		'fields': ('scope2_fossil_emissions', 'scope1_fossil_emissions', 'biogenic_emissions',)
 		}),
 		('Energy Use', {
 		'fields': ('electricity_use', 'natural_gas_use',)
