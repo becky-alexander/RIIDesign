@@ -309,11 +309,48 @@ class CityMetricsCostFactorsAdmin(admin.ModelAdmin):
 		})
 	)
 	
+
+	
 class CityMetricsCddHddAdmin(admin.ModelAdmin):
 	list_display = ('year', 'cdd', 'hdd',)
 	list_filters = ('year', 'cdd', 'hdd',)
 	fields = ('year', 'cdd', 'hdd',)	
 
+	
+class CityMetricsCityWastewaterFacilityEmissionsAdmin(models.ModelAdmin):
+	list_display = ('year', 'facility',)
+	list_filters = ('year', 'facility',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('year', 'facility')
+		}),
+		('Total Wastewater Treated', {
+		'fields': ('total_waste_water_treated',)
+		}),
+		('Emissions', {
+		'fields': ('scope2_fossil_emissions', 'scope2_fossil_emissions', 'biogenic_emissions',)
+		}),
+		('Energy Use', {
+		'fields': ('electricity_use', 'natural_gas_use',)
+		})
+	)
+		
+		
+	id = models.AutoField(primary_key=True)
+	facility = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+	year = models.CharField(max_length=4, blank=True)
+	total_waste_water_treated = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	scope2_fossil_emissions = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	scope1_fossil_emissions = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	biogenic_emissions = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	electricity_use = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	natural_gas_use = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	class Meta:
+		db_table = u'city_metrics_city_wastewater_facility_emissions'
+		verbose_name = 'Wastewater Facility (Emission)'
+		verbose_name_plural = 'Wastewater Faciliy (Emissions)'
+	def __unicode__(self):
+		return " %s -- %s" % (self.facility, self.year)
 	
 	
 admin.site.register(City, CityAdmin)
@@ -338,4 +375,5 @@ admin.site.register(CityMetricsWastewaterInput, CityMetricsWastewaterInputAdmin)
 admin.site.register(CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsEnergyUtilitiesEmissionFactorsAdmin)
 admin.site.register(CityMetricsCostFactors, CityMetricsCostFactorsAdmin)
 admin.site.register(CityMetricsCddHdd, CityMetricsCddHddAdmin)
+admin.site.register(CityMetricsCityWastewaterFacilityEmissions, CityMetricsCityWastewaterFacilityEmissionsAdmin)
 
