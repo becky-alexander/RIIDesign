@@ -317,7 +317,7 @@ class CityMetricsCddHddAdmin(admin.ModelAdmin):
 	fields = ('year', 'cdd', 'hdd',)	
 
 	
-class CityMetricsCityWastewaterFacilityEmissionsAdmin(models.ModelAdmin):
+class CityMetricsCityWastewaterFacilityEmissionsAdmin(admin.ModelAdmin):
 	list_display = ('year', 'facility',)
 	list_filters = ('year', 'facility',)
 	fieldsets = (
