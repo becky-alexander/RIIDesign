@@ -414,6 +414,23 @@ class CityMetricsCddHdd(models.Model):
 		return " %s " % (self.year)
 	
 
+class CityMetricsCityWastewaterFacilityEmissions(models.Model):
+	id = models.AutoField(primary_key=True)
+	facility = models.ForeignKey(CityMetricsWastewaterFacility, null=True, blank=True)
+	year = models.CharField(max_length=4, blank=True)
+	total_waste_water_treated = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	scope2_fossil_emissions = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	scope1_fossil_emissions = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	biogenic_emissions = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	electricity_use = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	natural_gas_use = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	class Meta:
+		db_table = u'city_metrics_city_wastewater_facility_emissions'
+		verbose_name = 'Wastewater Facility (Emission)'
+		verbose_name_plural = 'Wastewater Faciliy (Emissions)'
+	def __unicode__(self):
+		return " %s -- %s" % (self.facility, self.year)
+		
 	
 	
 
