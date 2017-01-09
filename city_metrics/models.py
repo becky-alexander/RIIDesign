@@ -432,6 +432,23 @@ class CityMetricsCityWastewaterFacilityEmissions(models.Model):
 		return " %s -- %s" % (self.facility, self.year)
 		
 	
+class CityMetricsVMTRoadwayInput(models.Model):
+	year = models.CharField(max_length=4, help_text='ex: 2012')
+	city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
+	interstate_trunk_highway = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	us_trunk_highway = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	minnesota_trunk_highway = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	county_state_aid_highway = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	municipal_state_aid_highway = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	county_road = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	municipal_streets = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	class Meta:
+		db_table = u'city_metrics_vmt_roadway_input'
+		verbose_name = 'VMT'
+		verbose_name_plural = 'VMT'
+	def __unicode__(self):
+		return " %s -- %s" % (self.city_id, self.year)	
+	
 	
 
 	
