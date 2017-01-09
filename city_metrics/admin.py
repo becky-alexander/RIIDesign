@@ -334,9 +334,21 @@ class CityMetricsCityWastewaterFacilityEmissionsAdmin(admin.ModelAdmin):
 		'fields': ('electricity_use', 'natural_gas_use',)
 		})
 	)
-		
 
-	
+class CityMetricsVMTRoadwayInputAdmin(admin.ModelAdmin):
+	list_display = ('city_id', 'year',)
+	list_filters = ('city_id', 'year')
+	fieldsets = (
+		('General Info', {
+			'fields': ('year', 'city_id',)
+		}),
+		('Highways', {
+		'fields': ('interstate_trunk_highway', 'us_trunk_highway', 'minnesota_trunk_highway', 'county_state_aid_highway', 'municipal_state_aid_highway',)			
+		}),
+		('Roads', {
+		'fields': ('county_road', 'municipal_streets',)			
+		})
+	)
 admin.site.register(City, CityAdmin)
 admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
@@ -360,4 +372,5 @@ admin.site.register(CityMetricsEnergyUtilitiesEmissionFactors, CityMetricsEnergy
 admin.site.register(CityMetricsCostFactors, CityMetricsCostFactorsAdmin)
 admin.site.register(CityMetricsCddHdd, CityMetricsCddHddAdmin)
 admin.site.register(CityMetricsCityWastewaterFacilityEmissions, CityMetricsCityWastewaterFacilityEmissionsAdmin)
+admin.site.register(CityMetricsVMTRoadwayInput, CityMetricsVMTRoadwayInputAdmin)
 
