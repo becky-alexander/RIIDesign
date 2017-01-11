@@ -250,6 +250,7 @@ class CityMetricsEnergyUtilitiesEmissionFactors(models.Model):
 		db_table = u'city_metrics_energy_utilities_emission_factors'
 		verbose_name = 'Energy Utilities (emission factors)'
 		verbose_name_plural = 'Energy Utilities (emission factors)'
+		unique_together = ('utility_id', 'year')
 
 class CityMetricsWasteProcessingFacility(models.Model):
 	id = models.AutoField(primary_key=True)
