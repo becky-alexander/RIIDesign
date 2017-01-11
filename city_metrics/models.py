@@ -265,7 +265,7 @@ class CityMetricsWasteProcessingFacility(models.Model):
 class CityMetricsSolidWasteInput(models.Model):
 	id = models.AutoField(primary_key=True)
 	year = models.CharField(max_length=4, blank=True, choices=YEARS)
-	county_id = models.ForeignKey(CityMetricsCounty, db_column='id', null=True, blank=True, verbose_name='County')
+	county_id = models.ForeignKey(CityMetricsCounty, db_column='county_id', null=True, blank=True, verbose_name='County')
 	recycled = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text='short tons')
 	land_dispossed = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text='short_tons')
 	land_dispossed_without_ch4_recovery = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, default=0.00, help_text='short tons')
