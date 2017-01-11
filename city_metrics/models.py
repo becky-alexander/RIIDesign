@@ -434,7 +434,6 @@ class CityMetricsCityWastewaterFacilityEmissions(models.Model):
 		
 	
 class CityMetricsVMTRoadwayInput(models.Model):
-	#id = models.AutoField(primary_key=True)
 	year = models.CharField(max_length=4, help_text='ex: 2012')
 	city_id = models.ForeignKey(City, db_column='city_id', verbose_name='City')
 	interstate_trunk_highway = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
