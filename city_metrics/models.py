@@ -223,12 +223,12 @@ class CityMetricsNatGasInput(models.Model):
 	com_and_ind_nat_gasa = models.DecimalField(max_digits=16, decimal_places=4, help_text='therms', verbose_name='Total Commericial and Industrial Natural Gas')
 	# NAT GAS UTILITY 2
 	utility_idb = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility B", verbose_name='Utility #2', db_column='utility_idb')
-	residential_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Residential Natural Gas', help_text='therms')
-	com_and_ind_nat_gasb = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Commericial and Industrial Natural Gas', help_text='therms')
+	residential_nat_gasb = models.DecimalField(null=True, default=0.00, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Residential Natural Gas', help_text='therms')
+	com_and_ind_nat_gasb = models.DecimalField(null=True, default=0.00, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Commericial and Industrial Natural Gas', help_text='therms')
 	# NAT GAS UTILITY 3
 	utility_idc = models.ForeignKey(CityMetricsEnergyUtilities, null=True, blank=True, related_name="Utility C", verbose_name='Utility #3', db_column='utility_idc')
-	residential_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Residential Natural Gas', help_text='therms')
-	com_and_ind_nat_gasc = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Commericial and Industrial Natural Gas', help_text='therms')
+	residential_nat_gasc = models.DecimalField(null=True, default=0.00, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Residential Natural Gas', help_text='therms')
+	com_and_ind_nat_gasc = models.DecimalField(null=True, default=0.00, max_digits=16, decimal_places=4, blank=True, verbose_name='Total Commericial and Industrial Natural Gas', help_text='therms')
 	class Meta:
 		db_table = u'city_metrics_nat_gas_input'
 		verbose_name = 'Natural Gas'
