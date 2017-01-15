@@ -376,6 +376,21 @@ class CityMetricsFuelEconomyAssumptionsAdmin(admin.ModelAdmin):
 		}),
 	)	
 	
+class CityMetricsDemographicdataCountyAdmin(admin.ModelAdmin):
+	list_display = ('year', 'county', 'population',)
+	list_filters = ('year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('year', 'county',)
+		}),
+		('Demographic Data', {
+		'fields': ('population',)			
+		}),
+	)	
+
+	
+
+	
 	
 admin.site.register(City, CityAdmin)
 admin.site.register(DemographicData, DemographicDataAdmin)
@@ -403,3 +418,4 @@ admin.site.register(CityMetricsCityWastewaterFacilityEmissions, CityMetricsCityW
 admin.site.register(CityMetricsVMTRoadwayInput, CityMetricsVMTRoadwayInputAdmin)
 admin.site.register(CityMetricsBiofuelPercentages, CityMetricsBiofuelPercentagesAdmin)
 admin.site.register(CityMetricsFuelEconomyAssumptions, CityMetricsFuelEconomyAssumptionsAdmin)
+admin.site.register(CityMetricsDemographicdataCounty, CityMetricsDemographicdataCountyAdmin)
