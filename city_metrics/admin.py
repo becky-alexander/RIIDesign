@@ -349,6 +349,34 @@ class CityMetricsVMTRoadwayInputAdmin(admin.ModelAdmin):
 		'fields': ('county_road', 'municipal_streets',)			
 		})
 	)
+	
+
+class CityMetricsBiofuelPercentagesAdmin(admin.ModelAdmin):
+	list_display = ('year', 'gasoline_ethanol', 'biodiesel',)
+	list_filters = ('year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('year',)
+		}),
+		('Biofuel Perecentages', {
+		'fields': ('gasoline_ethanol', 'biodiesel',)			
+		}),
+	)
+	
+
+class CityMetricsFuelEconomyAssumptionsAdmin(admin.ModelAdmin):
+	list_display = ('year', 'avg_car_mpg', 'avg_ligth_truck_mpg', 'avg_heavy_duty_truck_mpg',)
+	list_filters = ('year',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('year',)
+		}),
+		('Fuel Economy Assumptions', {
+		'fields': ('avg_car_mpg', 'avg_ligth_truck_mpg', 'avg_heavy_duty_truck_mpg',)			
+		}),
+	)	
+	
+	
 admin.site.register(City, CityAdmin)
 admin.site.register(DemographicData, DemographicDataAdmin)
 #admin.site.register(Energy, EnergyAdmin)
@@ -373,4 +401,5 @@ admin.site.register(CityMetricsCostFactors, CityMetricsCostFactorsAdmin)
 admin.site.register(CityMetricsCddHdd, CityMetricsCddHddAdmin)
 admin.site.register(CityMetricsCityWastewaterFacilityEmissions, CityMetricsCityWastewaterFacilityEmissionsAdmin)
 admin.site.register(CityMetricsVMTRoadwayInput, CityMetricsVMTRoadwayInputAdmin)
-
+admin.site.register(CityMetricsBiofuelPercentages, CityMetricsBiofuelPercentagesAdmin)
+admin.site.register(CityMetricsFuelEconomyAssumptions, CityMetricsFuelEconomyAssumptionsAdmin)
