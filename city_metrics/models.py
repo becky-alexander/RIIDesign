@@ -449,12 +449,36 @@ class CityMetricsVMTRoadwayInput(models.Model):
 		verbose_name_plural = 'VMT'
 	def __unicode__(self):
 		return " %s -- %s" % (self.city_id, self.year)	
+
+class CityMetricsBiofuelPercentages(models.Model):
+	id = models.AutoField(primary_key=True)
+	year = models.CharField(max_length=4, blank=True, help_text='ex: 2012')
+	gasoline_ethanol = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	biodiesel = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+	class Meta:
+		db_table = u'city_metrics_biofuel_percentages'
+		verbose_name = 'Biofuel Percentage'
+		verbose_name_plural = 'Biofuel Percentages'
+	def __unicode__(self):
+		return " %s " % (self.year)	
+	
+class CityMetricsFuelEconomyAssumptions(models.Model):
+	id = models.AutoField(primary_key=True)
+	year = models.CharField(max_length=4, blank=True, help_text='ex: 2012')
+	avg_car_mpg = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Average Car MPG')
+	avg_ligth_truck_mpg = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Average Light Truck MPG')
+	avg_heavy_duty_truck_mpg = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True, verbose_name='Average Heavy Duty Truck MPG')
+	class Meta:
+		db_table = u'city_metrics_fuel_economy_assumptions'
+		verbose_name = 'Fuel Economy Assumption'
+		verbose_name_plural = 'Fuel Economy Assumptions'
+	def __unicode__(self):
+		return " %s " % (self.year)	
+	
+	
 	
 	
 
-	
-	
-	
 	
 
 # OLD MODELS
