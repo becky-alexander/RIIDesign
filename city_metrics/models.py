@@ -475,6 +475,17 @@ class CityMetricsFuelEconomyAssumptions(models.Model):
 	def __unicode__(self):
 		return " %s " % (self.year)	
 	
+class CityMetricsDemographicdataCounty(models.Model):
+    id = models.AutoField(primary_key=True)
+    year = models.CharField(max_length=4, blank=True, help_text='ex: 2012')
+    county = models.ForeignKey(CityMetricsCounty, null=True, blank=True)
+    population = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
+    class Meta:
+        db_table = u'city_metrics_demographicdata_county'
+	verbose_name = 'Demographic Data Counties'
+	verbose_name_plural = 'Demographic Data Counties'
+    def __unicode__(self):
+	return " %s -- %s" % (self.county, self.year)	
 	
 	
 	
