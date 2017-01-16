@@ -499,6 +499,8 @@ class CityMetricsWasteProcessingFacilityEmissionFactors(models.Model):
 	total_waste = models.DecimalField(null=True, max_digits=16, decimal_places=4, blank=True)
 	class Meta:
 		db_table = u'city_metrics_waste_processing_facility_emission_factors'
+		verbose_name = 'Solid Waste Facility (emission factor)'
+		verbose_name_plural = 'Solid Waste Facility (emission factors)'		
 	def __unicode__(self):
 		return " %s -- %s" % (self.facility, self.year)	
 	
