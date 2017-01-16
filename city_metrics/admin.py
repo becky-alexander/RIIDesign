@@ -388,7 +388,24 @@ class CityMetricsDemographicdataCountyAdmin(admin.ModelAdmin):
 		}),
 	)	
 
-	
+class CityMetricsWasteProcessingFacilityEmissionFactorsAdmin(admin.ModelAdmin):
+	list_display = ('year', 'facility',)
+	list_filter = ('year', 'facility',)
+	fieldsets = (
+		('General Info', {
+			'fields': ('year', 'facility',)
+		}),
+		('Emission Rate', {
+		'fields': ('fossil_emission_rate', 'biogenic_emission_rate',)
+		}),
+		('Total Emissions', {
+		'fields': ('total_fossil_emissions', 'total_biogenic_emissions',)
+		}),		
+		('Other', {
+		'fields': ('exported_electricity', 'total_waste',)
+		})		
+		
+	)	
 
 	
 	
@@ -419,3 +436,4 @@ admin.site.register(CityMetricsVMTRoadwayInput, CityMetricsVMTRoadwayInputAdmin)
 admin.site.register(CityMetricsBiofuelPercentages, CityMetricsBiofuelPercentagesAdmin)
 admin.site.register(CityMetricsFuelEconomyAssumptions, CityMetricsFuelEconomyAssumptionsAdmin)
 admin.site.register(CityMetricsDemographicdataCounty, CityMetricsDemographicdataCountyAdmin)
+admin.site.register(CityMetricsWasteProcessingFacilityEmissionFactors, CityMetricsWasteProcessingFacilityEmissionFactorsAdmin)
