@@ -232,7 +232,7 @@ class CityMetricsEnergyUtilitiesAdmin(admin.ModelAdmin):
 
 class CityMetricsOtherEnergyTypeAdmin(admin.ModelAdmin):
 	list_display = ('other_fuel_name', 'unit',)
-	list_filters = ('other_fuel_name', 'unit',)
+	list_filter = ('other_fuel_name', 'unit',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('other_fuel_name', 'unit',)
@@ -252,7 +252,7 @@ class CityMetricsWastewaterFacilityAdmin(admin.ModelAdmin):
 
 class CityMetricsWastewaterInputAdmin(admin.ModelAdmin):
 	list_display = ('city_id', 'year',)
-	list_filters = ('city_id', 'year')
+	list_filter = ('city_id', 'year')
 	fieldsets = (
 		('General Info', {
 			'fields': ('city_id', 'year',)
@@ -270,7 +270,7 @@ class CityMetricsWastewaterInputAdmin(admin.ModelAdmin):
 	
 class CityMetricsEnergyUtilitiesEmissionFactorsAdmin(admin.ModelAdmin):
 	list_display = ('utility_id', 'year', 'type',)
-	list_filters = ('utility_id', 'year', 'type',)
+	list_filter = ('utility_id', 'year', 'type',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('utility_id', 'year', 'type',)
@@ -281,7 +281,7 @@ class CityMetricsEnergyUtilitiesEmissionFactorsAdmin(admin.ModelAdmin):
 	)
 class CityMetricsCostFactorsAdmin(admin.ModelAdmin):	
 	list_display = ('year',)
-	list_filters = ('year',)
+	list_filter = ('year',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('year',)
@@ -313,13 +313,13 @@ class CityMetricsCostFactorsAdmin(admin.ModelAdmin):
 	
 class CityMetricsCddHddAdmin(admin.ModelAdmin):
 	list_display = ('year', 'cdd', 'hdd',)
-	list_filters = ('year', 'cdd', 'hdd',)
+	list_filter = ('year', 'cdd', 'hdd',)
 	fields = ('year', 'cdd', 'hdd',)	
 
 	
 class CityMetricsCityWastewaterFacilityEmissionsAdmin(admin.ModelAdmin):
 	list_display = ('year', 'facility',)
-	list_filters = ('year', 'facility',)
+	list_filter = ('year', 'facility',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('year', 'facility',)
@@ -337,7 +337,7 @@ class CityMetricsCityWastewaterFacilityEmissionsAdmin(admin.ModelAdmin):
 
 class CityMetricsVMTRoadwayInputAdmin(admin.ModelAdmin):
 	list_display = ('city_id', 'year',)
-	list_filters = ('city_id', 'year')
+	list_filter = ('city_id', 'year')
 	fieldsets = (
 		('General Info', {
 			'fields': ('year', 'city_id',)
@@ -353,7 +353,7 @@ class CityMetricsVMTRoadwayInputAdmin(admin.ModelAdmin):
 
 class CityMetricsBiofuelPercentagesAdmin(admin.ModelAdmin):
 	list_display = ('year', 'gasoline_ethanol', 'biodiesel',)
-	list_filters = ('year',)
+	list_filter = ('year',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('year',)
@@ -366,7 +366,7 @@ class CityMetricsBiofuelPercentagesAdmin(admin.ModelAdmin):
 
 class CityMetricsFuelEconomyAssumptionsAdmin(admin.ModelAdmin):
 	list_display = ('year', 'avg_car_mpg', 'avg_ligth_truck_mpg', 'avg_heavy_duty_truck_mpg',)
-	list_filters = ('year',)
+	list_filter = ('year',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('year',)
@@ -378,7 +378,7 @@ class CityMetricsFuelEconomyAssumptionsAdmin(admin.ModelAdmin):
 	
 class CityMetricsDemographicdataCountyAdmin(admin.ModelAdmin):
 	list_display = ('year', 'county', 'population',)
-	list_filters = ('year',)
+	list_filter = ('year', 'county',)
 	fieldsets = (
 		('General Info', {
 			'fields': ('year', 'county',)
