@@ -2,66 +2,62 @@ CREATE OR REPLACE VIEW city_metrics_emissions AS
 SELECT
 
 0 AS id,
-
 city_metrics_city.id  AS city_id,
-
 city_metrics_energy_wn_intermediary2.year AS year,
-
 (city_metrics_energy_wn_intermediary2.total_residential_emissions_electricity +
 city_metrics_energy_wn_intermediary2.total_residential_emissions_nat_gas +
 city_metrics_energy_wn_intermediary2.total_com_and_ind_emissions_electricity +
 city_metrics_energy_wn_intermediary2.total_com_and_ind_emissions_nat_gas
 ) AS energy_associated_emissions,
-
 0 AS water_associated_emissions,
-
 city_metrics_travel_intermediary6.total_fossil_CO2e AS travel_associated_emissions,
-
 (city_metrics_waste_city.total_emissions_msw * 1000) AS waste_associated_emissions,
-
 0 AS wn_energy_associated_emissions,
-
 0 AS wn_water_associated_emissions,
-
 city_metrics_travel_intermediary6.total_fossil_CO2e AS wn_travel_associated_emissions,
-
 city_metrics_travel_intermediary6.total_fossil_CO2e  AS wn_waste_associated_emissions,
-
 city_metrics_energy_wn_intermediary2.total_emissions_electricity  AS energy_type_electricity,
-
 city_metrics_energy_wn_intermediary2.wn_electricity AS wn_energy_type_electricity,
-
 city_metrics_energy_wn_intermediary2.total_emissions_nat_gas AS energy_type_natural_gas,
-
 city_metrics_energy_wn_intermediary2.wn_nat_gas AS wn_energy_type_natural_gas,
-
-city_metrics_other_intermediate1.other_energy_emissions_total AS energy_type_other,
-
+CASE
+    WHEN city_metrics_other_intermediate1.other_energy_emissions_total IS NOT NULL THEN city_metrics_other_intermediate1.other_energy_emissions_total
+    ELSE 0::numeric
+END AS energy_type_other,
 0 AS wn_energy_type_other,
-
 (city_metrics_energy_wn_intermediary2.total_residential_emissions_electricity +
 city_metrics_energy_wn_intermediary2.total_residential_emissions_nat_gas) AS energy_use_residential,
 0 AS wn_energy_use_residential,
-
 (city_metrics_energy_wn_intermediary2.total_com_and_ind_emissions_electricity +
 city_metrics_energy_wn_intermediary2.total_com_and_ind_emissions_nat_gas) AS energy_use_com_ind,
-
 0  AS wn_energy_use_com_ind,
-
 city_metrics_waste_city.estimated_msw_recycled AS waste_method_recycled,
 city_metrics_waste_city.estimated_msw_land_dispossed AS waste_method_landfilled,
 city_metrics_waste_city.estimated_msw_processed AS waste_method_incinerated
 
-FROM city_metrics_city, city_metrics_travel_intermediary6, city_metrics_waste_city, city_metrics_energy_intermediary1, city_metrics_energy_wn_intermediary2, city_metrics_other_intermediate1
 
-WHERE city_metrics_city.id = city_metrics_energy_wn_intermediary2.city_id
-AND city_metrics_city.id = city_metrics_travel_intermediary6.city_id
-AND city_metrics_city.id = city_metrics_waste_city.city_id
-AND city_metrics_city.id = city_metrics_energy_intermediary1.city_id
-AND city_metrics_city.id = city_metrics_other_intermediate1.city_id
-AND city_metrics_energy_intermediary1.city_id = city_metrics_energy_wn_intermediary2.city_id
 
-AND city_metrics_travel_intermediary6.year = city_metrics_waste_city.year
-AND city_metrics_waste_city.year = city_metrics_energy_intermediary1.year
-AND city_metrics_energy_intermediary1.year = city_metrics_energy_wn_intermediary2.year
+
+FROM city_metrics_energy_wn_intermediary2
+LEFT OUTER JOIN city_metrics_city
+ON city_metrics_city.id = city_metrics_energy_wn_intermediary2.city_id
+
+LEFT OUTER JOIN city_metrics_travel_intermediary6
+ON city_metrics_energy_wn_intermediary2.city_id = city_metrics_travel_intermediary6.city_id
+AND city_metrics_energy_wn_intermediary2.year = city_metrics_travel_intermediary6.year
+
+LEFT OUTER JOIN city_metrics_waste_city
+ON city_metrics_energy_wn_intermediary2.city_id = city_metrics_waste_city.city_id
+AND city_metrics_energy_wn_intermediary2.year = city_metrics_waste_city.year
+
+LEFT OUTER JOIN city_metrics_energy_intermediary1
+ON city_metrics_energy_wn_intermediary2.city_id = city_metrics_energy_intermediary1.city_id
+AND city_metrics_energy_wn_intermediary2.year = city_metrics_energy_intermediary1.year
+
+
+LEFT OUTER JOIN city_metrics_other_intermediate1
+ON city_metrics_energy_wn_intermediary2.city_id = city_metrics_other_intermediate1.city_id
 AND city_metrics_energy_wn_intermediary2.year = city_metrics_other_intermediate1.year
+
+
+ORDER BY city_id, year
